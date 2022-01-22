@@ -1,0 +1,31 @@
+CC=gcc
+SRCDIR=./src
+OBJDIR=obj
+BINDIR=bin
+DOCDIR=doc
+EXEC=Jeu
+LIB=$(sdl2-config --cflags --libs)
+
+DIRS=$(OBJDIR) $(BINDIR)
+all: $(DIRS) $(BINDIR)/$(EXEC)
+
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+$(BINDIR):
+	mkdir -p $(BINDIR)
+$(DOCDIR):
+	mkdir -p $(DOCDIR)
+	
+SOURCES=$(wildcard $(SRCDIR)/*.c)
+INCLUDES=$(wildcard $(SRCDIR)/*.h)
+
+OBJECTS=$(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
+OBJECTSALL=$(wildcard $(OBJDIR)/*.o)
+
+$(BINDIR)/$(EXEC): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $(BINDIR)/$(EXEC) $(LIB)
+	@echo "compilation terminée !"
+
+$(OBJECTS): $(OBJDIR)/%.o : $(SRCDIR)/%.c
+	$(CC) -c $< -o $@ $(LIB)
+	@echo "liens effectués !"
