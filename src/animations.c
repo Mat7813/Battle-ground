@@ -27,10 +27,10 @@ void afficher_survivant(SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *t
 *\brief fonction qui affiche le décors en mode survivant avec la barre de vie du joueur, son argent, et les menus
 *
 */
-void afficher_classique(SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect){
+/*void afficher_classique(SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect){
 
 }
-
+*/
 void animation(SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect, int x){
   int i=49, montant=1, j=9; //montant correspond au chiffre avant le .png pour faire varier l'image et faire bouger la momie
   char car[45]="data/entities/mumma/mummy1.png";

@@ -53,7 +53,7 @@ int quit_message(){
 
 /**
  * \fn int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect, SDL_Event *event, int difficulte)
- * \brief lance une partie du jeu en mode classique
+ * \brief lance une partie du jeu en mode classique (gère tout l'affichage, les évènements etc...)
  * \param SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect, SDL_Event *event, int difficulte
  * \return -1 si l'utilisateur clique sur la fenetre
  */
@@ -77,7 +77,7 @@ int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image,  
 }
 /**
  * \fn int jeu_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect, SDL_Event *event, int difficulte)
- * \brief lance une partie du jeu en mode survivant
+ * \brief lance une partie du jeu en mode survivant (gère tout l'affichage, les évènements etc...)
  * \param SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect, SDL_Event *event
  * \return -1 si l'utilisateur clique sur la fenetre
  */

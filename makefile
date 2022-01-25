@@ -1,5 +1,5 @@
 CC=gcc
-FLAGS=-c
+FLAGS=-g -Wall
 SDL_DIR=${HOME}/Bureau/Battle_Ground/SDL2
 SDL_LIB_DIR=${SDL_DIR}/lib
 SDL_INC_DIR=${SDL_DIR}/include
@@ -32,7 +32,7 @@ $(BIN)/$(PROG): $(OBJECTS)
 	@echo "compilation terminée !"
 
 $(OBJECTS): $(OBJ)/%.o : $(SRC)/%.c
-	$(CC) ${FLAGS} $< -o $@ ${LIBS} ${INCS} 
+	$(CC) -c $< -o $@ ${FLAGS} ${LIBS} ${INCS} 
 	@echo "liens effectués !"
 	
 clean:
