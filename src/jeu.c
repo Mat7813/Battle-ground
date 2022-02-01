@@ -89,5 +89,7 @@ int jeu_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image,  
   if(result==-1)return -1;
   else if(result==0)printf("Vous avez perdu !\n");
   else if(result==1)printf("Vous avez gagné !\n");
+  SDL_SetWindowPosition(window,50,50);
+  SDL_SetWindowSize(window, 1000, 564); /*on redimensionne la fenêtre comme elle était au départ*/
 }
 //gcc main.c interface.o jeu.o -o jeu -I include -L lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image

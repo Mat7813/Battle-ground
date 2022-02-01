@@ -153,6 +153,7 @@ int sous_menu_jouer(SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image,
       charger_image("data/menu/jouer/survieover.png", rendu, image, texture, rect,menu_x,150);
         if(event->type==SDL_MOUSEBUTTONDOWN){
            if(jeu_survivant(window, rendu, image, texture, rect, event)==-1)return -1; //si la fonction retourne -1 c'est que l'utilisateur a appuyé sur la croix rouge. on retourne donc -1
+           else charger_image("data/backgrounds/bgmenu1.bmp", rendu, image, texture, rect,0,0);
         }
     }
     else if((event->motion.x>=menu_x&&event->motion.x<=530)&&(event->motion.y>=250&&event->motion.y<=300)){ //pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
@@ -230,6 +231,7 @@ int initialise_jeu(){ //fonction servant à initialiser completement le jeu en a
   rendu = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE); //on crée le rendu
   demarrage(rendu, image, texture, &rect); //fonction qui sert simplement à afficher un petit logo qui clignote lorsu'on lance le jeu
   menu(window, rendu, image, texture, &rect); //fonction principale qui charge le menu. en parametre on passe tous les pointeurs qu'on a créé dans la fonction.
+  SDL_DestroyTexture(texture);
   SDL_DestroyRenderer(rendu); //lorsque l'utilisateur quitte le jeu on détruit le rendu et la fenetre
   SDL_DestroyWindow(window);
   SDL_Quit(); //enfin on quitte la SDL.

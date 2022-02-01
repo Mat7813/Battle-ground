@@ -17,4 +17,7 @@ void charger_niveau(char *nom, wave *vagues);
 void charger_joueur(joueur *player);
 int etat_partie_survivant(wave *vagues, joueur *player);
 int demarrer_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect, SDL_Event *event);
-void deroulement_vagues(t_wave *vagues, SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect);
+void deroulement_vagues_ennemies(t_wave *vagues, SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect);
+void deroulement_vagues_joueur(t_wave *vagues, SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect);
+t_wave* creer_entite_joueur(t_wave *vagues);
+int info_vagues(t_wave*vague, int nb, int deb, int fin, int vide);

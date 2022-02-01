@@ -18,6 +18,7 @@ typedef struct entity{
 	int pv;
 	int degat;
 	int x;
+	int y_barre;
 	int temps; /*valeur qui correspond au nombre d'itérations de boucles à attendre avant qu'il commence à avancer*/
 	char nom_fichier[100];
 	int montant; /*indicateur permettant de savoir si les images sont en phases montantes ou ascendantes*/
@@ -29,10 +30,6 @@ typedef struct wave{
  struct wave *prec;
 }t_wave;
 
-typedef struct part{
-	t_wave *vague;
-	struct part *suiv;
-}partie_surv;
 
 typedef struct partc{
 	entite *ent;
