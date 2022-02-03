@@ -2,15 +2,13 @@
 
 exe
 
-<<<<<<< HEAD
 ./bin/jeu
-=======
+
 .vscode
->>>>>>> 0182d62938b55cf9bbe8e978ef1dfe6c3d354ac8
 
 jeu
 
-/obj
+./obj/
 
 .vscode/
 
