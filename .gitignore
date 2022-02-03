@@ -2,8 +2,17 @@
 
 exe
 
+<<<<<<< HEAD
+./bin/jeu
+=======
 .vscode
+>>>>>>> 0182d62938b55cf9bbe8e978ef1dfe6c3d354ac8
 
+jeu
+
+/obj
+
+.vscode/
 
 #modele de https://github.com/github/gitignore/blob/main/C.gitignore
 
@@ -12,7 +21,7 @@ exe
 *.d
 
 # Object files
-*.o
+#*.o
 *.ko
 *.obj
 *.elf
@@ -23,19 +32,19 @@ exe
 *.exp
 
 # Precompiled Headers
-*.gch
-*.pch
+#*.gch
+#*.pch
 
 # Libraries
-*.lib
+#*.lib
 *.a
 *.la
 *.lo
 
 # Shared objects (inc. Windows DLLs)
 *.dll
-*.so
-*.so.*
+#*.so
+#*.so.*
 *.dylib
 
 # Executables
