@@ -7,9 +7,10 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include "structures.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include "survivant.h"
+#include "interface.h"
 
 /**
  * \fn int quit_message()
@@ -52,17 +53,15 @@ int quit_message(){
 }
 
 /**
- * \fn int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect, SDL_Event *event, int difficulte)
+ * \fn int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, int difficulte)
  * \brief lance une partie du jeu en mode classique (gère tout l'affichage, les évènements etc...)
- * \param SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect, SDL_Event *event, int difficulte
+ * \param SDL_Window *window, SDL_Renderer *rendu, int difficulte
  * \return -1 si l'utilisateur clique sur la fenetre
  */
-int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect, SDL_Event *event, int difficulte){ //fonction qui démarre une partie
+int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, int difficulte){ //fonction qui démarre une partie
   SDL_SetWindowPosition(window,50,50);
   SDL_SetWindowSize(window, 1250, 694);
-  charger_image("data/backgrounds/bg1classique.png", rendu, image, texture, rect,0,0);
-  SDL_Delay(1000);
-  animation(rendu, image, texture, rect, 950);
+  charger_image("data/backgrounds/bg1classique.png", rendu,0,0,1);
   SDL_bool jouer=SDL_TRUE;
   while(jouer){
     while(SDL_PollEvent(event)){ //on réécoute les évènements mais avec un pointeur sur event car en SDL on ne peut pas faire plusieurs listener d'évènements.
@@ -76,16 +75,15 @@ int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image,  
  }
 }
 /**
- * \fn int jeu_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect, SDL_Event *event, int difficulte)
+ * \fn int jeu_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, int difficulte)
  * \brief lance une partie du jeu en mode survivant (gère tout l'affichage, les évènements etc...)
- * \param SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect, SDL_Event *event
+ * \param SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
  * \return -1 si l'utilisateur clique sur la fenetre
  */
-int jeu_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image,  SDL_Texture *texture, SDL_Rect *rect, SDL_Event *event){ //fonction qui démarre une partie
+int jeu_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event){ //fonction qui démarre une partie
   SDL_SetWindowPosition(window,50,50);
   SDL_SetWindowSize(window, 1250, 694);
-  SDL_Delay(1000);
-  int result=demarrer_survivant(window, rendu, image, texture, rect, event); //on appelle la fonction démarrer_survivant et en fonction de ce qu'elle retourne on aura différents traitements
+  int result=demarrer_survivant(window, rendu, event); //on appelle la fonction démarrer_survivant et en fonction de ce qu'elle retourne on aura différents traitements
   if(result==-1)return -1;
   else if(result==0)printf("Vous avez perdu !\n");
   else if(result==1)printf("Vous avez gagné !\n");

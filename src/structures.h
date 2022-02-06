@@ -1,3 +1,5 @@
+#ifndef __STRUCTURES_H_
+#define __STRUCTURES_H_
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -36,3 +38,5 @@ typedef struct partc{
 	struct partc *suiv;
 	struct partc *prec;
 }partie_class;
+
+#endif
