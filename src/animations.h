@@ -2,6 +2,6 @@
 #define __ANIMATIONS_H_
 #include "interface.h"
 
-void animation(SDL_Renderer *rendu,int x);
-void afficher_survivant(t_wave * vague, SDL_Renderer *rendu, int pause);
+void afficher_survivant(SDL_Renderer *rendu, joueur *player, int pause);
+void animation_tir_gauche(SDL_Renderer *rendu, joueur *player);
 #endif

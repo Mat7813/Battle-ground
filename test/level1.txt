@@ -1,0 +1,2 @@
+data/entities/mumma/mummy1.png
+15/50/1/950/990/450/2

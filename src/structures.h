@@ -4,22 +4,36 @@
 #include <stdlib.h>
 
 typedef struct def{
-	int type_def;
-	char *nom_fichier;
+	int indice_vie;
+	char nom_fichier[100];
 	int degat;
+	int temps; /*interval entre chaque tir*/
+	int x;
+	int y;
 }defense;
 
+typedef struct tir_s{
+	int indice_vie; /*Cet indice sert à savoir si une entite doit etre détruite ou pas lorsqu'elle est modifiée dans une autre fonction. Cela permet de la détruire dans les bonnes fonctions et éviter les erreur de segmentation*/
+	int x;
+	int y;
+	char nom_fichier[100];
+}tir;
+
 typedef struct joue{
+	tir *t;
+	defense *def;
 	int argent;
 	int pv;
-	char *nom;
+	char nom[50];
 }joueur;
 
 typedef struct entity{
-	int type_entite;
+	int attaque; /*valeur qui correspon à l'attaque si l'entité doit attaquer ou non*/
 	int pv;
 	int degat;
 	int x;
+	int y;
+	int x_barre;
 	int y_barre;
 	int temps; /*valeur qui correspond au nombre d'itérations de boucles à attendre avant qu'il commence à avancer*/
 	char nom_fichier[100];
@@ -31,12 +45,5 @@ typedef struct wave{
  struct wave *suiv;
  struct wave *prec;
 }t_wave;
-
-
-typedef struct partc{
-	entite *ent;
-	struct partc *suiv;
-	struct partc *prec;
-}partie_class;
 
 #endif

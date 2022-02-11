@@ -15,19 +15,26 @@
 #include "animations.h"
 #include "divers.h"
 #include "structures.h"
+#include "jeu.h"
 #define V 5
 #define y_entity 470
+#define x_def 100
+#define y_def 470
+#define pv_joueur 200
+#define argent_joueur 1000
+
 /**
  * \fn  t_wave* creer_vague()
  * \brief crée une variable de type t_wave (une vague).
  * \param rien
  * \return pointeur sur t_wave
  */
-t_wave* creer_vague(){
+t_wave *creer_vague(){
    t_wave *vague=malloc(sizeof(t_wave));
    if(vague==NULL)return  NULL;
    vague->ent=malloc(sizeof(entite));
    vague->prec=NULL;
+   vague->suiv=NULL;
    return vague;
  }
  /**
@@ -38,7 +45,7 @@ t_wave* creer_vague(){
   */
 t_wave *suivant_entite_survivant(t_wave *vague){
     if(vague==NULL)return NULL;
-    if(vague->suiv!=NULL)vague=vague->suiv;
+    else if(vague->suiv!=NULL)vague=vague->suiv;
     return vague;
   }
  /**
@@ -49,7 +56,7 @@ t_wave *suivant_entite_survivant(t_wave *vague){
   */
 t_wave* precedent_entite_survivant(t_wave *vague){
     if(vague==NULL)return NULL;
-    if(vague->prec!=NULL)vague=vague->prec;
+    else if(vague->prec!=NULL)vague=vague->prec;
     return vague;
   }
 
@@ -61,7 +68,7 @@ t_wave* precedent_entite_survivant(t_wave *vague){
   */
 t_wave* fin_liste_survivant(t_wave  *vague){
     if(vague==NULL)return NULL;
-    if(vague->suiv==NULL)return vague;
+    else if(vague->suiv==NULL)return vague;
     while(vague->suiv!=NULL){
       vague=suivant_entite_survivant(vague);
     }
@@ -75,12 +82,12 @@ t_wave* fin_liste_survivant(t_wave  *vague){
   */
 t_wave* deb_liste_survivant(t_wave *vague){
     if(vague==NULL)return NULL;
-    if(vague->prec==NULL)return vague;
+    else if(vague->prec==NULL)return vague;
     while(vague->prec!=NULL){
       vague=precedent_entite_survivant(vague);
     }
     return vague;
-  }
+}
 
   /**
    * \fn int liste_vide_survivant(t_wave *vague)
@@ -91,7 +98,7 @@ t_wave* deb_liste_survivant(t_wave *vague){
 int liste_vide_survivant(t_wave *vague){
      vague=deb_liste_survivant(vague);
      return(vague==NULL);
-   }
+  }
  /**
   * \fn  t_wave* ajouter_entite_survivant(t_wave *vague)
   * \brief ajoute une entité à la liste et met le pointeur passé en paramètre sur le nouvel élément. Pour ajouter un nouvel element on fait appel à la fonction creer_vague()
@@ -177,76 +184,35 @@ t_wave* vider_liste_survivant(t_wave *vague){
        return NULL;
    }
    /**
-    * \fn t_wave* charger_niveau(char *nom, t_wave *vagues)
+    * \fn t_wave* charger_niveau(char *nom)
     * \brief fonction qui sert à charger un niveau en mode survivant, en allant chercher dans un fichier dont le nom est passé en paramètres les informations du niveau (pour chaque vagues le nombres d'entités, leur types, leur pv, le temps entre les vagues etc..).
-    * \param char *nom, t_wave *vagues
+    * \param char *nom
     * \return pointeur sur t_wave qui aura été rempli par les informations contenu dans le fichier.
     */
-// dans les fichiers level.txt on a les infos suivantes : numero de la vague/type entité/nombre entité/temps avant la prochaine vague(en s)
-t_wave* charger_niveau(char *nom, t_wave *vagues){ //charge le niveau à partir d'un fichier txt
-//  FILE *fichier=fopen(nom, "r");
-//    fclose(fichier);
-  int temps=0;
-  vagues=creer_vague();
+t_wave* charger_niveau(char *nom){ //charge le niveau à partir d'un fichier txt
+  FILE *fichier=fopen(nom, "r");
+  if(fichier==NULL)return NULL;
+  int temps=0, nb, i=0;
+  char nom_template[100];
+  fscanf(fichier, "%s", nom_template);
+  t_wave *vagues=creer_vague();
   if(vagues==NULL)return NULL;
-    for(int i=0;i<10;i++){
+    while(!feof(fichier)){
       printf("adresse : %p\n", vagues);
-    strcpy(vagues->ent->nom_fichier,"data/entities/mumma/mummy1.png");
-    vagues->ent->pv=50;
-    vagues->ent->montant=1;
-    vagues->ent->x=950;
-    vagues->ent->y_barre=450;
+    strcpy(vagues->ent->nom_fichier, nom_template);
+    fscanf(fichier, "%d/%d/%d/%d/%d/%d", &vagues->ent->pv, &vagues->ent->montant, &vagues->ent->x, &vagues->ent->x_barre, &vagues->ent->y_barre, &vagues->ent->degat);
     vagues->ent->temps=temps;
+    vagues->ent->y=y_entity;
     temps+=50;
     printf("%s\npv : %d\nmontant : %d\nx : %d\ntemps : %d\n\n",vagues->ent->nom_fichier, vagues->ent->pv, vagues->ent->montant, vagues->ent->x, vagues->ent->temps);
-    if(i<10)vagues=ajouter_entite_survivant(vagues);
+    if(!feof(fichier))vagues=ajouter_entite_survivant(vagues);
   }
   printf("adresse en sortie de for : %p\n", vagues);
   printf("%s\npv : %d\nmontant : %d\nx : %d\ntemps : %d\n\n",vagues->ent->nom_fichier, vagues->ent->pv, vagues->ent->montant, vagues->ent->x, vagues->ent->temps);
-  vagues=deb_liste_survivant(vagues);
-  vagues=suivant_entite_survivant(vagues);
-  printf("adresse : %p\n", vagues);
-  vagues=suivant_entite_survivant(vagues);
-  printf("adresse : %p\n", vagues);
-  vagues=suivant_entite_survivant(vagues);
-  printf("adresse : %p\n", vagues);
-  vagues=precedent_entite_survivant(vagues);
-  printf("adresse : %p\n", vagues);
-  vagues=precedent_entite_survivant(vagues);
-  printf("adresse : %p\n", vagues);
-  vagues=precedent_entite_survivant(vagues);
-  printf("adresse : %p\n", vagues);
-  vagues=deb_liste_survivant(vagues);
-/*  int i=0;
-  while(!feof(fichier)){
-    fscanf(fichier, "%d/%d/%d/%d", &vagues[i].vague, &vagues[i].type_entite, &vagues[i].nb, &vagues[i].temps);
-    i++;
-  }
-  for(i=0;i<V;i++){
-  printf("%d/%d/%d/%d\n", vagues[i].vague, vagues[i].type_entite, vagues[i].nb, vagues[i].temps);
-} */
+  fclose(fichier);
   return vagues;
 }
 
-t_wave* creer_entite_joueur(t_wave *vagues){
-  //FILE *fichier=fopen(nom, "r");
-  //char nom_fichier[60];
-  vagues=creer_vague();
-    strcpy(vagues->ent->nom_fichier,"data/entities/voisn/voisn1.png");
-    vagues->ent->pv=50;
-    vagues->ent->montant=1;
-    vagues->ent->x=200;
-    vagues->ent->y_barre=450;
-    vagues->ent->temps=30;
-    vagues=ajouter_entite_survivant(vagues);
-    strcpy(vagues->ent->nom_fichier,"data/entities/voisin/voisin1.png");
-    vagues->ent->pv=50;
-    vagues->ent->montant=1;
-    vagues->ent->x=200;
-    vagues->ent->y_barre=450;
-    vagues->ent->temps=60;
-    return vagues;
-}
 void afficher_status_entite(t_wave *vagues){
   printf("%s\npv : %d\nmontant : %d\nx : %d\ntemps : %d\n\n",vagues->ent->nom_fichier, vagues->ent->pv, vagues->ent->montant, vagues->ent->x, vagues->ent->temps);
 }
@@ -256,8 +222,10 @@ void afficher_status_entite(t_wave *vagues){
  * \param t_wave *vague, SDL_Renderer *rendu
  * \return rien
  */
-void met_a_jour_images(t_wave *vagues, SDL_Renderer *rendu){
+void met_a_jour_images(t_wave *vagues){
   if(vagues!=NULL){
+    if(vagues->ent->montant==2)return;
+    else{
     if(vagues->ent->nom_fichier[25]<57&&vagues->ent->montant){
       vagues->ent->nom_fichier[25]++;
       if(!fichier_existe(vagues->ent->nom_fichier))vagues->ent->nom_fichier[25]--;
@@ -277,125 +245,142 @@ void met_a_jour_images(t_wave *vagues, SDL_Renderer *rendu){
       vagues->ent->montant=1;
     }
   }
-}
-
-int info_vagues(t_wave*vague, int nb, int deb, int fin, int vide){ //fonction donnant des info sur les vagues
-  if(nb){
-    int nb_entite=0;
-    vague=deb_liste_survivant(vague);
-    while(vague!=NULL&&vague->suiv!=NULL){
-      nb_entite++;
-      vague=suivant_entite_survivant(vague);
-    }
-    return nb_entite;
-  }
-  else if(deb){
-    t_wave*temp=vague;
-    vague=deb_liste_survivant(vague);
-    if(vague==temp){
-      temp=NULL;
-      return 1;
-    }
-    else{
-      temp=NULL;
-      return 0;
-    }
-  }
-  else if(fin){
-    t_wave*temp=vague;
-    vague=fin_liste_survivant(vague);
-    if(vague==temp){
-      temp=NULL;
-      return 1;
-    }
-    else{
-      temp=NULL;
-      return 0;
-    }
-  }
-  else if(vide){
-    return(vague==NULL);
   }
 }
 /**
- * \fn void deroulement_vagues_ennemies(t_wave *vagues, SDL_Renderer *rendu);
- * \brief fonction qui sert à mettre automatiquement les images de l'entité à jour. pour qu'elle continue son animation soit en incrémentant le chiffre correspondant au numéro de l'image soit en le décrémentant et en changeant l'indice d'animation à chaque fois que nécéssaire
- * \param t_wave *vague, SDL_Renderer *rendu
+ * \fn void deroulement_vagues(t_wave *vagues, SDL_Renderer *rendu);
+ * \brief fonction qui sert à mettre automatiquement les images de l'entité à jour. pour qu'elle continue son animation soit en incrémentant le chiffre correspondant au numéro de l'image soit en le décrémentant et en changeant l'indice d'animation à chaque fois que nécéssaire. le parametre camp sert à préciser le camp de la vague d'entités (1 pour l'ennemi 0 pour le joueur)
+ * \param t_wave *vague, SDL_Renderer *rendu, int camp
  * \return rien
  */
-void deroulement_vagues_ennemies(t_wave *vagues, SDL_Renderer *rendu){
+int deroulement_vagues(joueur *player, t_wave *vagues, SDL_Renderer *rendu, int camp){ /**/
   int code_contour_barre_vie[4]={0,0,0,255};
   int code_interieur_barre_vie[4]={255,165,0,255};
-   vagues=deb_liste_survivant(vagues);
+    vagues=deb_liste_survivant(vagues);
    if(vagues!=NULL){
-   while(vagues->suiv!=NULL){
+     while(vagues->suiv!=NULL){
       if(!vagues->ent->temps&&vagues->ent->pv>0){
-       charger_image(vagues->ent->nom_fichier, rendu, vagues->ent->x,y_entity,0);
-       met_a_jour_images(vagues, rendu);
-       dessiner_rectangle_vide(rendu, code_contour_barre_vie, vagues->ent->x+40, vagues->ent->y_barre, 8, 52, 0); /*met à jour la barre de vie*/
-       dessiner_rectangle_plein(rendu, code_interieur_barre_vie, vagues->ent->x+41, vagues->ent->y_barre+1, 6, vagues->ent->pv, 0);
+       charger_image(vagues->ent->nom_fichier, rendu, vagues->ent->x,vagues->ent->y,0);
+       met_a_jour_images(vagues);
+       dessiner_rectangle_vide(rendu, code_contour_barre_vie, vagues->ent->x_barre, vagues->ent->y_barre, 8, 52, 0); /*met à jour la barre de vie*/
+       dessiner_rectangle_plein(rendu, code_interieur_barre_vie, vagues->ent->x_barre+1, vagues->ent->y_barre+1, 6, vagues->ent->pv, 0);
+       if(camp&&vagues->ent->montant!=2){
+         vagues->ent->x-=2;
+         vagues->ent->x_barre-=2;
+       }
+       else if(!camp&&vagues->ent->montant!=2){
+         vagues->ent->x+=2;
+         vagues->ent->x_barre+=2;
+      }
+      }
+      else if(vagues->ent->temps>0){
+        vagues->ent->temps--;
+        vagues=suivant_entite_survivant(vagues);
+      }
+      if(vagues->ent->pv<=0){
+        vagues=supprimer_entite_survivant(vagues);
+        if(camp)player->argent+=130;
+        if(vagues==NULL)return -1;
+      }
+      else if(vagues->ent->pv>0&&!vagues->ent->temps)vagues=suivant_entite_survivant(vagues);
+   }
+  }
+  if(vagues!=NULL){ //dans le cas ou il ne reste plus qu'une entité dans la liste ou on est à la fin
+    if(!vagues->ent->temps&&vagues->ent->pv>0){
+     //printf("derniere adresse : %p\n", vagues);
+     charger_image(vagues->ent->nom_fichier, rendu, vagues->ent->x,vagues->ent->y,0);
+     met_a_jour_images(vagues);
+     dessiner_rectangle_vide(rendu, code_contour_barre_vie, vagues->ent->x_barre, vagues->ent->y_barre, 8, 52, 0); /*met à jour la barre de vie*/
+     dessiner_rectangle_plein(rendu, code_interieur_barre_vie, vagues->ent->x_barre+1, vagues->ent->y_barre+1, 6, vagues->ent->pv, 0);
+     if(camp&&vagues->ent->montant!=2){
        vagues->ent->x-=2;
-       if(vagues->ent->x<400)vagues->ent->pv--;
-      }
-      else {
-        vagues->ent->temps--;
-      }
-      vagues=suivant_entite_survivant(vagues);
-   }
-  }
-}
-
-void deroulement_vagues_joueur(t_wave *vagues, SDL_Renderer *rendu){
-  int code_contour_barre_vie[4]={0,0,0,255};
-  int code_interieur_barre_vie[4]={255,165,0,255};
-   vagues=deb_liste_survivant(vagues);
-   if(vagues!=NULL){
-   while(vagues->suiv!=NULL){
-      if(!vagues->ent->temps&&vagues->ent->pv>0){
-       charger_image(vagues->ent->nom_fichier, rendu,vagues->ent->x,y_entity,0);
-       met_a_jour_images(vagues, rendu);
-       dessiner_rectangle_vide(rendu, code_contour_barre_vie, vagues->ent->x+40, vagues->ent->y_barre, 8, 52, 0); /*met à jour la barre de vie*/
-       dessiner_rectangle_plein(rendu, code_interieur_barre_vie, vagues->ent->x+41, vagues->ent->y_barre+1, 6, vagues->ent->pv, 0);
+       vagues->ent->x_barre-=2;
+     }
+     else if(!camp&&vagues->ent->montant!=2){
        vagues->ent->x+=2;
-       if(vagues->ent->x>900)vagues->ent->pv--;
-      }
-      else {
-        vagues->ent->temps--;
-      }
-      vagues=suivant_entite_survivant(vagues);
+       vagues->ent->x_barre+=2;
+    }
    }
+    if(vagues->ent->temps>0){
+      vagues->ent->temps--;
+    }
+    if(vagues->ent->pv<=0){
+      vagues=supprimer_entite_survivant(vagues);
+      if(camp)player->argent+=130;
+      if(vagues==NULL)return -1;
+    }
   }
+  else return 1;
 }
 
-int fin_partie_survivant(t_wave *vagues, SDL_Renderer *rendu){
+int fin_partie_survivant(t_wave *vagues){
     vagues=vider_liste_survivant(vagues);
     return(vagues==NULL);
 }
 
-void creer_joueur(joueur *player){
+joueur *creer_joueur(joueur *player){
   player=malloc(sizeof(joueur));
-  player->nom=malloc(sizeof(char)*100);
-  player->pv=500;
-  player->argent=1000;
+  player->pv=pv_joueur;
+  player->argent=argent_joueur;
+  player->t=NULL;
+  player->def=NULL;
   strcpy(player->nom, "Lazare");
+  return player;
 }
 
-void ajouter_voisin(joueur *player, t_wave *vague){
-  //if(player!=NULL&&vague!=NULL){
-  //  if(player->argent>=100){
-      vague=ajouter_entite_survivant(vague);
-        strcpy(vague->ent->nom_fichier,"data/entities/voisn/voisn1.png");
-        vague->ent->pv=50;
-        vague->ent->montant=1;
-        vague->ent->x=200;
-        vague->ent->y_barre=450;
-        vague->ent->temps=30;
-  //  }
-  //}
+t_wave *ajouter_voisin(joueur *player, t_wave *vague){
+  if(player!=NULL){
+  if(player->argent>=100){
+    vague=fin_liste_survivant(vague);
+    if(vague==NULL){
+      t_wave *nouv=creer_vague();
+      nouv->ent->temps=0;
+      strcpy(nouv->ent->nom_fichier,"data/entities/voisn/voisn1.png");
+      nouv->ent->pv=50;
+      nouv->ent->montant=1;
+      nouv->ent->x=200;
+      nouv->ent->y=y_entity;
+      nouv->ent->x_barre=220;
+      nouv->ent->y_barre=450;
+      nouv->ent->degat=2;
+      printf("nouv\n");
+      player->argent-=100;
+      return nouv;
+    }
+    else vague=ajouter_entite_survivant(vague);
+    if(vague->prec!=NULL){
+      printf("différent de NULL !!!!\n");
+      vague->ent->temps=50+vague->prec->ent->temps;
+      printf("temps : %d\n",vague->ent->temps);
+    }
+    strcpy(vague->ent->nom_fichier,"data/entities/voisn/voisn1.png");
+    vague->ent->pv=50;
+    vague->ent->montant=1;
+    vague->ent->x=200;
+    vague->ent->y=y_entity;
+    vague->ent->x_barre=220;
+    vague->ent->y_barre=450;
+    vague->ent->degat=2;
+    printf("ancien\n");
+    player->argent-=100;
+    return vague;
+  }
+}
+  return vague;
 }
 
-int etat_partie_survivant(t_wave *vagues, joueur *player){//retourne l'état de la partie (0 si elle est toujours en cours, 1 si le joueur a gagné, -1 si il a perdu)
-
+int etat_partie_survivant(t_wave *vagues, joueur *player){//retourne l'état de la partie (0 si elle est toujours en cours, 2 si le joueur a gagné, -1 si il a perdu)
+  if(player!=NULL){
+    if(player->pv>0){
+        if(vagues==NULL){
+          printf("gagné\n");
+          return 2;
+        }
+        return 0;
+    }
+    else return -1;
+  }
+  return 1; //si on est pas rentré
 }
 
 int return_message(){ //message qui lorsqu'on clique sur la croix rouge est affiché pour éviter de tout perdre en pleine partie
@@ -429,25 +414,25 @@ int return_message(){ //message qui lorsqu'on clique sur la croix rouge est affi
   }
   if (buttonid==1) {
       return -1;
-  }else return 0;
+  } else return 0;
 }
 
 int demarrer_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event){ //crée un ordinateur avec le nombre de vague liées au niveau.
-    t_wave *vague_ennemies=charger_niveau("test.txt", vague_ennemies);
+    t_wave *vague_ennemies=charger_niveau("data/modejeu/survivant/level1.txt");
     if(vague_ennemies==NULL)printf("echec lors de la creation de vague\n");
-    t_wave *vague_joueur=creer_entite_joueur(vague_joueur);
-    //joueur *player=NULL;
-  //  creer_joueur(player);
+    t_wave *vague_joueur=NULL;
+    joueur *player=creer_joueur(player);
     printf("sortie de la fonction vague_ennemies\n");
-    charger_image("data/backgrounds/bg1survie.png", rendu, 0,0,1);
+    charger_image("data/backgrounds/bg1survie.png", rendu, 0, 0, 1);
     int pause=0;
-    while(1){
+    while(etat_partie_survivant(vague_ennemies, player)==0){
       while(SDL_PollEvent(event)){ //on réécoute les évènements mais avec un pointeur sur event car en SDL on ne peut pas faire plusieurs listener d'évènements.
     //  if(etat_partie_survivant(vagues, &player)==1)return 1;//on verifie à chaque tour de boucle l'état de la partie
     //  if(etat_partie_survivant(vagues, &player)==-1)return 0;
       if(event->type==SDL_QUIT){ //lorsque l'utilisateur appuie sur la croix rouge de la fenetre
           if(quit_message()==-1){
-            if(!fin_partie_survivant(vague_ennemies, rendu))printf("erreur libération de mémoire échouée\n");
+            fin_partie_survivant(vague_ennemies);
+            fin_partie_survivant(vague_joueur);
             return -1; //on retourne -1
           }
       }
@@ -458,28 +443,30 @@ int demarrer_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
           if(event->type==SDL_MOUSEBUTTONDOWN){
             if(pause)pause=0;
             else pause=1;
-             afficher_survivant(vague_ennemies, rendu, pause);
+             afficher_survivant(rendu, player, pause);
           }
       }
 
         if((event->motion.x>=220&&event->motion.x<=280)&&(event->motion.y>=10&&event->motion.y<=60)){ //pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
-        charger_image("data/inventaire/carreover.png", rendu, 220,10,1);
-          if(event->type==SDL_MOUSEBUTTONDOWN);/*ajouter_voisin(player, vague_joueur);*/
+        charger_image("data/inventaire/carreover.png", rendu, 220, 10, 1);
+          if(event->type==SDL_MOUSEBUTTONDOWN)vague_joueur=ajouter_voisin(player, vague_joueur);/*ajouter_voisin(player, vague_joueur);*/
         }
         else if((event->motion.x>=290&&event->motion.x<=350)&&(event->motion.y>=10&&event->motion.y<=60)){ //pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
-        charger_image("data/inventaire/carreover.png", rendu,290,10,1);
+        charger_image("data/inventaire/carreover.png", rendu, 290, 10, 1);
+          if(event->type==SDL_MOUSEBUTTONDOWN)creer_defense(player, x_def, y_def, 15);/*ajouter_voisin(player, vague_joueur);*/
         }
         else if((event->motion.x>=360&&event->motion.x<=420)&&(event->motion.y>=10&&event->motion.y<=60)){ //pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
-        charger_image("data/inventaire/carreover.png", rendu,360,10,1);
+        charger_image("data/inventaire/carreover.png", rendu, 360, 10, 1);
         }
         else if((event->motion.x>=430&&event->motion.x<=500)&&(event->motion.y>=10&&event->motion.y<=60)){ //pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
-        charger_image("data/inventaire/carreover.png", rendu,430,10,1);
+        charger_image("data/inventaire/carreover.png", rendu, 430, 10, 1);
         }
         else if((event->motion.x>=0&&event->motion.x<=100)&&(event->motion.y>=0&&event->motion.y<=30)){ //pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
-        charger_image("data/inventaire/backover.png", rendu,0,10,1);
+        charger_image("data/inventaire/backover.png", rendu, 0, 10, 1);
           if(event->type==SDL_MOUSEBUTTONDOWN){
             if(return_message()==-1){
-              if(!fin_partie_survivant(vague_ennemies, rendu))printf("erreur libération de mémoire échouée\n");
+              fin_partie_survivant(vague_ennemies);
+              fin_partie_survivant(vague_joueur);
                 return 0;
             }
           }
@@ -502,10 +489,25 @@ int demarrer_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
        charger_image("data/inventaire/carre.png", rendu, 360, 10, 0);
        charger_image("data/inventaire/carre.png", rendu, 430, 10, 0);
        charger_image("data/inventaire/back.png", rendu, 0, 10, 0);
-     }
-   afficher_survivant(vague_ennemies, rendu,pause);
-   if(!pause)deroulement_vagues_ennemies(vague_ennemies, rendu);
-   if(!pause)deroulement_vagues_joueur(vague_joueur, rendu);
+    }
+   afficher_survivant(rendu, player, pause);
+   gestion_environnement(vague_ennemies, vague_joueur, player, rendu);
+   if(!pause){
+     if(deroulement_vagues(player, vague_ennemies, rendu, 1)==-1)vague_ennemies=NULL;
+     if(deroulement_vagues(player, vague_joueur, rendu, 0)==-1)vague_joueur=NULL;
+   }
    SDL_RenderPresent(rendu);
+ }
+ if(etat_partie_survivant(vague_ennemies, player)==2){
+    free(player);
+    fin_partie_survivant(vague_ennemies);
+    fin_partie_survivant(vague_joueur);
+    return 1;
+ }
+ else if(etat_partie_survivant(vague_ennemies, player)==-1){
+   free(player);
+   fin_partie_survivant(vague_ennemies);
+   fin_partie_survivant(vague_joueur);
+   return 0;
  }
 }
