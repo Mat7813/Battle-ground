@@ -9,9 +9,9 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include "survivant.h"
-#include "interface.h"
-
+#include "../include/survivant.h"
+#include "../include/interface.h"
+#define NB_niv_survivant 3
 /**
  * \fn int quit_message()
  * \brief affiche un message qui demande si on veut quitter la partie
@@ -83,11 +83,16 @@ int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, int
 int jeu_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event){ //fonction qui démarre une partie
   SDL_SetWindowPosition(window,50,50);
   SDL_SetWindowSize(window, 1250, 694);
-  int result=demarrer_survivant(window, rendu, event); //on appelle la fonction démarrer_survivant et en fonction de ce qu'elle retourne on aura différents traitements
-  if(result==-1)return -1;
-  else if(result==0)printf("Vous avez perdu !\n");
-  else if(result==1)printf("Vous avez gagné !\n");
+  char niveau='1';
+  int result; //on appelle la fonction démarrer_survivant et en fonction de ce qu'elle retourne on aura différents traitements
+  for(int i=0;i<NB_niv_survivant;i++){
+  result=demarrer_survivant(window, rendu, event, niveau);
+  niveau++;
+  if(result==0||result==-1)break;
+  }
   SDL_SetWindowPosition(window,50,50);
   SDL_SetWindowSize(window, 1000, 564); /*on redimensionne la fenêtre comme elle était au départ*/
+  return result;
 }
+//sr
 //gcc main.c interface.o jeu.o -o jeu -I include -L lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image

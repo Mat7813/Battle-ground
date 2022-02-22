@@ -1,0 +1,6 @@
+data/entities/mumma/mummy1.png
+data/entities/mumma/mummyattack.png
+50/1/950/990/450/10
+50/1/950/990/450/10
+50/1/950/990/450/10
+

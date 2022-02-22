@@ -9,9 +9,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <SDL2/SDL.h>
-#include "structures.h"
-#include "animations.h"
-#include "survivant.h"
+#include "../include/structures.h"
+#include "../include/animations.h"
+#include "../include/survivant.h"
 #define y_tir 475
 #define x_tir 165
 
@@ -27,14 +27,36 @@ void attaque_entites(t_wave *vague_ennemie, t_wave *vague_joueur, joueur *player
   vague_joueur=deb_liste_survivant(vague_joueur);
 //  printf("avant if\n");
   if(vague_ennemie!=NULL&&vague_joueur!=NULL){
-  if(vague_ennemie->ent->x<=vague_joueur->ent->x+100){
+  if(vague_ennemie->ent->x<=vague_joueur->ent->x+60){
   //  printf("avant if1\n");
     vague_ennemie->ent->montant=2;
     vague_joueur->ent->montant=2;
-    vague_ennemie->ent->pv-=vague_joueur->ent->degat;
-    vague_joueur->ent->pv-=vague_ennemie->ent->degat;
+    if(!vague_ennemie->ent->attaque){
+      printf("entre dans la baisse vie joueur\n");
+      vague_joueur->ent->pv-=vague_ennemie->ent->degat;
+      vague_ennemie->ent->attaque=20;
+    }
+    else vague_ennemie->ent->attaque--;
+  /*  if(!vague_joueur->ent->attaque){
+        printf("entre dans la baisse vie ennemie\n");
+      vague_ennemie->ent->pv-=vague_joueur->ent->degat;
+      vague_joueur->ent->attaque=30;
+    }
+    else vague_joueur->ent->attaque--; */
+  }
+  else if(vague_ennemie->ent->x<=vague_joueur->ent->x+520){
+    vague_joueur->ent->montant=2;
+    if(!vague_joueur->ent->attaque){
+        printf("entre dans la baisse vie ennemie\n");
+      vague_ennemie->ent->pv-=vague_joueur->ent->degat;
+      vague_joueur->ent->attaque=20;
+    }
+    else vague_joueur->ent->attaque--;
+    if(vague_ennemie->ent->montant==2)vague_ennemie->ent->montant=1;
   }
   else {
+    vague_joueur->ent->attaque=1;
+    vague_ennemie->ent->attaque=1;
     if(vague_ennemie->ent->montant==2)vague_ennemie->ent->montant=1;
     if(vague_joueur->ent->montant==2)vague_joueur->ent->montant=1;
   }
@@ -49,16 +71,22 @@ void attaque_entites(t_wave *vague_ennemie, t_wave *vague_joueur, joueur *player
   if(vague_ennemie!=NULL){
     if(vague_ennemie->ent->x<=105){
       vague_ennemie->ent->montant=2;
-      player->pv-=vague_ennemie->ent->degat;
+      if(!vague_ennemie->ent->attaque){
+        player->pv-=vague_ennemie->ent->degat;
+        vague_ennemie->ent->attaque=20;
+      }
+      else vague_ennemie->ent->attaque--;
     }
+    else if(vague_ennemie->ent->attaque<=20&&vague_ennemie->ent->attaque>=18)vague_ennemie->ent->attaque=3;
     //printf("après if3\n");
     if(player->def!=NULL){
       //  printf("après if4\n");
-      if(player->t!=NULL)
+      if(player->t!=NULL){
       if(vague_ennemie->ent->x<=player->t->x){
         //  printf("après if5\n");
         vague_ennemie->ent->pv-=player->def->degat;
         player->t->indice_vie=0;
+      }
       }
     }
   }
@@ -86,11 +114,11 @@ void attaque_entites(t_wave *vague_ennemie, t_wave *vague_joueur, joueur *player
   * \param tir *t, int x, int y, int degat
   * \return tir *t
   */
-void creer_defense(joueur *p, int x, int y, int degat){
+void creer_defense(joueur *p, int x, int y, int degat, message *msg){
     printf("entrée dans la fonction creer_defense\n");
     if(p!=NULL){
-      if(p->argent>=400){
       if(p->def==NULL){
+        if(p->argent>=400){
         p->def=malloc(sizeof(defense));
         strcpy(p->def->nom_fichier, "data/inventaire/mitraillette.png");
         p->def->degat=degat;
@@ -99,9 +127,11 @@ void creer_defense(joueur *p, int x, int y, int degat){
         p->def->x=x;
         p->def->y=y;
         p->argent-=400;
+        }
+        else message_box(msg, "data/inventaire/pasassez.png");
       }
+      else message_box(msg, "data/inventaire/defense.png");
       }
-    }
 }
 
 
@@ -157,7 +187,7 @@ void gestion_ligne_entite(t_wave *vague, int camp){
       vague=suivant_entite_survivant(vague);
       }
       else {
-        if(vague->suiv->ent->x>=vague->ent->x-80)vague->suiv->ent->montant=2;
+        if(vague->suiv->ent->x>=vague->ent->x-90)vague->suiv->ent->montant=2;
         else if(vague->suiv->ent->montant==2)vague->suiv->ent->montant=1;
         vague=suivant_entite_survivant(vague);
       }
@@ -168,7 +198,7 @@ void gestion_ligne_entite(t_wave *vague, int camp){
       else if(vague->ent->montant==2)vague->ent->montant=1;
       }
       else {
-        if(vague->ent->x>=vague->prec->ent->x-80)vague->ent->montant=2;
+        if(vague->ent->x>=vague->prec->ent->x-90)vague->ent->montant=2;
         else if(vague->ent->montant==2)vague->ent->montant=1;
       }
     }
@@ -180,7 +210,7 @@ void gestion_ligne_entite(t_wave *vague, int camp){
  * \param t_wave *vague_ennemie,t_wave *vague_joueur, tir *t
  * \return void
  */
-void gestion_environnement(t_wave *vague_ennemie,t_wave *vague_joueur, joueur *player, SDL_Renderer *rendu){ //fonction qui vérifie qu'un élément ne rentre pas en contact avec un autre
+void gestion_environnement(t_wave *vague_ennemie, t_wave *vague_joueur, joueur *player, SDL_Renderer *rendu){ //fonction qui vérifie qu'un élément ne rentre pas en contact avec un autre
   vague_ennemie=deb_liste_survivant(vague_ennemie);
   vague_joueur=deb_liste_survivant(vague_joueur);
   if(vague_ennemie!=NULL){
@@ -199,6 +229,8 @@ void gestion_environnement(t_wave *vague_ennemie,t_wave *vague_joueur, joueur *p
   gestion_ligne_entite(vague_ennemie, 1);
   gestion_ligne_entite(vague_joueur, 0);
   attaque_entites(vague_ennemie, vague_joueur, player);
+  animation_attaque(rendu, vague_ennemie);
+  animation_attaque(rendu, vague_joueur);
   animation_tir_gauche(rendu, player);
   player->t=etat_tir(player->t); /*on met à jour le tir si besoin*/
   player->def=etat_defense(player->def);

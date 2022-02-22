@@ -5,7 +5,7 @@
  * \version 1
  * \date 22/01/2022
  */
-#include "jeu.h"
+#include "../include/jeu.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
