@@ -1,5 +1,5 @@
-#ifndef __DIVERS_H_
-#define __DIVERS_H_
+#ifndef __STRUCTURES_VAGUES_H_
+#define __STRUCTURES_VAGUES_H_
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct entity{

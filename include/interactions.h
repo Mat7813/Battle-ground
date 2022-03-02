@@ -1,5 +1,5 @@
-#ifndef __DIVERS_H_
-#define __DIVERS_H_
+#ifndef __INTERACTIONS_H_
+#define __INTERACTIONS_H_
 #include <stdio.h>
 #include "../include/structures.h"
 #include "../include/structures_vagues.h"

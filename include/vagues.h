@@ -1,5 +1,5 @@
-#ifndef __DIVERS_H_
-#define __DIVERS_H_
+#ifndef __VAGUES_H_
+#define __VAGUES_H_
 #include <stdio.h>
 #include "../include/structures_vagues.h"
  t_wave* creer_vague();
