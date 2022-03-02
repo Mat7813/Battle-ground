@@ -1,8 +1,9 @@
 #ifndef __DIVERS_H_
 #define __DIVERS_H_
 #include <stdio.h>
-#include "structures.h"
-
+#include "../include/structures.h"
+#include "../include/structures_vagues.h"
+#include "../include/vagues.h"
 void attaque_entites(t_wave *vague_ennemie, t_wave *vague_joueur, joueur *player);
 void gestion_environnement(t_wave *vague_ennemie,t_wave *vague_joueur, joueur *player, SDL_Renderer *rendu);
 tir *creer_tir(tir *t, int x, int y);

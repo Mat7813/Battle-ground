@@ -10,47 +10,10 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "../include/survivant.h"
+#include "../include/structures_vagues.h"
+#include "../include/vagues.h"
 #include "../include/interface.h"
 #define NB_niv_survivant 3
-/**
- * \fn int quit_message()
- * \brief affiche un message qui demande si on veut quitter la partie
- * \param rien
- * \return -1 si l'utilisateur clique sur oui, 1 sinon
- */
-int quit_message(){
-  const SDL_MessageBoxButtonData buttons[] = {
-      { /* .flags, .buttonid, .text */        0, 0, "NON" },
-      { SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT, 1, "OUI" },
-      { SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT, 2, "ANNULER" },
-  };
-  const SDL_MessageBoxColorScheme colorScheme = {
-      {
-          { 255,   0,   0 },
-          {   0, 255,   0 },
-          { 255, 255,   0 },
-          {   0,   0, 255 },
-          { 255,   0, 255 }
-      }
-  };
-  const SDL_MessageBoxData messageboxdata = {
-      SDL_MESSAGEBOX_INFORMATION, /* .flags */
-      NULL, /* .window */
-      "Quitter le jeu", /* .title */
-      "Etes-vous sûr de vouloir quitter ?\nLa partie ne sera pas sauvegardée.", /* .message */
-      SDL_arraysize(buttons), /* .numbuttons */
-      buttons, /* .buttons */
-      &colorScheme /* .colorScheme */
-  };
-  int buttonid;
-  if (SDL_ShowMessageBox(&messageboxdata, &buttonid) < 0) {
-      SDL_Log("error displaying message box");
-      return 1;
-  }
-  if (buttonid==1) {
-      return -1;
-  }else return 0;
-}
 
 /**
  * \fn int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, int difficulte)

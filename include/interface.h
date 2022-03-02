@@ -1,7 +1,8 @@
 #ifndef __INTERFACE_H_
 #define __INTERFACE_H_
-#include "structures.h"
+#include "../include/structures.h"
 
+int quit_message();
 void dessiner_rectangle_vide(SDL_Renderer *rendu, int code_couleur[4], int x, int y, int h, int w, int mode);
 int dessiner_rectangle_plein(SDL_Renderer *rendu, int code_couleur[4], int x, int y, int h, int w, int mode);
 int charger_image(char *nom, SDL_Renderer *rendu, int x, int y, int option);

@@ -12,6 +12,7 @@
 #include <SDL2/SDL_image.h>
 #include "../include/interface.h"
 #include "../include/structures.h"
+#include "../include/structures_vagues.h"
 #define y_entity 470
 #define limit_x 100
 

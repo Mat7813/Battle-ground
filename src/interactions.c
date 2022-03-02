@@ -1,5 +1,5 @@
 /**
- * \file divers.c
+ * \file interactions.c
  * \brief Contient des fonctions variées utilisées potentiellement par les 2 modes de jeu. des fonctions telles que la gestion de l'environnement(les collisions).
  * \author Lazare Maclouf
  * \version 1
