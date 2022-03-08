@@ -1,10 +1,10 @@
 Classique:
 -mettre argent du joueur en haut à gauche à (1000) pour commencer
--mettre un meu en  haut à gauche à coté de l'argent pour créer 3 catégories de militaires, ajouter un étage à la tour,
+-mettre un menu en  haut à gauche à coté de l'argent pour créer 3 catégories de militaires, ajouter un étage à la tour,
 ajouter des canons
--mettre une barre de vie générale au dessus de la caserne et mettre des barres de vies à chaque entités.
+-mettre une barre de vie global au dessus de la caserne et mettre des barres de vie à chaque entité.
 -à chaque entité morte ça rapporte 150.
--définir les dégats et les points de vie de la caserne et de chaques unités
+-définir les dégats et les points de vie de la caserne et de chaque unité
 -programmer l'ordinateur.
 
 Survie:

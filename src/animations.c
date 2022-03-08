@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#include <Document/SDL2/SDL_image.h>
 #include "../include/interface.h"
 #include "../include/structures.h"
 #include "../include/structures_vagues.h"
