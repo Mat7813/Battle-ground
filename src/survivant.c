@@ -278,9 +278,9 @@ ajouter_voisin(joueur *player, t_wave *vague, message *msg)
         t_wave *nouv = creer_vague();
         nouv->ent->temps = 0;
         strcpy(nouv->ent->nom_fichier,
-               "data/entities/voisn/voisin1.png");
+               "data/entities/voisin/voisin1.png");
         strcpy(nouv->ent->nom_fichier_attaque,
-               "data/entities/voisn/voisintir.png");
+               "data/entities/voisin/voisintir.png");
         nouv->ent->pv = 50;
         nouv->ent->montant = 1;
         nouv->ent->x = 110;
@@ -301,9 +301,9 @@ ajouter_voisin(joueur *player, t_wave *vague, message *msg)
         vague->ent->temps = 50 + vague->prec->ent->temps;
         printf("temps : %d\n", vague->ent->temps);
       }
-      strcpy(vague->ent->nom_fichier, "data/entities/voisn/voisin1.png");
+      strcpy(vague->ent->nom_fichier, "data/entities/voisin/voisin1.png");
       strcpy(vague->ent->nom_fichier_attaque,
-             "data/entities/voisn/voisintir.png");
+             "data/entities/voisin/voisintir.png");
       vague->ent->pv = 50;
       vague->ent->montant = 1;
       vague->ent->x = 110;
