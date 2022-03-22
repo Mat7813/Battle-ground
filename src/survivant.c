@@ -11,11 +11,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../include/animations.h"
-#include "../include/interactions.h"
-#include "../include/interface.h"
-#include "../include/structures.h"
-#include "../include/vagues.h"
+#include "animations.h"
+#include "interactions.h"
+#include "interface.h"
+#include "structures.h"
+#include "vagues.h"
 #define V 5
 #define y_entity 470
 #define x_def 100
@@ -417,7 +417,7 @@ int demarrer_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
       }
       if (event->window.event == SDL_WINDOWEVENT_RESIZED)
         SDL_SetWindowSize(window, 1250, 694);
-      if ((event->motion.x >= 620 & event->motion.x <= 670) && (event->motion.y >= 10 && event->motion.y <= 50))
+      if ((event->motion.x >= 620 && event->motion.x <= 670) && (event->motion.y >= 10 && event->motion.y <= 50))
       {
         if (event->type == SDL_MOUSEBUTTONDOWN)
         {
