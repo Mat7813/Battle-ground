@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['callback_2455',['callback',['../structSDL__AudioSpec.html#a1f8d05139f1679dcf359f49251233eac',1,'SDL_AudioSpec']]],
+  ['caxis_2456',['caxis',['../unionSDL__Event.html#aa8f6df0f2716fae56204b12ab4a4c289',1,'SDL_Event']]],
+  ['cbutton_2457',['cbutton',['../unionSDL__Event.html#aee2b5671c8dcdb447023715cc21593cb',1,'SDL_Event']]],
+  ['cdevice_2458',['cdevice',['../unionSDL__Event.html#ad3beed01e690b885728e0b0e1d636378',1,'SDL_Event']]],
+  ['center_2459',['center',['../structSDL__HapticCondition.html#a8a71ec28ff5ab85246cbc59736aa2c53',1,'SDL_HapticCondition']]],
+  ['channels_2460',['channels',['../structSDL__AudioSpec.html#a31fe8b3710cf23bbef24be8a1749fe46',1,'SDL_AudioSpec::channels()'],['../structSDL__HapticCustom.html#a560215762e9096d583d75867d9227cf5',1,'SDL_HapticCustom::channels()']]],
+  ['clicks_2461',['clicks',['../structSDL__MouseButtonEvent.html#aa606bebcbc3ffc7e932016039c2a36a1',1,'SDL_MouseButtonEvent']]],
+  ['clip_5frect_2462',['clip_rect',['../structSDL__Surface.html#aa9a0da3b38261dad6cf0cc4e3bb5b0c3',1,'SDL_Surface']]],
+  ['code_2463',['code',['../structSDL__UserEvent.html#aef47976781ee82b527a353c5acfa0a34',1,'SDL_UserEvent']]],
+  ['color_2464',['color',['../structSDL__Vertex.html#ace543def50f0b3f3f87a86c47caab53f',1,'SDL_Vertex']]],
+  ['colorscheme_2465',['colorScheme',['../structSDL__MessageBoxData.html#a18744865a3e89e260db5f01aee579e35',1,'SDL_MessageBoxData']]],
+  ['common_2466',['common',['../unionSDL__Event.html#abe5cb8767f93de55163c8ddd4562a7f2',1,'SDL_Event']]],
+  ['condition_2467',['condition',['../unionSDL__HapticEffect.html#aa8fdd1ba202ccd7e61f48ef9977080d2',1,'SDL_HapticEffect']]],
+  ['constant_2468',['constant',['../unionSDL__HapticEffect.html#ac435275e9683d6cc5d65b9c7cc2ec659',1,'SDL_HapticEffect']]],
+  ['country_2469',['country',['../structSDL__Locale.html#a0a6d2720db6bc77bfa82528294c1c6e8',1,'SDL_Locale']]],
+  ['csensor_2470',['csensor',['../unionSDL__Event.html#adcfd6caae4067c338ddd6570ddb37417',1,'SDL_Event']]],
+  ['ctouchpad_2471',['ctouchpad',['../unionSDL__Event.html#af380462bb505815bd9cb19c2d9c5a61c',1,'SDL_Event']]],
+  ['custom_2472',['custom',['../unionSDL__HapticEffect.html#a0b2d2af28c515cc39896b2b7c23019d2',1,'SDL_HapticEffect']]]
+];

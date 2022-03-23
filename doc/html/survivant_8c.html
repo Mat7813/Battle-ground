@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Battle-ground: Référence du fichier /home/attadeurtia/Documents/Battle-ground/src/survivant.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="launcher.bmp"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Battle-ground
+   </div>
+  </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('survivant_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier survivant.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contient toutes les fonctions utiles au mode de jeu survivant de battle ground (gestion de l'évolution de la partie, implémentation des structures de jeu, etc..)  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
+<code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;animations.h&quot;</code><br />
+<code>#include &quot;interactions.h&quot;</code><br />
+<code>#include &quot;interface.h&quot;</code><br />
+<code>#include &quot;structures.h&quot;</code><br />
+<code>#include &quot;vagues.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de survivant.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="survivant_8c__incl.png" border="0" usemap="#a_2home_2attadeurtia_2Documents_2Battle-ground_2src_2survivant_8c" alt=""/></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:af40a326b23c68a27cebe60f16634a2cb"><td class="memItemLeft" align="right" valign="top"><a id="af40a326b23c68a27cebe60f16634a2cb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>V</b>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:af40a326b23c68a27cebe60f16634a2cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56176d6a4f1a9de45da221224ff83c00"><td class="memItemLeft" align="right" valign="top"><a id="a56176d6a4f1a9de45da221224ff83c00"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>y_entity</b>&#160;&#160;&#160;470</td></tr>
+<tr class="separator:a56176d6a4f1a9de45da221224ff83c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45a46486b71327c725db6c99648fb183"><td class="memItemLeft" align="right" valign="top"><a id="a45a46486b71327c725db6c99648fb183"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>x_def</b>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:a45a46486b71327c725db6c99648fb183"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a444c1433236ff681fa8dbbcf8ece397b"><td class="memItemLeft" align="right" valign="top"><a id="a444c1433236ff681fa8dbbcf8ece397b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>y_def</b>&#160;&#160;&#160;470</td></tr>
+<tr class="separator:a444c1433236ff681fa8dbbcf8ece397b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86932d3325f42fc7e4fa1c2d10d56a18"><td class="memItemLeft" align="right" valign="top"><a id="a86932d3325f42fc7e4fa1c2d10d56a18"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>pv_joueur</b>&#160;&#160;&#160;200</td></tr>
+<tr class="separator:a86932d3325f42fc7e4fa1c2d10d56a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63f15a8fdbeb4f4f6538626ca9461ad1"><td class="memItemLeft" align="right" valign="top"><a id="a63f15a8fdbeb4f4f6538626ca9461ad1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>argent_joueur</b>&#160;&#160;&#160;1000</td></tr>
+<tr class="separator:a63f15a8fdbeb4f4f6538626ca9461ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a006fce195f0e8521e7ce12256c46de63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structwave.html">t_wave</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="survivant_8c.html#a006fce195f0e8521e7ce12256c46de63">charger_niveau</a> (char *nom)</td></tr>
+<tr class="memdesc:a006fce195f0e8521e7ce12256c46de63"><td class="mdescLeft">&#160;</td><td class="mdescRight">fonction qui sert à charger un niveau en mode survivant, en allant chercher dans un fichier dont le nom est passé en paramètres les informations du niveau (pour chaque vagues le nombres d'entités, leur types, leur pv, le temps entre les vagues etc..).  <a href="survivant_8c.html#a006fce195f0e8521e7ce12256c46de63">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a006fce195f0e8521e7ce12256c46de63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c0de6dea57b1729004ccbecaa466233"><td class="memItemLeft" align="right" valign="top"><a id="a5c0de6dea57b1729004ccbecaa466233"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>afficher_status_entite</b> (<a class="el" href="structwave.html">t_wave</a> *vagues)</td></tr>
+<tr class="separator:a5c0de6dea57b1729004ccbecaa466233"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eda2a95d35307fd952dfe1b76f31abd"><td class="memItemLeft" align="right" valign="top"><a id="a6eda2a95d35307fd952dfe1b76f31abd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>met_a_jour_images</b> (<a class="el" href="structwave.html">t_wave</a> *vagues)</td></tr>
+<tr class="separator:a6eda2a95d35307fd952dfe1b76f31abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21e986b18ae76d842160148f16d9b9c7"><td class="memItemLeft" align="right" valign="top"><a id="a21e986b18ae76d842160148f16d9b9c7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>deroulement_vagues</b> (<a class="el" href="structjoue.html">joueur</a> *player, <a class="el" href="structwave.html">t_wave</a> *vagues, SDL_Renderer *rendu, int camp)</td></tr>
+<tr class="separator:a21e986b18ae76d842160148f16d9b9c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad26c3bfa2fbb93d644c8a262fa4ed9fd"><td class="memItemLeft" align="right" valign="top"><a id="ad26c3bfa2fbb93d644c8a262fa4ed9fd"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>fin_partie_survivant</b> (<a class="el" href="structwave.html">t_wave</a> *vagues)</td></tr>
+<tr class="separator:ad26c3bfa2fbb93d644c8a262fa4ed9fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeefc5e4e8e4000e0fc5c3f315fb0679a"><td class="memItemLeft" align="right" valign="top"><a id="aeefc5e4e8e4000e0fc5c3f315fb0679a"></a>
+<a class="el" href="structjoue.html">joueur</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>creer_joueur</b> (<a class="el" href="structjoue.html">joueur</a> *player)</td></tr>
+<tr class="separator:aeefc5e4e8e4000e0fc5c3f315fb0679a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae47a4d482094d91fa851ce1a5f9500a1"><td class="memItemLeft" align="right" valign="top"><a id="ae47a4d482094d91fa851ce1a5f9500a1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>message_box</b> (<a class="el" href="structmes.html">message</a> *msg, char nom_fic[100])</td></tr>
+<tr class="separator:ae47a4d482094d91fa851ce1a5f9500a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c3b7379bb4d687738513c859aefa150"><td class="memItemLeft" align="right" valign="top"><a id="a3c3b7379bb4d687738513c859aefa150"></a>
+<a class="el" href="structwave.html">t_wave</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ajouter_voisin</b> (<a class="el" href="structjoue.html">joueur</a> *player, <a class="el" href="structwave.html">t_wave</a> *vague, <a class="el" href="structmes.html">message</a> *msg)</td></tr>
+<tr class="separator:a3c3b7379bb4d687738513c859aefa150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5f5bb3d8f888bac7d6a4f610f99127d"><td class="memItemLeft" align="right" valign="top"><a id="ab5f5bb3d8f888bac7d6a4f610f99127d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>etat_partie_survivant</b> (<a class="el" href="structwave.html">t_wave</a> *vagues, <a class="el" href="structjoue.html">joueur</a> *player)</td></tr>
+<tr class="separator:ab5f5bb3d8f888bac7d6a4f610f99127d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82ab3fa1a79f96660b1a24075747402c"><td class="memItemLeft" align="right" valign="top"><a id="a82ab3fa1a79f96660b1a24075747402c"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>return_message</b> ()</td></tr>
+<tr class="separator:a82ab3fa1a79f96660b1a24075747402c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87fb34ff22476ea7da3e5c5d5b9c667e"><td class="memItemLeft" align="right" valign="top"><a id="a87fb34ff22476ea7da3e5c5d5b9c667e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>demarrer_survivant</b> (SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, char lvl)</td></tr>
+<tr class="separator:a87fb34ff22476ea7da3e5c5d5b9c667e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Contient toutes les fonctions utiles au mode de jeu survivant de battle ground (gestion de l'évolution de la partie, implémentation des structures de jeu, etc..) </p>
+<dl class="section author"><dt>Auteur</dt><dd>Lazare Maclouf </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>25/02/2022 </dd></dl>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a006fce195f0e8521e7ce12256c46de63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a006fce195f0e8521e7ce12256c46de63">&#9670;&nbsp;</a></span>charger_niveau()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structwave.html">t_wave</a>* charger_niveau </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>fonction qui sert à charger un niveau en mode survivant, en allant chercher dans un fichier dont le nom est passé en paramètres les informations du niveau (pour chaque vagues le nombres d'entités, leur types, leur pv, le temps entre les vagues etc..). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">char</td><td>*nom </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>pointeur sur t_wave qui aura été rempli par les informations contenu dans le fichier. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_43e0a1f539e00dcfa1a6bc4d4fee4fc2.html">home</a></li><li class="navelem"><a class="el" href="dir_23e8ee59b58b3ae3656c962c72a36983.html">attadeurtia</a></li><li class="navelem"><a class="el" href="dir_8de829ee14d056ef3ea9f792ec13061c.html">Documents</a></li><li class="navelem"><a class="el" href="dir_2f7d8d230fc14d68a8fa1048e4938e11.html">Battle-ground</a></li><li class="navelem"><a class="el" href="dir_98c06149c3aed8ce280e74d76d7f9516.html">src</a></li><li class="navelem"><a class="el" href="survivant_8c.html">survivant.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>
