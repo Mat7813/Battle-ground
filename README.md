@@ -7,9 +7,9 @@ SDL_image
 
 ## GANTT
 
-### effectiv
+### effectif
 https://docs.google.com/spreadsheets/d/1nGvW8YsbBU_SToFOijIJNXJWGJEKcOc36ztXyP-i-XU/edit?usp=sharing
-### previsionel
+### previsionnel
 https://docs.google.com/spreadsheets/d/13q1ZOdnywWDGVXpLznJHODp4Z-5laKuhWFcjdYSvfuU/edit?usp=sharing
 
 ## site web :
