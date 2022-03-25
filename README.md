@@ -3,9 +3,14 @@
 Linux et windows
 
 # prérequis
-SDL_image et SDL_ttf
+SDL_image
 
-```Hello World```
-GANTT
-https://docs.google.com/spreadsheets/d/13q1ZOdnywWDGVXpLznJHODp4Z-5laKuhWFcjdYSvfuU/edit#gid=1115838130
+# GANTT
 
+## effectiv
+https://docs.google.com/spreadsheets/d/1nGvW8YsbBU_SToFOijIJNXJWGJEKcOc36ztXyP-i-XU/edit?usp=sharing
+## previsionel
+https://docs.google.com/spreadsheets/d/13q1ZOdnywWDGVXpLznJHODp4Z-5laKuhWFcjdYSvfuU/edit?usp=sharing
+
+#site web :
+http://web-info.univ-lemans.fr/~s193316/Battle-ground/doc/html/
