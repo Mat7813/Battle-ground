@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <SDL.h>
-#include <SDL_mixer.h>
-
+#include "../include/SDL2/SDL.h"
+//#include "../include/SDL2/SDL_mixer.h"
+/*
 Mix_Chunk* mainMenuMusic;
 
 void loadMainMenuSounds(){
@@ -35,4 +35,4 @@ int main(int argc, char *argv[]){
 	return 0;
 	printf("test\n");
 	return 0;
-}
+} */

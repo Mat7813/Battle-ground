@@ -5,22 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Battle-ground: Référence du fichier /home/attadeurtia/Documents/Battle-ground/src/interface.c</title>
+<title>Battle-ground: Référence du fichier /home/attadeurtia/Documents/Battle-ground/jeux/interface.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(function() { init_search(); });
-/* @license-end */
-</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -29,26 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="launcher.bmp"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Battle-ground
    </div>
   </td>
-   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <img id="MSearchSelect" src="search/mag_sel.svg"
-               onmouseover="return searchBox.OnSearchSelectShow()"
-               onmouseout="return searchBox.OnSearchSelectHide()"
-               alt=""/>
-          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -60,23 +35,16 @@
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
 /* @license-end */
 </script>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('interface_8c.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -91,6 +59,11 @@ $(document).ready(function(){initNavTree('interface_8c.html',''); initResizable(
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_6c58ce6c7b243e82c3c6f68a7010e5a9.html">jeux</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
@@ -99,19 +72,14 @@ $(document).ready(function(){initNavTree('interface_8c.html',''); initResizable(
 <div class="title">Référence du fichier interface.c</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Contient toutes les fonctions utiles à l'interface graphique principale du jeu (gestion des menus, fonction de chargement des images etc...)  
-<a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &lt;SDL2/SDL.h&gt;</code><br />
-<code>#include &lt;SDL2/SDL_image.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;string.h&gt;</code><br />
-<code>#include &quot;../include/jeu.h&quot;</code><br />
+<code>#include &lt;SDL.h&gt;</code><br />
+<code>#include &lt;SDL_image.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de interface.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="interface_8c__incl.png" border="0" usemap="#a_2home_2attadeurtia_2Documents_2Battle-ground_2src_2interface_8c" alt=""/></div>
+<div class="center"><img src="interface_8c__incl.png" border="0" usemap="#a_2home_2attadeurtia_2Documents_2Battle-ground_2jeux_2interface_8c" alt=""/></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -122,211 +90,32 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:aeeed8d057580924798b64772bbb772db"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8c.html#aeeed8d057580924798b64772bbb772db">quit_message</a> ()</td></tr>
-<tr class="memdesc:aeeed8d057580924798b64772bbb772db"><td class="mdescLeft">&#160;</td><td class="mdescRight">affiche un message qui demande si on veut quitter la partie  <a href="interface_8c.html#aeeed8d057580924798b64772bbb772db">Plus de détails...</a><br /></td></tr>
-<tr class="separator:aeeed8d057580924798b64772bbb772db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbe5d10c97f5909b50ced402920c8378"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8c.html#adbe5d10c97f5909b50ced402920c8378">dessiner_rectangle_vide</a> (SDL_Renderer *rendu, int code_couleur[4], int x, int y, int h, int w, int mode)</td></tr>
-<tr class="memdesc:adbe5d10c97f5909b50ced402920c8378"><td class="mdescLeft">&#160;</td><td class="mdescRight">dessine un rectangle vide  <a href="interface_8c.html#adbe5d10c97f5909b50ced402920c8378">Plus de détails...</a><br /></td></tr>
-<tr class="separator:adbe5d10c97f5909b50ced402920c8378"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9700816a3f89a82605fe940245380454"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_8c.html#a9700816a3f89a82605fe940245380454">dessiner_rectangle_plein</a> (SDL_Renderer *rendu, int code_couleur[4], int x, int y, int h, int w, int mode)</td></tr>
-<tr class="memdesc:a9700816a3f89a82605fe940245380454"><td class="mdescLeft">&#160;</td><td class="mdescRight">dessine un rectangle plein  <a href="interface_8c.html#a9700816a3f89a82605fe940245380454">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a9700816a3f89a82605fe940245380454"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accd4312a4eb5b49920dbe2a0294dce5b"><td class="memItemLeft" align="right" valign="top"><a id="accd4312a4eb5b49920dbe2a0294dce5b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>charger_image</b> (char *nom, SDL_Renderer *rendu, int x, int y, int option)</td></tr>
-<tr class="separator:accd4312a4eb5b49920dbe2a0294dce5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13789672154037fc0319dd204b8d6bf5"><td class="memItemLeft" align="right" valign="top"><a id="a13789672154037fc0319dd204b8d6bf5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>demarrage</b> (SDL_Renderer *rendu)</td></tr>
-<tr class="separator:a13789672154037fc0319dd204b8d6bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f8571ea824acf6e9bd1e85a78f17f34"><td class="memItemLeft" align="right" valign="top"><a id="a2f8571ea824acf6e9bd1e85a78f17f34"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>menu_jouer_difficulte</b> (SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, int mode)</td></tr>
-<tr class="separator:a2f8571ea824acf6e9bd1e85a78f17f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae24a35a63a74643551f9399edf243a2f"><td class="memItemLeft" align="right" valign="top"><a id="ae24a35a63a74643551f9399edf243a2f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>sous_menu_jouer</b> (SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)</td></tr>
-<tr class="separator:ae24a35a63a74643551f9399edf243a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65ac251467626d4ad0ce44b47659825b"><td class="memItemLeft" align="right" valign="top"><a id="a65ac251467626d4ad0ce44b47659825b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>sous_menu_parametres</b> (SDL_Window *window, SDL_Renderer *rendu)</td></tr>
-<tr class="separator:a65ac251467626d4ad0ce44b47659825b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebad03055582261944e91731b0570c45"><td class="memItemLeft" align="right" valign="top"><a id="aebad03055582261944e91731b0570c45"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>menu</b> (SDL_Window *window, SDL_Renderer *rendu)</td></tr>
-<tr class="separator:aebad03055582261944e91731b0570c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22acb125c6a0bd3a3d55a69cb291ebb7"><td class="memItemLeft" align="right" valign="top"><a id="a22acb125c6a0bd3a3d55a69cb291ebb7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>charger_image</b> (char *nom, SDL_Renderer *rendu, SDL_Surface *image, SDL_Texture *texture, SDL_Rect *rect, int x, int y)</td></tr>
+<tr class="separator:a22acb125c6a0bd3a3d55a69cb291ebb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59d175661aca999f9ab2cb14d5163526"><td class="memItemLeft" align="right" valign="top"><a id="a59d175661aca999f9ab2cb14d5163526"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>demarrage</b> (SDL_Renderer *rendu, SDL_Surface *image, SDL_Texture *texture, SDL_Rect *rect)</td></tr>
+<tr class="separator:a59d175661aca999f9ab2cb14d5163526"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87369346d3687de9ce80e957aae48560"><td class="memItemLeft" align="right" valign="top"><a id="a87369346d3687de9ce80e957aae48560"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>menu_jouer_difficulte</b> (SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image, SDL_Texture *texture, SDL_Rect *rect, SDL_Event *event, int mode)</td></tr>
+<tr class="separator:a87369346d3687de9ce80e957aae48560"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acea79ef5fe86b89b49469095aaca607d"><td class="memItemLeft" align="right" valign="top"><a id="acea79ef5fe86b89b49469095aaca607d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>sous_menu_jouer</b> (SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image, SDL_Texture *texture, SDL_Rect *rect, SDL_Event *event)</td></tr>
+<tr class="separator:acea79ef5fe86b89b49469095aaca607d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac550d33a13942b18ff289959b7bf6bd3"><td class="memItemLeft" align="right" valign="top"><a id="ac550d33a13942b18ff289959b7bf6bd3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sous_menu_parametres</b> (SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image, SDL_Texture *texture, SDL_Rect *rect)</td></tr>
+<tr class="separator:ac550d33a13942b18ff289959b7bf6bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dc3382bcd5aa774944c1428dfa47e30"><td class="memItemLeft" align="right" valign="top"><a id="a8dc3382bcd5aa774944c1428dfa47e30"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>menu</b> (SDL_Window *window, SDL_Renderer *rendu, SDL_Surface *image, SDL_Texture *texture, SDL_Rect *rect)</td></tr>
+<tr class="separator:a8dc3382bcd5aa774944c1428dfa47e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9234f89d76a82b5ad782d2af726eab1"><td class="memItemLeft" align="right" valign="top"><a id="af9234f89d76a82b5ad782d2af726eab1"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>initialise_jeu</b> ()</td></tr>
 <tr class="separator:af9234f89d76a82b5ad782d2af726eab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Contient toutes les fonctions utiles à l'interface graphique principale du jeu (gestion des menus, fonction de chargement des images etc...) </p>
-<dl class="section author"><dt>Auteur</dt><dd>Lazare Maclouf </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>22/01/2022 </dd></dl>
-</div><h2 class="groupheader">Documentation des fonctions</h2>
-<a id="a9700816a3f89a82605fe940245380454"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9700816a3f89a82605fe940245380454">&#9670;&nbsp;</a></span>dessiner_rectangle_plein()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int dessiner_rectangle_plein </td>
-          <td>(</td>
-          <td class="paramtype">SDL_Renderer *&#160;</td>
-          <td class="paramname"><em>rendu</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>code_couleur</em>[4], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>h</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>mode</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>dessine un rectangle plein </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">SDL_Renderer</td><td>*rendu, int code_couleur[4], int x, int y, int h, int w, int mode </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>rien </dd></dl>
-
-</div>
-</div>
-<a id="adbe5d10c97f5909b50ced402920c8378"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbe5d10c97f5909b50ced402920c8378">&#9670;&nbsp;</a></span>dessiner_rectangle_vide()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void dessiner_rectangle_vide </td>
-          <td>(</td>
-          <td class="paramtype">SDL_Renderer *&#160;</td>
-          <td class="paramname"><em>rendu</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>code_couleur</em>[4], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>h</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>mode</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>dessine un rectangle vide </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">SDL_Renderer</td><td>*rendu, int code_couleur[4], int x, int y, int h, int w, int mode </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>rien </dd></dl>
-
-</div>
-</div>
-<a id="aeeed8d057580924798b64772bbb772db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeeed8d057580924798b64772bbb772db">&#9670;&nbsp;</a></span>quit_message()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int quit_message </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>affiche un message qui demande si on veut quitter la partie </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">rien</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>-1 si l'utilisateur clique sur oui, 1 sinon </dd></dl>
-
-</div>
-</div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_43e0a1f539e00dcfa1a6bc4d4fee4fc2.html">home</a></li><li class="navelem"><a class="el" href="dir_23e8ee59b58b3ae3656c962c72a36983.html">attadeurtia</a></li><li class="navelem"><a class="el" href="dir_8de829ee14d056ef3ea9f792ec13061c.html">Documents</a></li><li class="navelem"><a class="el" href="dir_2f7d8d230fc14d68a8fa1048e4938e11.html">Battle-ground</a></li><li class="navelem"><a class="el" href="dir_98c06149c3aed8ce280e74d76d7f9516.html">src</a></li><li class="navelem"><a class="el" href="interface_8c.html">interface.c</a></li>
-    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
 </body>
 </html>

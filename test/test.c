@@ -1,221 +1,142 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define V 5
-#define y_entity 470
-
-typedef struct def{
-	int type_def;
-	char *nom_fichier;
-	int degat;
-}defense;
-
-typedef struct joue{
-	int argent;
-	int pv;
-	char nom[50];
-}joueur;
-
-typedef struct entity{
-	int type_entite;
-	int pv;
-	int degat;
-	int x;
-	int y_barre;
-	int temps; /*valeur qui correspond au nombre d'itérations de boucles à attendre avant qu'il commence à avancer*/
-	char nom_fichier[100];
-	int montant; /*indicateur permettant de savoir si les images sont en phases montantes ou ascendantes*/
-}entite;
-
-typedef struct wave{
- entite *ent;
- struct wave *suiv;
- struct wave *prec;
-}t_wave;
-
-
-typedef struct partc{
-	entite *ent;
-	struct partc *suiv;
-	struct partc *prec;
-}partie_class;
-
-t_wave* creer_vague(){
-   t_wave *vague=malloc(sizeof(t_wave));
-   if(vague==NULL)return  NULL;
-   vague->ent=malloc(sizeof(entite));
-   vague->prec=NULL;
-   vague->suiv=NULL;
-   return vague;
- }
-
-t_wave *suivant_entite_survivant(t_wave *vague){
-    if(vague==NULL)return NULL;
-    if(vague->suiv!=NULL)vague=vague->suiv;
-    return vague;
-  }
-
-t_wave* precedent_entite_survivant(t_wave *vague){
-    if(vague==NULL)return NULL;
-    if(vague->prec!=NULL)vague=vague->prec;
-    return vague;
-  }
-
-t_wave* fin_liste_survivant(t_wave  *vague){
-    if(vague==NULL)return NULL;
-    if(vague->suiv==NULL)return vague;
-    while(vague->suiv!=NULL){
-      vague=suivant_entite_survivant(vague);
-    }
-    return vague;
-  }
-
-t_wave* deb_liste_survivant(t_wave *vague){
-    if(vague==NULL)return NULL;
-    if(vague->prec==NULL)return vague;
-    while(vague->prec!=NULL){
-      vague=precedent_entite_survivant(vague);
-    }
-    return vague;
-  }
-
-  /**
-   * \fn int liste_vide_survivant(t_wave *vague)
-   * \brief indique si la liste est vide ou pas au niveau survivant. Pour le savoir, on se place au début de la liste puis on regarde si le premier élément est null si c'est le cas, la liste est vide
-   * \param wave *vague
-   * \return 1 si hors_liste 0 sinon
-   */
-int liste_vide_survivant(t_wave *vague){
-     vague=deb_liste_survivant(vague);
-     return(vague==NULL);
-   }
- /**
-  * \fn  t_wave* ajouter_entite_survivant(t_wave *vague)
-  * \brief ajoute une entité à la liste et met le pointeur passé en paramètre sur le nouvel élément. Pour ajouter un nouvel element on fait appel à la fonction creer_vague()
-  * \param t_wave *vague
-  * \return pointeur sur t_wave
-  */
-t_wave* ajouter_entite_survivant(t_wave *vague){
-    t_wave *nouv=creer_vague();
-    vague->suiv=nouv;
-    nouv->prec=vague;
-    vague=vague->suiv;
-    vague->suiv=NULL;
-    nouv=NULL;
-    return vague;
-  }
- /**
-  * \fn t_wave* supprimer_entite_survivant(t_wave *vague)
-  * \brief supprime l'entité au niveau du pointeur passé en paramètres. retourne un pointeur sur l'élément précédent si il ya un élement précédent, sinon le suivant, sinon retourne NULL
-  * \param t_wave *vague
-  * \return pointeur sur t_wave (sur l'élément précédent, le suivant ou NULL).
-  */
-t_wave* supprimer_entite_survivant(t_wave *vague){
-      if(vague==NULL)return NULL;
-      t_wave *temp;
-      temp=deb_liste_survivant(vague);
-      if(vague==temp){
-        if(vague->suiv!=NULL){
-          temp=vague;
-          vague=vague->suiv;
-          free(temp->ent);
-          free(temp);
-          temp=NULL;
-          vague->prec=NULL;
-          return vague;
-        }
-        else {
-          free(temp->ent);
-          free(temp);
-          temp=NULL;
-          vague=NULL;
-          return NULL;
-        }
-      }
-      else {
-        if(vague->prec!=NULL&&vague->suiv!=NULL){
-          temp=vague;
-          vague=vague->prec;
-          vague->suiv=temp->suiv;
-          vague->suiv->prec=vague;
-          free(temp->ent);
-          free(temp);
-          temp=NULL;
-          return vague;
-        }
-        else if(vague->prec!=NULL) {
-          temp=vague;
-          vague=vague->prec;
-          vague->suiv=NULL;
-          free(temp->ent);
-          free(temp);
-          temp=NULL;
-          return vague;
-        }
-        else {
-          free(temp->ent);
-          free(temp);
-          vague=NULL;
-          return NULL;
-        }
-      }
-    }
-  /**
-   * \fn  t_wave* vider_liste_survivant(t_wave *vague)
-   * \brief fonction qui sert à vider la liste.
-   * \param t_wave *vague
-   * \return pointeur sur t_wave
-   */
-t_wave* vider_liste_survivant(t_wave *vague){
-       vague=fin_liste_survivant(vague);
-       while(vague!=NULL){
-         vague=supprimer_entite_survivant(vague);
-       }
-       return NULL;
-   }
-
-  void afficher(t_wave *vagues){
-     printf("%s\npv : %d\nmontant : %d\nx : %d\ntemps : %d\nadresse : %p\n",vagues->ent->nom_fichier, vagues->ent->pv, vagues->ent->montant, vagues->ent->x, vagues->ent->temps, vagues);
-   }
-
-t_wave* charger_niveau(char *nom, t_wave *vagues){ //charge le niveau à partir d'un fichier txt
-//  FILE *fichier=fopen(nom, "r");
-//    fclose(fichier);
-  int temps=0;
-  vagues=creer_vague();
-  if(vagues==NULL)return NULL;
-    for(int i=0;i<4;i++){
-    strcpy(vagues->ent->nom_fichier,"data/entities/mumma/mummy1.png");
-    vagues->ent->pv=50;
-    vagues->ent->montant=i;
-    vagues->ent->x=950;
-    vagues->ent->y_barre=450;
-    vagues->ent->temps=temps;
-    temps+=50;
-    afficher(vagues);
-    if(i<3)vagues=ajouter_entite_survivant(vagues);
-  }
-  afficher(vagues);
-  return vagues;
+#include <SDL.h>
+#include <SDL_image.h>
+#include <windows.h>
+//gcc test.c -o test -I include -L lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image
+int charger_image(char *nom, SDL_Renderer *rendu, int x, int y, int option){ //cette fonction sert à charger une image avec tous les formats (grâce à SDL_image) sur le rendu et à présenter le rendu sur la fenetre (le format géré par défaut par la SDL est BMP)
+  SDL_Surface *image = NULL; //pointeur pour une surface qu'on pourra par la suite charger sur le rendu
+  SDL_Texture *texture = NULL; //pointeur sur la texture qu'on va manipuler avec le rendu
+  SDL_Rect rect; //un rectangle sur lequel on pourra coller la surface
+  rect.x=x, rect.y=y;
+  image = IMG_Load(nom); //on commence par charger dans le pointeur sur la surface l'image BMP
+  texture = SDL_CreateTextureFromSurface(rendu, image); //on crée une texture à partir du rendu et de l'image
+  if(image==NULL)return -1; //si l'image n'existe pas on retourne -1
+  SDL_FreeSurface(image); //on libère dans tous les cas la surface car elle a été copiée dans la texture.
+  if(texture==NULL)return -1; //si on arrive pas à créer de texture on retourne -1 aussi
+  if(SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h)!=0)return -1; //on place la texture dans le rectangle qu'on a reçu en paramètre. si on y arrive pas on retourne -1
+  if(SDL_RenderCopy(rendu, texture, NULL, &rect)!=0)return -1; //on copie la texture dans le rendu
+  if(option==1)SDL_RenderPresent(rendu); //on a l'option de présentation du rendu ou non pour éviter les beug d'affichage on superpose tout avant d'afficher
+  SDL_DestroyTexture(texture);
+  texture=NULL, image=NULL;
 }
 
-
-int main(){
-  t_wave *vague=charger_niveau("char *nom", vague);
-  printf("\n\n\n");
-  printf("debut de la liste : \n");
-  vague=deb_liste_survivant(vague);
-  while(vague!=NULL){
-    vague=supprimer_entite_survivant(vague);
-    printf("%p\n", vague);
+int charger_partie_image(char *nom, SDL_Renderer *rendu, int x, int y, int w, int h, int w_image, int h_image, int x_image, int y_image, int option){ //cette fonction sert à charger une image avec tous les formats (grâce à SDL_image) sur le rendu et à présenter le rendu sur la fenetre (le format géré par défaut par la SDL est BMP)
+  SDL_Surface *image = NULL; //pointeur pour une surface qu'on pourra par la suite charger sur le rendu
+  SDL_Texture *texture = NULL; //pointeur sur la texture qu'on va manipuler avec le rendu
+  SDL_Rect rect; //un rectangle sur lequel on pourra coller la surface
+  rect.x=x, rect.y=y, rect.w=w, rect.h=h; //coordonnées et tailles de l'image à afficher
+  SDL_Rect taille;
+  taille.w=w_image, taille.h=h_image, taille.x=x_image, taille.y=y_image; //curseur de sélection pour l'image à afficher
+  image = IMG_Load(nom); //on commence par charger dans le pointeur sur la surface l'image BMP
+  texture = SDL_CreateTextureFromSurface(rendu, image); //on crée une texture à partir du rendu et de l'image
+  if(image==NULL)return -1; //si l'image n'existe pas on retourne -1
+  SDL_FreeSurface(image); //on libère dans tous les cas la surface car elle a été copiée dans la texture.
+  if(texture==NULL)return -1; //si on arrive pas à créer de texture on retourne -1 aussi
+  if(SDL_QueryTexture(texture, NULL, NULL, NULL, NULL)!=0)return -1; //on place la texture dans le rectangle qu'on a reçu en paramètre. si on y arrive pas on retourne -1
+  if(SDL_RenderCopy(rendu, texture, &taille, &rect)!=0)return -1; //on copie la texture dans le rendu
+  if(option==1)SDL_RenderPresent(rendu); //on a l'option de présentation du rendu ou non pour éviter les beug d'affichage on superpose tout avant d'afficher
+  SDL_DestroyTexture(texture);
+}
+void anim_pirate(SDL_Renderer *rendu){
+    int x=300;
+    int x_image=0;
+    int y_image=0;
+    int ind=0;
+    int tour=0;
+    for(;x<1000;x+=2, tour++){
+    SDL_RenderClear(rendu);
+  charger_image("bg1.png", rendu,0,0,0);
+  charger_partie_image("bandit1.png", rendu,x,500,110,110,83,83,x_image,y_image,1);
+  SDL_Delay(50);
+  printf("%d\n", tour);
+    if(x_image+83>249){
+      x_image=0;
+      if(ind){
+        y_image=79;
+        ind=0;
+      }
+      else {
+        y_image=0;
+        ind=1;
+      }
+    }
+    else x_image+=83;
   }
-  vague=supprimer_entite_survivant(vague);
-  vague=suivant_entite_survivant(vague);
-  printf("%p\n", vague);
-  vague=precedent_entite_survivant(vague);
-  printf("%p\n", vague);
-  vague=fin_liste_survivant(vague);
-  printf("%p\n", vague);
-  vague=deb_liste_survivant(vague);
-  printf("%p\n", vague);
+}
+
+void anim_fighter(SDL_Renderer *rendu){
+    int x=300;
+    int x_image=0;
+    int ind=1;
+    int tour=0;
+    int x_var=55;
+    for(;x<1000;x+=2, tour++){
+    SDL_RenderClear(rendu);
+  charger_image("bg1.png", rendu,0,0,0);
+  charger_partie_image("fighter.png", rendu,x,500,x_var,140,x_var,140,x_image,145,1);
+  SDL_Delay(50);
+  printf("%d\n", tour);
+    x_image+=x_var;
+    if(x_image+x_var>1200)x_image=0;
+}
+}
+
+void anim_goblin(SDL_Renderer *rendu){
+    int x=300;
+    int x_image=0;
+    int ind=1;
+    int tour=0;
+    for(;x<1000;x+=2, tour++){
+    SDL_RenderClear(rendu);
+  charger_image("bg1.png", rendu,0,0,0);
+  charger_partie_image("bandit1.png", rendu,x,500,110,110,83,83,x_image,0,1);
+  SDL_Delay(20);
+  printf("%d\n", tour);
+  if(ind==0){
+    if(x_image-83<0)ind=1;
+    else {
+      x_image-=83;
+    }
+  }
+  else if(ind==1){
+    x_image+=83;
+    if(x_image+83>249)ind=0;
+  }
+}
+}
+
+void anim_squeleton(SDL_Renderer *rendu){
+    int x=300;
+    int x_image=0;
+    int ind=1;
+    int tour=0;
+    for(;x<1000;x+=2, tour++){
+    SDL_RenderClear(rendu);
+  charger_image("bg1.png", rendu,0,0,0);
+  charger_partie_image("bandit1.png", rendu,x,500,110,110,83,83,x_image,145,1);
+  SDL_Delay(20);
+  if(ind==0){
+    if(x_image-75<0)ind=1;
+    else {
+      x_image-=75;
+    }
+  }
+  else if(ind==1){
+    x_image+=75;
+    if(x_image+75>1200)ind=0;
+  }
+}
+}
+
+int main(int argc, char **argv){
+  SDL_Window *window = NULL; //pointeur pour la fentre (ici on travaille uniquement avec des pointeurs pour que toutes les variables soient accessibles partout dans le code et modifiables par d'autres fonctions facilement)
+  SDL_Renderer *rendu = NULL; //pointeur rendu
+  window = SDL_CreateWindow("Battle Ground", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1250, 694, SDL_WINDOW_RESIZABLE); //on crée une fenetre de type "window_resizable" car par la suite on pourra agrandir la fenêtre
+  rendu = SDL_CreateRenderer(window, -1, SDL_RENDERER_TARGETTEXTURE); //on crée le rendu
+  anim_pirate(rendu);
+  SDL_DestroyRenderer(rendu); //lorsque l'utilisateur quitte le jeu on détruit le rendu et la fenetre
+  SDL_DestroyWindow(window);
+  SDL_Quit(); //enfin on quitte la SDL.
 }

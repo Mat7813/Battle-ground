@@ -6,17 +6,17 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
-#include "../include/interface.h"
+#include "SDL2/SDL.h"
+#include "SDL2/SDL_image.h"
+#include "interface.h"
 
 /**
  * \fn int main(int argc, char **argv)
  * \brief fonction qui sert à lancer le jeu en faisant appel à la fonction initialise_jeu
  * \param int argc, char **argv
- * \return int
+ * \return 0
  */
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv){
     initialise_jeu();
+    return 0;
 }

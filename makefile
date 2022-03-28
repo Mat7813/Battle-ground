@@ -1,6 +1,7 @@
+#changer le SDL_dir en fonction de la localisation de vos librairies sdl
 CC=gcc
 FLAGS=-g -Wall
-SDL_DIR=${HOME}/Documents/SDL2
+SDL_DIR=${HOME}/SDL2
 SDL_LIB_DIR=${SDL_DIR}/lib
 SDL_INC_DIR=${SDL_DIR}/include
 LIBS=-L${SDL_LIB_DIR} -lSDL2 -lSDL2_image 
@@ -9,7 +10,6 @@ OBJ=obj
 BIN=bin
 SRC=src
 PROG=jeu
-
 DIRS=$(OBJ) $(BIN)
 all: $(DIRS) $(BIN)/$(PROG)
 

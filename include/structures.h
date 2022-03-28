@@ -31,7 +31,10 @@ typedef struct joue{
 	defense *def;
 	int argent;
 	int pv;
+	int create;/*si le joueur est en train de créer ou non des unités (1 ou 0)*/
+	int x_create;
 	char nom[50];
+	char argent_img[15][22]; //correspond aux fichiers contenant les noms des images pour l'argent (0.png, 1.png etc...)
 }joueur;
 
 #endif
