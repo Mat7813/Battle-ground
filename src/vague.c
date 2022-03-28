@@ -212,16 +212,16 @@ void met_a_jour_images_separees(entite *ent){
       ent->nom_fichier[25]++;
       if(!fichier_existe(ent->nom_fichier))ent->nom_fichier[25]--;
       }
-    if(ent->nom_fichier[25]==57&&ent->montant){
+    else if(ent->nom_fichier[25]==57&&ent->montant){
       ent->nom_fichier[25]--;
       if(!fichier_existe(ent->nom_fichier))ent->nom_fichier[25]++;
       ent->montant=0;
       }
-    if(ent->nom_fichier[25]>49&&!ent->montant){
+    else if(ent->nom_fichier[25]>49&&!ent->montant){
       ent->nom_fichier[25]--;
       if(!fichier_existe(ent->nom_fichier))ent->nom_fichier[25]++;
       }
-    if(ent->nom_fichier[25]==49&&!ent->montant){
+    else if(ent->nom_fichier[25]==49&&!ent->montant){
       ent->nom_fichier[25]++;
       if(!fichier_existe(ent->nom_fichier))ent->nom_fichier[25]--;
       ent->montant=1;
@@ -246,7 +246,7 @@ void met_a_jour_images_sprite(entite *ent){
       }
       else if(ent->nom_fichier_attaque[0]>0)ent->nom_fichier_attaque[0]--;
     }
-    if(!ent->nom_fichier_attaque[0]&&ent->montant!=2){
+    else if(!ent->nom_fichier_attaque[0]&&ent->montant!=2){
       ent->nom_fichier_attaque[0]=3;
     if(ent->attaque){
       if(ent->y_image>0)ent->y_image=0;
@@ -258,11 +258,11 @@ void met_a_jour_images_sprite(entite *ent){
       ent->x_image=0;
     }
     }
-    if(ent->montant==2){
+    else if(ent->montant==2){
       ent->y_image=0;
       ent->x_image=ent->h_image*ent->nb_pos;
     }
-    if(ent->nom_fichier_attaque[0]>0)ent->nom_fichier_attaque[0]--;
+    else if(ent->nom_fichier_attaque[0]>0)ent->nom_fichier_attaque[0]--;
   }
 }
 
