@@ -62,7 +62,7 @@ void* audio_initialise(void *v)
    Mix_Music *musique; //Création du pointeur de type Mix_Music
    //Mix_Chunk *musique = NULL;
    char music_file[200];
-   if(nb%2==0)sprintf(music_file, "%s%s", AUDIO_PATH, "mainmusic2.wav");
+   if(nb%2==0)sprintf(music_file, "%s%s", AUDIO_PATH, "title_theme.wav");
    else sprintf(music_file, "%s%s", AUDIO_PATH, "mainmusic.wav");
    fprintf(stderr, "Loading music %s\n", music_file);
    musique = Mix_LoadMUS(music_file); //Chargement de la musique
