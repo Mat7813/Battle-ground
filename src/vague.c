@@ -262,7 +262,7 @@ void met_a_jour_images_sprite(entite *ent){
       ent->y_image=0;
       ent->x_image=ent->h_image*ent->nb_pos;
     }
-    else if(ent->nom_fichier_attaque[0]>0)ent->nom_fichier_attaque[0]--;
+    if(ent->nom_fichier_attaque[0]>0)ent->nom_fichier_attaque[0]--;
   }
 }
 
