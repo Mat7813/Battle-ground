@@ -1,28 +1,25 @@
-.DS_Store
+# résultat de la compilation
+bin/jeu
+doc/html
+doc/latex
+obj/
 
+#executables
+jeu
 exe
 
-./bin/jeu
-
-./doc/html
-./doc/latex
-
-.vscode
-
-jeu
-
-./obj/
-
+#fichier autotmatiquement géré parasites
 .vscode/
+.vscode
+.DS_Store
 
 #modele de https://github.com/github/gitignore/blob/main/C.gitignore
-
 
 # Prerequisites
 *.d
 
 # Object files
-#*.o
+*.o
 *.ko
 *.obj
 *.elf
