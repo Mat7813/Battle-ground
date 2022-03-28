@@ -1,0 +1,39 @@
+
+I) Intro
+
+Dans le cadre du module de projet, en deuxieme annee de
+licence Informatique nous devions réaliser un jeu. Plutôt que de choisir un des sujet proposés (mots-mêlés, othello...). Nous avons décidé
+de créé notre propre jeu (nommé "Battle Ground") avec nos propres règles en s'inspirant de jeux déjà existant.
+En l'occurrence ici, Age of war et Plant vs zombies 2. Tout deux sur mobiles,
+ils ont la particularité d'avoir un principe en commun. En effet, le joueur doit défendre sa base soit en y installant de plantes (Plants vs zombies) 
+ou en installant des tourelles de défenses ainsi qu'en créant des unités (Age of war).
+Age of war fonctionne avec un seul mode de jeu (1v1), ou le joueur est face à une base ennemie, c'est-à-dire l'ordinateur, qui accède 
+aux mêmes fonctionnalités que le joueur (possibilité de créer les même entités et les mêmes tourelles).
+Plants vs zombies quant à lui fonctionne avec un mode jeu de survie ou le joueur doit survivre à des vagues de zombies qui arrivent sur sa base.
+Le jeu que nous avons créé reprend les deux concepts (le concept de vague ainsi que le mode 1v1). 
+Le joueur a donc une base à défendre avec la possibilité de créer une tourelle et des unités comme dans Age of War. Cependant,
+l'ordinateur en face de lui ne joue que des vagues comme dans Plants vs Zombies.
+Notre équipe est composée de quatres personnes (Matthieu Brière, Lazare Maclouf, Valentin Charretier et Geoffrey Posé).
+Quelques contraintes devaient être respectées telles que l'utilisation de certains outils comme doxygen (générer la documentation du code) ou
+gdb (débuguer le code) le tout sur un dépôt Github. On trouve sur ce dernier, la totalité du code source, les librairies, l'executable ainsi
+que toute la documentation.
+Nous verrons comment le jeu a été conçu, c'est-à-dire les différentes étapes qu'il a fallut mettre en place pour faire le jeu "Battle Ground".
+En premier lieu nous aborderont la conception du jeu, puis nous parleront des différents outils utilisés ainsi que de la gestion du projet, par la suite
+nous verrons toute la partie développement et enfin nous finirons par les resultats obtenus ainsi qu'un bilan de ce qui a fonctionné et ce qui n'a pas
+ou moins bien fonctionné.
+
+
+Pour concevoir le jeu, Nous avons d'abord pensé à plants vs zombies et age of war. Un style de jeu
+basé à la fois sur la défense et l'attaque (et étants tous les deux des jeux de stratégie). Nous avons donc pensé à fusionner les 2 jeux
+pour en faire un qui réunit à la fois le mode survivant de plants vs zombies et le style de jeu de age of war en 2D avec une seule ligne d'attaque/de défense.
+Ce jeu est inspiré de deux jeux sur mobile, Age of war et Plant versus zombie II :
+- jeu de stratégie
+- joueur face à l’ordinateur sur un plan 2D
+- le joueur doit gérer une base qui est attaquée par des ennemis 
+- il dispose de différents moyens de défense, entités mobiles, tourelles, face aux vagues d’entités ennemies
+- dans le mode survie, le joueur franchit des niveaux avec un arrière plan différent et une difficulté croissante
+
+Ce principe de jeu se traduit en fonctions disponibles pour le joueur
+- créer différentes unités de défense mobiles
+- créer une tourelles
+- mettre en pause la partie / reprendre la partie
