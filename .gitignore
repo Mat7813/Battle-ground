@@ -4,8 +4,8 @@ exe
 
 ./bin/jeu
 
-./doc/html
-./doc/latex
+./doc/html/
+./doc/latex/
 
 .vscode
 
