@@ -1,5 +1,5 @@
 
-I) Intro
+1) Intro
 
 Dans le cadre du module de projet, en deuxieme annee de
 licence Informatique nous devions réaliser un jeu. Plutôt que de choisir un des sujet proposés (mots-mêlés, othello...). Nous avons décidé
@@ -21,6 +21,23 @@ Nous verrons comment le jeu a été conçu, c'est-à-dire les différentes étap
 En premier lieu nous aborderont la conception du jeu, puis nous parleront des différents outils utilisés ainsi que de la gestion du projet, par la suite
 nous verrons toute la partie développement et enfin nous finirons par les resultats obtenus ainsi qu'un bilan de ce qui a fonctionné et ce qui n'a pas
 ou moins bien fonctionné.
+
+2) Conception du jeu
+
+2.1) Règles du jeu
+
+Plusieurs modes de jeu ont été choisis :
+-Le mode "survivant" : Comme son nom l'indique, si le joueur lance une partie en mode survivant, il devra se défendre face à une suite ce vagues
+d'entités. Le joueur a perdu si il reste des entités et que le joueur n'a plus de vie. A l'inverse, le joueur gagne si il lui reste des 
+points de vie et qu'il n'y a plus d'entités.
+-Le mode "Classique" : Initialement, il devait s'agir d'un mode ou le joueur joue contre l'ordinateur. Cependant, par manque de temps, on a décidé 
+d'en faire un mode de 1 contre 1 sur le même ordinateur ou les deux joueurs jouent avec la même souris.
+
+Options du joueur:
+-Créer des unités :
+-mettre en pause :
+-quitter la partie :
+-
 
 
 Pour concevoir le jeu, Nous avons d'abord pensé à plants vs zombies et age of war. Un style de jeu
