@@ -3,7 +3,7 @@
 Linux, Windows et MacOS
 
 ## prérequis
-SDL_image
+SDL_image/SDL_ttf/SDL_Mixer
 
 ## GANTT
 
