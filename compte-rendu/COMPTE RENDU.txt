@@ -33,24 +33,141 @@ points de vie et qu'il n'y a plus d'entités.
 -Le mode "Classique" : Initialement, il devait s'agir d'un mode ou le joueur joue contre l'ordinateur. Cependant, par manque de temps, on a décidé 
 d'en faire un mode de 1 contre 1 sur le même ordinateur ou les deux joueurs jouent avec la même souris.
 
-Options du joueur:
--Créer des unités :
--mettre en pause :
--quitter la partie :
--
+
+2.2) Options du joueur durant une partie:
+-Créer des unités : En effet, le joueur a la possibilité de créer des unités qui vont défendre la base et attaquer les entités ennemies.
+En contre partie le joueur dépense une certaine somme d'argent pour pouvoir en créer.
+
+-Créer une tourelle : Le joueur peut non seulement créer des unités mais aussi une tourelle qui, une fois installée sur la base,
+se met à tirer sur les entités ennemies qui s'approcheraient un peu trop près. Lorsque le niveau est fini (en mode survivant),
+la tourelle, si elle a été installée, est supprimée. 
+
+-Mettre en pause : Le joueur peut mettre en pause et reprendre quand il le souhaite. Il lui suffit d'appuyer sur le bouton pause en jaune en haut au milieu de l'écran
+
+-Quitter la partie : Le joueur peut quitter la partie ce qui n'est pas une fonctionnalité en soit. Cependant, lorsqu'il souhaite
+quitter la partie, un message d'alerte s'affiche à l'écran et le joueur est informé que la partie ne sera pas sauvegardé.
+
+2.3) Jouabilité et fonctionnalités du jeu
+
+En premier lieu, lors du lancement du jeu, un menu s'affiche à l'écran avec comme options "jouer", "paramètres", "quitter".
+<images>
+Lorsque le joueur clique sur quitter, le jeu se ferme instantanément. Lorsqu'il clique sur jouer, un autre menu s'afficher alors 
+avec les options suivantes : "survie", "classique", "retour". survie lance une partie en mode survie, retour fait revenir le joueur 
+au menu principal et classique renvoie vers un autre menu demandant de choisir la difficulté avant de lancer la partie.
+<images>
+Lorsqu'une partie est lancée, on a une palette de boutons en haut de l'écran correspondant aux unités créables, à la tourelle
+que l'on peut installer, à la fonctionnalité retour au menu et enfin à la fonctionnalité mettre en pause.
+<images>
+Il y a également en haut à gauche la somme totale d'argent du joueur durant la partie. Ce dernier commence la partie avec 1000
+dollars et collecte 250 dollars par unités tuées. Il peut ensuite créer des unités en payant le prix affiché en dessous de chaque case
+correspondant à une unité. On s'attend à avoir une fluidité plus ou moins correcte. La marge d'erreur dépendant du système d'exploitation
+et surtout du processeur (globalement un peu plus fluide sur windows que sur linux). 
+
+3) Outils utilisés
+Différents outils ont été utilisés lors de la création du jeu:
+-gcc
+-gdb
+-doxygen
+-discord
+-github
+-atom/visual studio code
+-valgrind
+
+4) Gestion du projet
+4.1) Organisation des tâches
+
+Geoffrey Posé s'est occupé de générer le doxygen final à l'aide du l'outil doxygen ainsi qu'à organiser et créer une arborescence lisible,
+claire et structurée du code. Il s'est occupé de corriger certains warnings dans le code au fur et à mesure et a créé la page google sur laquelle nous avons pu faire notre diagramme de Gantt.
+Il a également produit un mode de jeu en 1v1 sur le même ordinateur en réutilisant les primitives du mode survivant.
+
+Matthieu Brière a créé le git sur lequel le jeu a été déposé avec tous les fichiers qu'il comprend. Il s'est occupé de trouver et modifier certains sprites comme pour l'entité nommée "fighter".
+Il a aussi codé le fichier audio.c grâce auquel la musique du jeu peut fonctionner à l'aide de la librairie SDL mixer.
+
+Lazare Maclouf a codé les autres fichiers c excepté le fichier audio.c, incluant les primitives grâces auquelles le jeu fonctionne,
+l'interface graphique, la gestion des menus, les animations des entités, le mode survivant, les structures (joueur, entite, wave, msg, defense etc..), la gestion de l'environnemenent, 
+du comportement des entités, de leur cohérence de déplacement etc.. Il a trouvé, modifié et créé les images des décors, des entités bandit, mumma et voisin ainsi que pour l'argent,
+les cadres, les menus et les boutons. Il a également créé les images contenant des polices d'écritures 3D (les images comme survivant, vous n'avez pas assez d'argent etc..).
+
+Valentin Charretier a travaillé sur les socket, afin de créer un mode multijoueur. Offrant ainsi la possibilité de jouer en 1v1 avec deux
+ordinateurs distincts.
+
+5) Développement
+Le jeu a été codé avec les librairies SDL, SDL_image ainsi que SDL_mixer pour l'audio. De nombreuses
+
+5.1) Structures utilisées
+Plusieurs structures on été codées pour le bon fonctionnement du jeu. Les structures entite, wave et joueur par exemple
+sont essentielles lors du déroulement d'une partie. En effet, une wave est une liste chainée d'entité comportant chacune
+de nombreux paramètres. Parmi eux, on peut retrouver la valeur de l'abcisse de la barre, de l'ordonnée de la barre, de l'abcisse de l'entité, 
+de l'ordonnée de l'entité, ses points de vie, son nombre de dégâts, une chaine de caractère correspondant à l'image de l'entité pour l'animer etc..
+Ces structures sont gérées grâces à des primitives, contenues dans le fichier vague.c
+Toutes les fonctions de création d'une structure entité ou vague, de déplacement dans la liste de chainée ou encore de suppression
+se trouve dans ce fichier.
+La structure joueur par exemple, contient les informations relatives au joueur comme son argent, ses points de vie etc..
+Certaines structures peuvent paraître très longues (avec beaucoup de paramètres). Mais cela va se justifier aves les points qui suivent.
+
+5.2) L'interface graphique avec SDL et SDL_image
+
+La bibliothèque SDL ne peut, par défaut que charger sur le rendu et afficher sur la fenêtre des images au format bmp.
+Pour remedier à cela et afficher des images avec tout type d'extension, il a fallu utiliser la librairie SDL_image.
+Toutes les fonctions relatives à l'interface graphique (affichage des menus, des images etc..) se trouvent dans le fichier interface.c
+Elles sont utilisées dans le reste du code lors de la gestion d'une partie par exemple.
+Plutôt que de charger un tableau de textures en variable globale dans tout le jeu. Des fonctions indépendantes se chargent
+de toutes les étapes pour afficher une image à l'écran. De la création de la texture, jusqu'à la copie sur le rendu.
+
+5.3) Animations des unités et des tirs
+
+5.3.1) Technique d'animation des entités
+
+Deux techniques d'animation oont été utilisées pour animer les entités. La première consiste à charger successivement plusieurs images différentes
+sur lesquelles on a une position différente à chaque fois. La deuxième consiste à charger une partie d'une image comportanttoutes les positions successives
+d'une entité ou d'un objet (sprite) et à se déplacer dans le fichier pour charger les
+différentes positions de l'entité. Etant tombé sur des entités avec des images différentes, le plus simple a été d'incorporer les deux méthodes
+d'animations au jeu.
+
+5.3.2) Fonctionnement des animations globales
+
+La SDL fonctionne avec un seul et unique rendu pour une fenêtre sur lequel on affiche ce qu'on veut. Ainsi, 
+si l'on souhaite afficher un décors avec une unité bougeant dessus, il suffit simplement de superposer le décors et l'unité 
+et donc les charger dans le bon ordre. Pour la faire bouger, il faut à chaque fois tout supprimer et tout recharger. 
+Plusieurs problèmes on été rencontrés:
+-Un clignotement de certaines parties des images une fois affichées à l'écran (du à une mauvaise gestion de l'ordre d'affichage)
+-Une synchronisation dans un premier temps de l'animation des entités lorsqu'elles sont plusieurs à se déplacer en même temps sur l'écran
+
+Pour régler ces problèmes, les structures dont on a parlé plus haut on étés mises en place. 
+Concrètement avant d'afficher le rendu final à l'écran, dans la fonction gérant le partie (pour le mode survivant par exemple),
+on parcours toute la liste chainée d'entité, pour laquelle chaque position est enregistrée et mise à jour. si une entité est créée
+après une autre, son animation ne sera pas la même que la précédente. Une fois parcouru toute les listes chainées et charger les images successivement
+sur le rendu, puis en dernier on charge les images relatives au bouton, à l'affichage en haut (cadre dans lequel il ya les unités, le bouton pause, retour etc..).
+Cela permet ainsi une indépendance complète entre les entités
+
+5.3.3) Animation des tirs
+
+Comme pour l'animation des entités, une structure tir a été définie pour pouvoir 
+animer indépendamment le tir des autres éléments du décors avec le même procédé que pour les entités, à la différence qu'il n'y a qu'un seul tir à la fois.
+
+5.4) Gestion de l'environnement et des unités
+
+De nombreux éléments pour avoir un jeu cohérent et fonctionnel ont été à prendre en considération et à faire. La vitesse de déplacement des entités,
+des tirs, l'arrêt d'une entité lorsqu'elle est devant un obstacle ou une autre entité... Pour se faire, il a fallu faire des fonctions verifiant pour chaque
+entité (en parcourant à chaque fois la liste chainée d'entité complètement) leur position relative aux autres entités ainsi que leur position absolue afin
+d'éviter qu'une entité ne continue à avancer et par conséquent sortir de l'écran ou passer à travers une autre entité. Toujours dans les structures des indicateurs
+de type int ont été mis en place afin de pouvoir ordonner l'arrêt d'une entité ou son mouvement lors de l'utilisation des fonctions d'affichages.
+Il existe deux types d'entités au sein de Battle Ground : les entités courtes et longues portées.
+<images>
+Lors de la gestion des lignes d'entités, il faut prendre en considération la distance relative aux autres unités pour savoir si elle peut avancer ou si elle doit
+s'arrêter mais aussi pour savoir quand déclencher les attaques. Pour pouvoir ainsi faire jouer ces deux types d'entité en harmonie, il a fallu
+que les fonctions de gestion de l'environnement prennent en compte le type pour chaque entité et ainsi agir en conséquence (toujours avec un paramètre spécifique relatif dans la structure).
+Ainsi, Une bonne jouabilité et un jeu  va avec un bon respect des lois physiques du jeu, un dynamisme des objets animés ainsi qu'une cohérence dans leur comportement (arrêt des entités face à un obstacle,
+reprise de déplacement lorsque la voie est libre, attaque lorsqu'une entité ou une base est à portée de main...).
 
 
-Pour concevoir le jeu, Nous avons d'abord pensé à plants vs zombies et age of war. Un style de jeu
-basé à la fois sur la défense et l'attaque (et étants tous les deux des jeux de stratégie). Nous avons donc pensé à fusionner les 2 jeux
-pour en faire un qui réunit à la fois le mode survivant de plants vs zombies et le style de jeu de age of war en 2D avec une seule ligne d'attaque/de défense.
-Ce jeu est inspiré de deux jeux sur mobile, Age of war et Plant versus zombie II :
-- jeu de stratégie
-- joueur face à l’ordinateur sur un plan 2D
-- le joueur doit gérer une base qui est attaquée par des ennemis 
-- il dispose de différents moyens de défense, entités mobiles, tourelles, face aux vagues d’entités ennemies
-- dans le mode survie, le joueur franchit des niveaux avec un arrière plan différent et une difficulté croissante
+5.5) Structure des fichiers et des fonctions principales
 
-Ce principe de jeu se traduit en fonctions disponibles pour le joueur
-- créer différentes unités de défense mobiles
-- créer une tourelles
-- mettre en pause la partie / reprendre la partie
+Le code source du jeu Battle Ground est composé de 9 fichiers C ainsi que 9 fichiers H.
+<image inclusion fichier>
+Le schéma d'inclusion des fichiers entre eux 
+
+7) Bilan :
+Optimisation niveau chargement des images et de la gestion du temps.
+L'équilibrage et le potentitel d'action limité
+Le mode classique n'aura finalement pas été fait par manque de temps
