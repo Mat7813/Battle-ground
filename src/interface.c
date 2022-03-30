@@ -237,6 +237,9 @@ int menu_jouer_difficulte(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *ev
     }
     else if((event->motion.x>=menu_x&&event->motion.x<=530)&&(event->motion.y>=220&&event->motion.y<=270)){ //pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
       charger_image("data/menu/jouer/moyenover.png", rendu,menu_x,220, 1);
+            if(event->type==SDL_MOUSEBUTTONDOWN){
+        if(jeu_survivant(window, rendu,event)==-1)return -1; //si la fonction retourne -1 c'est que l'utilisateur a appuyé sur la croix rouge. on retourne donc -1
+           
       if(mode==1)if(jeu_classique(window, rendu, event, 2)==-1)return -1;
     }
     else if((event->motion.x>=menu_x&&event->motion.x<=530)&&(event->motion.y>=290&&event->motion.y<=340)){ //pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
