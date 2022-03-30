@@ -375,16 +375,16 @@ void menu(SDL_Window *window, SDL_Renderer *rendu){
             programme = SDL_FALSE;
         }
           if((event.motion.x>=menu_x&&event.motion.x<=530)&&(event.motion.y>=150&&event.motion.y<=200)){ //pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
-            charger_image("data/menu/jouerover.bmp", rendu,menu_x,150,1);
+            charger_image("data/menu/jouerover.png", rendu,menu_x,150,1);
             if(event.type==SDL_MOUSEBUTTONDOWN){
               if(sous_menu_jouer(window, rendu, &event)==-1)programme = SDL_FALSE; //on quitte si la fonction retourne -1
             }
           }
           else if((event.motion.x>=menu_x&&event.motion.x<=730)&&(event.motion.y>=250&&event.motion.y<=300)){
-            charger_image("data/menu/parametreover.bmp", rendu, menu_x,250,1);
+            charger_image("data/menu/parametreover.png", rendu, menu_x,250,1);
           }
           else if((event.motion.x>=menu_x&&event.motion.x<=530)&&(event.motion.y>=350&&event.motion.y<=400)){
-             charger_image("data/menu/quitterover.bmp", rendu,menu_x,350,1);
+             charger_image("data/menu/quitterover.png", rendu,menu_x,350,1);
              if(event.type==SDL_MOUSEBUTTONDOWN){
                programme = SDL_FALSE;
              }
@@ -394,9 +394,9 @@ void menu(SDL_Window *window, SDL_Renderer *rendu){
              charger_image("data/backgrounds/bgmenu1.png", rendu,0,0,1);
            }
         else { //lorsque l'utilisateur ne fait rien on recharge les boutons par défaut
-          charger_image("data/menu/jouer.bmp", rendu,menu_x,150,1);
-          charger_image("data/menu/parametres.bmp", rendu,menu_x,250,1);
-          charger_image("data/menu/quitter.bmp", rendu,menu_x,350,1);
+          charger_image("data/menu/jouer.png", rendu,menu_x,150,1);
+          charger_image("data/menu/parametres.png", rendu,menu_x,250,1);
+          charger_image("data/menu/quitter.png", rendu,menu_x,350,1);
         }
       }
     }
