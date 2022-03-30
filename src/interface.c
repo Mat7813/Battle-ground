@@ -17,7 +17,7 @@
 
 //pthread_t audio; /*thread pour la gestion de l'audio*/
 
-#define menu_x 350
+#define menu_x 400
 /**
  * \fn void convert_argent(joueur *p)
  * \brief Fonction qui sert à savoir quels chiffres composent le budget du joueur pour les afficher à l'écran (pour 1000 par exemple on aura 1.png, 0.png, 0.png, 0.png)
