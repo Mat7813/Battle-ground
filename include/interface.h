@@ -11,6 +11,7 @@ int charger_image(char *nom, SDL_Renderer *rendu, int x, int y, int option);
 int charger_partie_image(char *nom, SDL_Renderer *rendu, int x, int y, int w, int h, int w_image, int h_image, int x_image, int y_image, int option);
 void demarrage(SDL_Renderer *rendu);
 int menu_jouer_difficulte(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, int mode);
+int select_multi(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event);
 int sous_menu_jouer(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event);
 void menu(SDL_Window *window, SDL_Renderer *rendu);
 int initialise_jeu();
