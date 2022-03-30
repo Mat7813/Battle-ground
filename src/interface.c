@@ -11,6 +11,8 @@
 #include <pthread.h>
 #include "audio.h"
 #include "jeu.h"
+#include "hote.h"
+#include "client.h"
 #include "structures.h"
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
