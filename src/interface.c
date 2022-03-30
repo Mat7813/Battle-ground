@@ -284,11 +284,10 @@ int select_multi(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event){
     }
     else if((event->motion.x>=menu_x&&event->motion.x<=530)&&(event->motion.y>=285&&event->motion.y<=345)){ //pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
       charger_image("data/menu/invitover.png", rendu,menu_x,285,1);
-      if(event->type==SDL_MOUSEBUTTONDOWN){
-         if(menu_jouer_difficulte(window, rendu, event, 1)==-1)return -1;
-          else charger_image("data/backgrounds/bgmenu1.bmp", rendu,0,0,1);
+        if(event->type==SDL_MOUSEBUTTONDOWN){
+           if(jeu_survivant(window, rendu,event)==-1)return -1; //si la fonction retourne -1 c'est que l'utilisateur a appuyé sur la croix rouge. on retourne donc -1
+           else charger_image("data/backgrounds/bgmenu1.bmp", rendu,0,0,1);
         }
-      }
     }
     else if((event->motion.x>=menu_x&&event->motion.x<=530)&&(event->motion.y>=375&&event->motion.y<=425)){ //pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
       charger_image("data/menu/jouer/retourover.png", rendu,menu_x,375,1);
@@ -299,7 +298,7 @@ int select_multi(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event){
     }
     else {
       charger_image("data/menu/hote.png", rendu,menu_x,200,1);
-      charger_image("data/menu/invit.png", rendu,menu_x,285,1);
+      charger_image("data/menu/invit.png", rendu,menu_x,225,1);
       charger_image("data/menu/jouer/retour.png", rendu,menu_x,375,1);
     }
   }
