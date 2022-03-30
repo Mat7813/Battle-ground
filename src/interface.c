@@ -298,7 +298,7 @@ int select_multi(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event){
     }
     else {
       charger_image("data/menu/hote.png", rendu,menu_x,200,1);
-      charger_image("data/menu/invit.png", rendu,menu_x,225,1);
+      charger_image("data/menu/invit.png", rendu,menu_x,285,1);
       charger_image("data/menu/jouer/retour.png", rendu,menu_x,375,1);
     }
   }
