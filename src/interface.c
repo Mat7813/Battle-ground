@@ -286,6 +286,8 @@ int select_multi(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event){
       charger_image("data/menu/invitover.png", rendu,menu_x,285,1);
       if(event->type==SDL_MOUSEBUTTONDOWN){
          if(menu_jouer_difficulte(window, rendu, event, 1)==-1)return -1;
+          else charger_image("data/backgrounds/bgmenu1.bmp", rendu,0,0,1);
+        }
       }
     }
     else if((event->motion.x>=menu_x&&event->motion.x<=530)&&(event->motion.y>=375&&event->motion.y<=425)){ //pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
