@@ -16,10 +16,10 @@
 #define AUDIO_PATH "data/sounds/"
 
 /**
-* \fn void print_init_flags(int flags)
-* \brief fonction qui affiche le type de fichier audio (mp3, wav, ogg etc...)
-* \param int flags
-*/
+ * \fn void print_init_flags(int flags)
+ * \brief fonction qui affiche le type de fichier audio (mp3, wav, ogg etc...)
+ * \param int flags
+ */
 /*
 void print_init_flags(int flags)
 {
@@ -34,11 +34,11 @@ void print_init_flags(int flags)
 } */
 
 /**
-* \fn void* audio_initialise(void *v)
-* \brief fonction qui lance la musique à l'aide de la librairie SDL_mixer
-* \param void *v
-* \return void *
-*/
+ * \fn void* audio_initialise(void *v)
+ * \brief fonction qui lance la musique à l'aide de la librairie SDL_mixer
+ * \param void *v
+ * \return void *
+ */
 /*
 void* audio_initialise(void *v)
 {
@@ -71,7 +71,7 @@ void* audio_initialise(void *v)
    printf("Music type: %s\n",
                                 type==MUS_NONE?"MUS_NONE":
                                 type==MUS_CMD?"MUS_CMD":
-                                type==MUS_WAV?"MUS_WAV": 
+                                type==MUS_WAV?"MUS_WAV":
                                 type==MUS_MOD?"MUS_MOD":
                                 type==MUS_MID?"MUS_MID":
                                 type==MUS_OGG?"MUS_OGG":
