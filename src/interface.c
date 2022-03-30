@@ -375,19 +375,19 @@ void menu(SDL_Window *window, SDL_Renderer *rendu){
         if(event.type==SDL_QUIT){ //lorsque l'utilisateur appuie sur la croix rouge de la fenetre
             programme = SDL_FALSE;
         }
-          if((event.motion.x>=menu_x&&event.motion.x<=550)&&(event.motion.y>=150&&event.motion.y<=200)){ //pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
+          if((event.motion.x>=menu_x&&event.motion.x<=555)&&(event.motion.y>=150&&event.motion.y<=200)){ //pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
             charger_image("data/menu/jouerover.png", rendu,menu_x,150,1);
             if(event.type==SDL_MOUSEBUTTONDOWN){
               if(sous_menu_jouer(window, rendu, &event)==-1)programme = SDL_FALSE; //on quitte si la fonction retourne -1
             }
           }
-          else if((event.motion.x>=menu_x&&event.motion.x<=550)&&(event.motion.y>=250&&event.motion.y<=300)){
+          else if((event.motion.x>=menu_x&&event.motion.x<=555)&&(event.motion.y>=250&&event.motion.y<=300)){
             charger_image("data/menu/parametresover.png", rendu, menu_x,250,1);
               if(event.type==SDL_MOUSEBUTTONDOWN){
                 if(sous_menu_jouer(window, rendu, &event)==-1)programme = SDL_FALSE; //on quitte si la fonction retourne -1
             }
           }
-          else if((event.motion.x>=menu_x&&event.motion.x<=550)&&(event.motion.y>=350&&event.motion.y<=400)){
+          else if((event.motion.x>=menu_x&&event.motion.x<=555)&&(event.motion.y>=350&&event.motion.y<=400)){
              charger_image("data/menu/quitterover.png", rendu,menu_x,350,1);
              if(event.type==SDL_MOUSEBUTTONDOWN){
                programme = SDL_FALSE;
