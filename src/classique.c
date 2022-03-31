@@ -28,8 +28,6 @@
 #define y_tir 475
 #define x_tir 165
 
-
-
 /**
  * \fn void gestion_environnement(t_wave *vague_ennemie, t_wave *vague_joueur, joueur *player, SDL_Renderer *rendu)
  * \brief fonction qui sert à gérer l'environnement et ses interactions avec les entités ainsi que l'interaction des entités elles-mêmes. Une entité s'arrete lorsqu'elle se trouve face à un ennemi en face d'elle et l'attaque. Les autres qui suivent derrière s'arrêtent aussi. Il s'agit de paramétrer et de configurer les limites physiques de l'environnement ainsi que leur conditions.
@@ -60,10 +58,9 @@ void gestion_environnement_classique(t_wave *vague_ennemie, t_wave *vague_joueur
   else if (player->def != NULL)
     player->def->temps = 0;
 
-
   if (vague_joueur != NULL)
   {
-    if (vague_joueur->ent->x/*  >= taille_fenetre- 400 */)
+    if (vague_joueur->ent->x /*  >= taille_fenetre- 400 */)
     {
       if (player2->def != NULL && player2->t == NULL)
       {
@@ -90,14 +87,12 @@ void gestion_environnement_classique(t_wave *vague_ennemie, t_wave *vague_joueur
 
   animation_tir_gauche(rendu, player2);
 
-
   player->t = etat_tir(player->t); /*on met à jour le tir si besoin*/
   player->def = etat_defense(player->def);
 
   player2->t = etat_tir(player2->t); /*on met à jour le tir si besoin*/
   player2->def = etat_defense(player2->def);
-}  
-
+}
 
 /**
  * \fn void afficher_survivant(SDL_Renderer *rendu, joueur *player, int pause)
@@ -117,7 +112,7 @@ void afficher_survivant_classique(SDL_Renderer *rendu, joueur *player, int pause
   }
   else
   {
-    dessiner_rectangle_plein(rendu, code_contour_barre_vie,  taille_fenetre - 620, 10, 50, 20, 0);
+    dessiner_rectangle_plein(rendu, code_contour_barre_vie, taille_fenetre - 620, 10, 50, 20, 0);
     dessiner_rectangle_plein(rendu, code_contour_barre_vie, taille_fenetre - 650, 10, 50, 20, 0);
   }
   if (player->create)
@@ -127,7 +122,6 @@ void afficher_survivant_classique(SDL_Renderer *rendu, joueur *player, int pause
     dessiner_rectangle_plein(rendu, code_interieur_creation, taille_fenetre - 221, 101, 10, player->x_create, 0);
   }
 }
-
 
 /**
  * \fn t_wave *ajouter_voisin(joueur *player, t_wave *vague, message *msg)
@@ -248,7 +242,7 @@ t_wave *ajouter_bandit_classique(joueur *player, t_wave *vague, message *msg)
       strcpy(vague->ent->nom_fichier_attaque, "NULL");
       vague->ent->pv = 50;
       vague->ent->montant = 1;
-      vague->ent->x = taille_fenetre -110;
+      vague->ent->x = taille_fenetre - 110;
       vague->ent->y = y_entity;
       vague->ent->attaque = 1;
       vague->ent->x_barre = taille_fenetre - 130;
@@ -489,18 +483,14 @@ int etat_partie_classique(t_wave *vague, joueur *player, joueur *player2)
   if (player != NULL && player2 != NULL)
   {
     if (player->pv < 0)
-        return 2; //gagné
+      return 2; // gagné
     else if (player2->pv < 0)
-      return -1; //perdu
+      return -1; // perdu
     else
       return 0;
   }
   return 1; // si on est pas rentré
 }
-
-
-
-
 
 /**
  * \fn int demarrer_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, char lvl)
@@ -712,7 +702,6 @@ int demarrer_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
 
     met_a_jour_img_argent(player, rendu);
     met_a_jour_img_argent(player2, rendu);
-
 
     afficher_survivant(rendu, player, pause);
     afficher_survivant_classique(rendu, player2, pause);
