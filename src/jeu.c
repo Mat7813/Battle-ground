@@ -17,7 +17,7 @@
 
 /**
  * \fn int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, int difficulte)
- * \brief lance une partie du jeu en mode classique (gère tout l'affichage, les évènements etc...)
+ * \brief lance une partie du jeu en mode classique (le mode 1vs1) (gère tout l'affichage, les évènements etc...)
  * \param SDL_Window *window, SDL_Renderer *rendu, int difficulte
  * \return -1, 0 ou 1
  */
@@ -27,13 +27,12 @@ int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, int
   SDL_SetWindowSize(window, 1250, 694);
   charger_image("data/backgrounds/bg1classique.png", rendu, 0, 0, 1);
   SDL_bool jouer = SDL_TRUE;
-  char niveau = '1';
-  int result;
+  int result = 1;
   while (jouer)
   {
     while (SDL_PollEvent(event))
-    { // on réécoute les évènements mais avec un pointeur sur event car en SDL on ne peut pas faire plusieurs listener d'évènements.
-      if (event->type == SDL_QUIT)// lorsque l'utilisateur appuie sur la croix rouge de la fenetre
+    {                              // on réécoute les évènements mais avec un pointeur sur event car en SDL on ne peut pas faire plusieurs listener d'évènements.
+      if (event->type == SDL_QUIT) // lorsque l'utilisateur appuie sur la croix rouge de la fenetre
         if (quit_message() == -1)
           return -1; // on retourne -1
 
@@ -43,13 +42,17 @@ int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, int
       else if (event->window.event == SDL_WINDOWEVENT_RESIZED)
         SDL_SetWindowSize(window, 1250, 694);
 
-      for (int i = 0; i < NB_niv_survivant; i++)
+      for (int i = 0; i < 1; i++)
       {
-        result = demarrer_classique(window, rendu, event, niveau);
-        niveau++;
+        result = demarrer_classique(window, rendu, event);
         if (result == 0 || result == -1)
           break;
-      }
+      } 
+      return  result;
+
+      while(result)
+         result = demarrer_classique(window, rendu, event);
+      return  result;
     }
   }
   return 0;

@@ -39,6 +39,7 @@ typedef struct joue
 	int x_create;
 	char nom[50];
 	char argent_img[15][22]; // correspond aux fichiers contenant les noms des images pour l'argent (0.png, 1.png etc...)
+	int camp; //correspond a dans quelle il se trouve pour le mode classique
 } joueur;
 
 #endif

@@ -89,7 +89,7 @@ int deroulement_vague(joueur *player, t_wave *vague, SDL_Renderer *rendu, int ca
 { /**/
   int code_contour_barre_vie[4] = {0, 0, 0, 255};
   int code_interieur_barre_vie[4] = {255, 165, 0, 255};
-  vague = deb_liste_survivant(vague);
+  vague = deb_liste_vague(vague);
   if (vague != NULL)
   {
     while (vague->suiv != NULL)
@@ -115,7 +115,7 @@ int deroulement_vague(joueur *player, t_wave *vague, SDL_Renderer *rendu, int ca
       else if (vague->ent->temps > 0)
       {
         vague->ent->temps--;
-        if (deb_liste_survivant(vague) == vague && !camp)
+        if (deb_liste_vague(vague) == vague && !camp)
         {
           player->create = 1;
           if (vague->ent->temps <= 50)
@@ -206,7 +206,7 @@ int deroulement_vague(joueur *player, t_wave *vague, SDL_Renderer *rendu, int ca
     if (vague->ent->temps > 0)
     {
       vague->ent->temps--;
-      if (deb_liste_survivant(vague) == vague && !camp)
+      if (deb_liste_vague(vague) == vague && !camp)
       {
         player->create = 1;
         if (vague->ent->temps <= 50)
@@ -269,12 +269,12 @@ int deroulement_vague(joueur *player, t_wave *vague, SDL_Renderer *rendu, int ca
 }
 
 /**
- * \fn fin_partie_survivant(t_wave *vague)
+ * \fn fin_partie(t_wave *vague)
  * \brief fonction qui sert à vider une liste chainée d'entité. c'est-à-dire supprimer toutes les entités qui la compose et ainsi libérer la mémoire.
  * \param t_wave *vague
  * \return int
  */
-int fin_partie_survivant(t_wave *vague)
+int fin_partie(t_wave *vague)
 {
   vague = vider_liste_survivant(vague);
   return (vague == NULL);
@@ -296,6 +296,7 @@ joueur *creer_joueur()
   player->create = 0;
   player->x_create = 1;
   strcpy(player->nom, "Lazare");
+  player->camp = 1; // par defaut
   return player;
 }
 
@@ -417,8 +418,8 @@ int demarrer_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
       { // lorsque l'utilisateur appuie sur la croix rouge de la fenetre
         if (quit_message() == -1)
         {
-          fin_partie_survivant(vague_ennemies);
-          fin_partie_survivant(vague_joueur);
+          fin_partie(vague_ennemies);
+          fin_partie(vague_joueur);
           return -1; // on retourne -1
         }
       }
@@ -471,8 +472,8 @@ int demarrer_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
         {
           if (return_message() == -1)
           {
-            fin_partie_survivant(vague_ennemies);
-            fin_partie_survivant(vague_joueur);
+            fin_partie(vague_ennemies);
+            fin_partie(vague_joueur);
             return 0;
           }
         }
@@ -539,8 +540,8 @@ int demarrer_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
   if (etat_partie_survivant(vague_ennemies, player) == 2)
   {
     free(player);
-    fin_partie_survivant(vague_ennemies);
-    fin_partie_survivant(vague_joueur);
+    fin_partie(vague_ennemies);
+    fin_partie(vague_joueur);
     charger_image("data/inventaire/gagne.png", rendu, 400, 300, 1);
     SDL_Delay(1500);
     return 1;
@@ -548,8 +549,8 @@ int demarrer_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
   else if (etat_partie_survivant(vague_ennemies, player) == -1)
   {
     free(player);
-    fin_partie_survivant(vague_ennemies);
-    fin_partie_survivant(vague_joueur);
+    fin_partie(vague_ennemies);
+    fin_partie(vague_joueur);
     charger_image("data/inventaire/perd.png", rendu, 400, 300, 1);
     SDL_Delay(1500);
     return 0;

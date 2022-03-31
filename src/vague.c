@@ -85,12 +85,12 @@ t_wave *fin_liste_survivant(t_wave *vague)
   return vague;
 }
 /**
- * \fn  t_wave* deb_liste_survivant(t_wave *vague)
+ * \fn  t_wave* deb_liste_vague(t_wave *vague)
  * \brief place le pointeur passé en paramètre au début de la liste. il s'agit d'une boucle. tant qu'on est pas au début de la liste on continue à reculer dans la liste à l'aide la fonction precedent_entite_survivant
  * \param t_wave *vague
  * \return pointeur sur t_wave
  */
-t_wave *deb_liste_survivant(t_wave *vague)
+t_wave *deb_liste_vague(t_wave *vague)
 {
   if (vague == NULL)
     return NULL;
@@ -111,7 +111,7 @@ t_wave *deb_liste_survivant(t_wave *vague)
  */
 int liste_vide_survivant(t_wave *vague)
 {
-  vague = deb_liste_survivant(vague);
+  vague = deb_liste_vague(vague);
   return (vague == NULL);
 }
 /**
@@ -141,7 +141,7 @@ t_wave *supprimer_entite_survivant(t_wave *vague)
   if (vague == NULL)
     return NULL;
   t_wave *temp;
-  temp = deb_liste_survivant(vague);
+  temp = deb_liste_vague(vague);
   if (vague == temp)
   {
     if (vague->suiv != NULL)

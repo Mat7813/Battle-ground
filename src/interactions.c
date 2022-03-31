@@ -24,8 +24,8 @@
  */
 void attaque_entites(t_wave *vague_ennemie, t_wave *vague_joueur, joueur *player)
 {
-  vague_ennemie = deb_liste_survivant(vague_ennemie);
-  vague_joueur = deb_liste_survivant(vague_joueur);
+  vague_ennemie = deb_liste_vague(vague_ennemie);
+  vague_joueur = deb_liste_vague(vague_joueur);
   if (vague_ennemie != NULL && vague_joueur != NULL)
   {
     if (vague_ennemie->ent->x <= vague_joueur->ent->x + 60)
@@ -214,7 +214,7 @@ defense *etat_defense(defense *def)
  */
 void gestion_ligne_entite(t_wave *vague, int camp)
 {
-  vague = deb_liste_survivant(vague);
+  vague = deb_liste_vague(vague);
   if (vague != NULL)
   {
     while (vague->suiv != NULL)
@@ -262,8 +262,8 @@ void gestion_ligne_entite(t_wave *vague, int camp)
  */
 void gestion_environnement(t_wave *vague_ennemie, t_wave *vague_joueur, joueur *player, SDL_Renderer *rendu)
 { // fonction qui vérifie qu'un élément ne rentre pas en contact avec un autre
-  vague_ennemie = deb_liste_survivant(vague_ennemie);
-  vague_joueur = deb_liste_survivant(vague_joueur);
+  vague_ennemie = deb_liste_vague(vague_ennemie);
+  vague_joueur = deb_liste_vague(vague_joueur);
   if (vague_ennemie != NULL)
   {
     if (vague_ennemie->ent->x <= 400)

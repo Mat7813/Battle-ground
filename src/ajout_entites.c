@@ -2,8 +2,8 @@
  * \file ajout_entites.c
  * \brief Contient toutes les fonctions qui servent à ajouter des entités (tous les types d'entités)
  * \author Lazare Maclouf
- * \version 1
- * \date 10/03/2022
+ * \version 2
+ * \date 30/03/2022
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,6 +18,7 @@
 #define y_def 470
 #define pv_joueur 200
 #define argent_joueur 1000
+#define taille_fenetre 1250
 
 /**
  * \fn t_wave *ajouter_voisin(joueur *player, t_wave *vague, message *msg)
@@ -38,13 +39,21 @@ t_wave *ajouter_voisin(joueur *player, t_wave *vague, message *msg)
         nouv->ent->temps = 50;
         strcpy(nouv->ent->nom_fichier, "data/entities/voisn/voisn1.png");
         strcpy(nouv->ent->nom_fichier_attaque, "data/entities/voisn/voisintir.png");
+        if (player->camp > 0)
+        {
+          nouv->ent->x_barre = 130;
+          nouv->ent->x = 110;
+        }
+        else if (player->camp < 0)
+        {
+          nouv->ent->x_barre = taille_fenetre - 130;
+          nouv->ent->x = taille_fenetre - 110;
+        }
         nouv->ent->pv = 50;
         nouv->ent->montant = 1;
         nouv->ent->type = 1;
-        nouv->ent->x = 110;
         nouv->ent->y = y_entity;
         nouv->ent->attaque = 1;
-        nouv->ent->x_barre = 130;
         nouv->ent->y_barre = 450;
         nouv->ent->degat = 20;
         nouv->ent->met_a_jour = met_a_jour_images_separees;
@@ -67,13 +76,21 @@ t_wave *ajouter_voisin(joueur *player, t_wave *vague, message *msg)
       }
       strcpy(vague->ent->nom_fichier, "data/entities/voisn/voisn1.png");
       strcpy(vague->ent->nom_fichier_attaque, "data/entities/voisn/voisintir.png");
+      if (player->camp > 0)
+      {
+        vague->ent->x_barre = 130;
+        vague->ent->x = 110;
+      }
+      else if (player->camp < 0)
+      {
+        vague->ent->x_barre = taille_fenetre - 130;
+        vague->ent->x = taille_fenetre - 110;
+      }
       vague->ent->pv = 50;
       vague->ent->montant = 1;
-      vague->ent->x = 110;
       vague->ent->y = y_entity;
       vague->ent->attaque = 1;
       vague->ent->type = 1;
-      vague->ent->x_barre = 130;
       vague->ent->y_barre = 450;
       vague->ent->degat = 20;
       vague->ent->met_a_jour = met_a_jour_images_separees;
@@ -117,10 +134,18 @@ t_wave *ajouter_bandit(joueur *player, t_wave *vague, message *msg)
         strcpy(nouv->ent->nom_fichier_attaque, "NULL");
         nouv->ent->pv = 50;
         nouv->ent->montant = 1;
-        nouv->ent->x = 110;
         nouv->ent->y = y_entity;
         nouv->ent->attaque = 1;
-        nouv->ent->x_barre = 160;
+        if (player->camp > 0)
+        {
+          nouv->ent->x_barre = 160;
+          nouv->ent->x = 110;
+        }
+        else if (player->camp < 0)
+        {
+          nouv->ent->x_barre = taille_fenetre - 160;
+          nouv->ent->x = taille_fenetre - 110;
+        }
         nouv->ent->y_barre = 450;
         nouv->ent->degat = 10;
         nouv->ent->met_a_jour = met_a_jour_images_sprite;
@@ -146,12 +171,20 @@ t_wave *ajouter_bandit(joueur *player, t_wave *vague, message *msg)
       }
       strcpy(vague->ent->nom_fichier, "data/entities/bandit/bandit.png");
       strcpy(vague->ent->nom_fichier_attaque, "NULL");
+      if (player->camp > 0)
+      {
+        vague->ent->x_barre = 160;
+        vague->ent->x = 110;
+      }
+      else if (player->camp < 0)
+      {
+        vague->ent->x_barre = taille_fenetre - 160;
+        vague->ent->x = taille_fenetre - 110;
+      }
       vague->ent->pv = 50;
       vague->ent->montant = 1;
-      vague->ent->x = 110;
       vague->ent->y = y_entity;
       vague->ent->attaque = 1;
-      vague->ent->x_barre = 160;
       vague->ent->y_barre = 450;
       vague->ent->degat = 10;
       vague->ent->met_a_jour = met_a_jour_images_sprite;
@@ -194,12 +227,20 @@ t_wave *ajouter_fighter(joueur *player, t_wave *vague, message *msg)
         nouv->ent->temps = 50;
         strcpy(nouv->ent->nom_fichier, "data/entities/fighter/fighter.png");
         strcpy(nouv->ent->nom_fichier_attaque, "NULL");
+        if (player->camp > 0)
+        {
+          nouv->ent->x_barre = 130;
+          nouv->ent->x = 110;
+        }
+        else if (player->camp < 0)
+        {
+          nouv->ent->x_barre = taille_fenetre - 130;
+          nouv->ent->x = taille_fenetre - 110;
+        }
         nouv->ent->pv = 50;
         nouv->ent->montant = 1;
-        nouv->ent->x = 110;
         nouv->ent->y = y_entity;
         nouv->ent->attaque = 1;
-        nouv->ent->x_barre = 130;
         nouv->ent->y_barre = 450;
         nouv->ent->degat = 25;
         nouv->ent->met_a_jour = met_a_jour_images_sprite;
@@ -225,12 +266,20 @@ t_wave *ajouter_fighter(joueur *player, t_wave *vague, message *msg)
       }
       strcpy(vague->ent->nom_fichier, "data/entities/fighter/fighter.png");
       strcpy(vague->ent->nom_fichier_attaque, "NULL");
+      if (player->camp > 0)
+      {
+        vague->ent->x_barre = 130;
+        vague->ent->x = 110;
+      }
+      else if (player->camp < 0)
+      {
+        vague->ent->x_barre = taille_fenetre - 130;
+        vague->ent->x = taille_fenetre - 110;
+      }
       vague->ent->pv = 50;
       vague->ent->montant = 1;
-      vague->ent->x = 110;
       vague->ent->y = y_entity;
       vague->ent->attaque = 1;
-      vague->ent->x_barre = 130;
       vague->ent->y_barre = 450;
       vague->ent->degat = 25;
       vague->ent->met_a_jour = met_a_jour_images_sprite;
