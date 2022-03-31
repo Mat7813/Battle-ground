@@ -384,7 +384,7 @@ int select_multi(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)
         charger_image("data/menu/invitover.png", rendu, menu_x, 285, 1);
         if (event->type == SDL_MOUSEBUTTONDOWN)
         {
-          if (jeu_survivant(window, rendu, event) == -1)
+          if (jeu_classique(window, rendu, event, 1) == -1)
             return -1; // si la fonction retourne -1 c'est que l'utilisateur a appuyé sur la croix rouge. on retourne donc -1
           else
             charger_image("data/backgrounds/bgmenu1.bmp", rendu, 0, 0, 1);
