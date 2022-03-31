@@ -16,7 +16,8 @@
  * \param int argc, char **argv
  * \return 0
  */
-int main(int argc, char **argv){
+int main(int argc, char **argv)
+{
     initialise_jeu();
     return 0;
 }

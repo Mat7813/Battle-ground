@@ -5,7 +5,7 @@
 #include "vague.h"
 #include "SDL2/SDL.h"
 
-t_wave* charger_niveau(char *nom);
+t_wave *charger_niveau(char *nom);
 void creer_joueur();
 int etat_partie_survivant(t_wave *vague, joueur *player);
 void message_box(message *msg, char nom_fic[100]);

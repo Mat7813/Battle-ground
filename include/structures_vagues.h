@@ -2,7 +2,8 @@
 #define __STRUCTURES_VAGUES_H_
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct entity{
+typedef struct entity
+{
 	int attaque; /*valeur qui correspon à l'attaque si l'entité doit attaquer ou non*/
 	int pv;
 	int degat;
@@ -14,11 +15,12 @@ typedef struct entity{
 	char nom_fichier[100];
 	char nom_fichier_attaque[100];
 	int montant; /*indicateur permettant de savoir si les images sont en phases montantes ou ascendantes*/
-}entite;
+} entite;
 
-typedef struct wave{
- entite *ent;
- struct wave *suiv;
- struct wave *prec;
-}t_wave;
+typedef struct wave
+{
+	entite *ent;
+	struct wave *suiv;
+	struct wave *prec;
+} t_wave;
 #endif

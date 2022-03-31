@@ -5,7 +5,7 @@
 #include "vague.h"
 
 void attaque_entites(t_wave *vague_ennemie, t_wave *vague_joueur, joueur *player);
-void gestion_environnement(t_wave *vague_ennemie,t_wave *vague_joueur, joueur *player, SDL_Renderer *rendu);
+void gestion_environnement(t_wave *vague_ennemie, t_wave *vague_joueur, joueur *player, SDL_Renderer *rendu);
 tir *creer_tir(tir *t, int x, int y);
 tir *etat_tir(tir *t);
 void creer_defense(joueur *p, int x, int y, int degat, message *msg);
