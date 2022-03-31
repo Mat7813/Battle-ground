@@ -25,6 +25,256 @@
 #define argent_joueur 1000
 #define taille_fenetre 1250
 
+#define y_tir 475
+#define x_tir 165
+
+
+
+/**
+ * \fn void gestion_environnement(t_wave *vague_ennemie, t_wave *vague_joueur, joueur *player, SDL_Renderer *rendu)
+ * \brief fonction qui sert à gérer l'environnement et ses interactions avec les entités ainsi que l'interaction des entités elles-mêmes. Une entité s'arrete lorsqu'elle se trouve face à un ennemi en face d'elle et l'attaque. Les autres qui suivent derrière s'arrêtent aussi. Il s'agit de paramétrer et de configurer les limites physiques de l'environnement ainsi que leur conditions.
+ * \param t_wave *vague_ennemie, t_wave *vague_joueur, joueur *player, SDL_Renderer *rendu
+ */
+void gestion_environnement_classique(t_wave *vague_ennemie, t_wave *vague_joueur, joueur *player, joueur *player2, SDL_Renderer *rendu)
+{ // fonction qui vérifie qu'un élément ne rentre pas en contact avec un autre
+  vague_ennemie = deb_liste_survivant(vague_ennemie);
+  vague_joueur = deb_liste_survivant(vague_joueur);
+  if (vague_ennemie != NULL)
+  {
+    if (vague_ennemie->ent->x <= 400)
+    {
+      if (player->def != NULL && player->t == NULL)
+      {
+        if (!player->def->temps)
+        {
+          player->t = creer_tir(player->t, x_tir, y_tir);
+          player->def->temps = 20;
+        }
+        else
+          player->def->temps--;
+      }
+    }
+    else if (player->def != NULL)
+      player->def->temps = 0;
+  }
+  else if (player->def != NULL)
+    player->def->temps = 0;
+
+
+  if (vague_joueur != NULL)
+  {
+    if (vague_joueur->ent->x/*  >= taille_fenetre- 400 */)
+    {
+      if (player2->def != NULL && player2->t == NULL)
+      {
+        if (!player2->def->temps)
+        {
+          player2->t = creer_tir(player2->t, taille_fenetre - x_tir, y_tir);
+          player2->def->temps = 20;
+        }
+        else
+          player2->def->temps--;
+      }
+    }
+    else if (player2->def != NULL)
+      player2->def->temps = 0;
+  }
+  else if (player2->def != NULL)
+    player2->def->temps = 0;
+  gestion_ligne_entite(vague_ennemie, 1);
+  gestion_ligne_entite(vague_joueur, 0);
+  attaque_entites(vague_ennemie, vague_joueur, player);
+  animation_attaque(rendu, vague_ennemie);
+  animation_attaque(rendu, vague_joueur);
+  animation_tir_gauche(rendu, player);
+
+  animation_tir_gauche(rendu, player2);
+
+
+  player->t = etat_tir(player->t); /*on met à jour le tir si besoin*/
+  player->def = etat_defense(player->def);
+
+  player2->t = etat_tir(player2->t); /*on met à jour le tir si besoin*/
+  player2->def = etat_defense(player2->def);
+}  
+
+
+/**
+ * \fn void afficher_survivant(SDL_Renderer *rendu, joueur *player, int pause)
+ * \brief fonction qui affiche le décors en mode survivant avec la barre de vie du joueur, son argent, et les menus
+ * \param SDL_Renderer *rendu, joueur *player, int pause
+ */
+void afficher_survivant_classique(SDL_Renderer *rendu, joueur *player, int pause)
+{
+  int code_contour_barre_vie[4] = {0, 0, 0, 255};
+  int code_interieur_barre_vie[4] = {255, 165, 0, 255};
+  dessiner_rectangle_vide(rendu, code_contour_barre_vie, taille_fenetre - 10, 180, 202, 12, 0); /*barre de vie du joueur*/     /*barre de vie du joueur*/
+  dessiner_rectangle_plein(rendu, code_interieur_barre_vie, taille_fenetre - 11, 181 + (200 - player->pv), player->pv, 10, 0); /*barre de vie du joueur, l'abcisse est proportionnelle au nombre de pv du joueur*/
+  if (pause)
+  {
+    dessiner_rectangle_plein(rendu, code_interieur_barre_vie, taille_fenetre - 620, 10, 50, 20, 0);
+    dessiner_rectangle_plein(rendu, code_interieur_barre_vie, taille_fenetre - 650, 10, 50, 20, 0);
+  }
+  else
+  {
+    dessiner_rectangle_plein(rendu, code_contour_barre_vie,  taille_fenetre - 620, 10, 50, 20, 0);
+    dessiner_rectangle_plein(rendu, code_contour_barre_vie, taille_fenetre - 650, 10, 50, 20, 0);
+  }
+  if (player->create)
+  {
+    int code_interieur_creation[4] = {255, 0, 0, 255};
+    dessiner_rectangle_vide(rendu, code_contour_barre_vie, taille_fenetre - 220, 100, 12, 272, 0);
+    dessiner_rectangle_plein(rendu, code_interieur_creation, taille_fenetre - 221, 101, 10, player->x_create, 0);
+  }
+}
+
+
+/**
+ * \fn t_wave *ajouter_voisin(joueur *player, t_wave *vague, message *msg)
+ * \brief fonction qui crée une entité voisin et renvoie le pointeur sur celle-ci
+ * \param joueur *player, t_wave *vague, message *msg
+ * \return t_wave *
+ */
+t_wave *ajouter_voisin_classique(joueur *player, t_wave *vague, message *msg, int cmp)
+{
+  if (player != NULL)
+  {
+    if (player->argent >= 1200)
+    {
+      vague = fin_liste_survivant(vague);
+      if (vague == NULL)
+      {
+        t_wave *nouv = creer_vague();
+        nouv->ent->temps = 50;
+        strcpy(nouv->ent->nom_fichier, "data/entities/voisn/voisn1.png");
+        strcpy(nouv->ent->nom_fichier_attaque, "data/entities/voisn/voisintir.png");
+        nouv->ent->pv = 50;
+        nouv->ent->montant = 1;
+        nouv->ent->type = 1;
+        nouv->ent->x = taille_fenetre - 110;
+        nouv->ent->y = y_entity;
+        nouv->ent->attaque = 1;
+        nouv->ent->x_barre = taille_fenetre - 130;
+        nouv->ent->y_barre = 450;
+        nouv->ent->degat = 20;
+        nouv->ent->met_a_jour = met_a_jour_images_separees;
+        nouv->ent->charger_img = charger_img_separees;
+        nouv->ent->w = 0;
+        nouv->ent->h = 0;
+        nouv->ent->x_image = 0;
+        nouv->ent->y_image = 0;
+        nouv->ent->w_image = 0;
+        nouv->ent->h_image = 0;
+        player->argent -= 1200;
+        player->create = 1;
+        return nouv;
+      }
+      else
+        vague = ajouter_entite_survivant(vague);
+      if (vague->prec != NULL)
+        vague->ent->temps = 50 + vague->prec->ent->temps;
+      strcpy(vague->ent->nom_fichier, "data/entities/voisn/voisn1.png");
+      strcpy(vague->ent->nom_fichier_attaque, "data/entities/voisn/voisintir.png");
+      vague->ent->pv = 50;
+      vague->ent->montant = 1;
+      vague->ent->x = taille_fenetre - 110;
+      vague->ent->y = y_entity;
+      vague->ent->attaque = 1;
+      vague->ent->type = 1;
+      vague->ent->x_barre = taille_fenetre - 130;
+      vague->ent->y_barre = 450;
+      vague->ent->degat = 20;
+      vague->ent->met_a_jour = met_a_jour_images_separees;
+      vague->ent->charger_img = charger_img_separees;
+      vague->ent->w = 0;
+      vague->ent->h = 0;
+      vague->ent->x_image = 0;
+      vague->ent->y_image = 0;
+      vague->ent->w_image = 0;
+      vague->ent->h_image = 0;
+      vague->ent->nb_pos = 0;
+      vague->ent->nb_pos_attaque = 0;
+      player->argent -= 1200;
+      player->create = 1;
+      return vague;
+    }
+    else
+      message_box(msg, "data/inventaire/pasassez.png");
+  }
+  return vague;
+}
+
+t_wave *ajouter_bandit_classique(joueur *player, t_wave *vague, message *msg)
+{
+  if (player != NULL)
+  {
+    if (player->argent >= 150)
+    {
+      vague = fin_liste_survivant(vague);
+      if (vague == NULL)
+      {
+        t_wave *nouv = creer_vague();
+        nouv->ent->temps = 50;
+        strcpy(nouv->ent->nom_fichier, "data/entities/bandit/bandit.png");
+        strcpy(nouv->ent->nom_fichier_attaque, "NULL");
+        nouv->ent->pv = 50;
+        nouv->ent->montant = 1;
+        nouv->ent->x = taille_fenetre - 110;
+        nouv->ent->y = y_entity;
+        nouv->ent->attaque = 1;
+        nouv->ent->x_barre = taille_fenetre - 130;
+        nouv->ent->y_barre = 450;
+        nouv->ent->degat = 10;
+        nouv->ent->met_a_jour = met_a_jour_images_sprite;
+        nouv->ent->charger_img = charger_img_sprite;
+        nouv->ent->w = 135;
+        nouv->ent->h = 135;
+        nouv->ent->type = 2;
+        nouv->ent->w_image = 79;
+        nouv->ent->h_image = 79;
+        nouv->ent->x_image = 0;
+        nouv->ent->y_image = 0;
+        nouv->ent->nb_pos = 3;
+        nouv->ent->nb_pos_attaque = 3;
+        player->argent -= 150;
+        player->create = 1;
+        return nouv;
+      }
+      else
+        vague = ajouter_entite_survivant(vague);
+      if (vague->prec != NULL)
+        vague->ent->temps = 50 + vague->prec->ent->temps;
+      strcpy(vague->ent->nom_fichier, "data/entities/bandit/bandit.png");
+      strcpy(vague->ent->nom_fichier_attaque, "NULL");
+      vague->ent->pv = 50;
+      vague->ent->montant = 1;
+      vague->ent->x = taille_fenetre -110;
+      vague->ent->y = y_entity;
+      vague->ent->attaque = 1;
+      vague->ent->x_barre = taille_fenetre - 130;
+      vague->ent->y_barre = 450;
+      vague->ent->degat = 10;
+      vague->ent->met_a_jour = met_a_jour_images_sprite;
+      vague->ent->charger_img = charger_img_sprite;
+      vague->ent->w = 135;
+      vague->ent->h = 135;
+      vague->ent->w_image = 79;
+      vague->ent->h_image = 79;
+      vague->ent->x_image = 0;
+      vague->ent->y_image = 0;
+      vague->ent->type = 2;
+      vague->ent->nb_pos = 3;
+      vague->ent->nb_pos_attaque = 3;
+      player->argent -= 150;
+      player->create = 1;
+      return vague;
+    }
+    else
+      message_box(msg, "data/inventaire/pasassez.png");
+  }
+  return vague;
+}
+
 /**
  * \fn void deroulement_vague(joueur *player, t_wave *vague, SDL_Renderer *rendu, int camp)
  * \brief fonction qui sert à mettre automatiquement les images des entités à jour ainsi que d'autres champs (points de
@@ -125,6 +375,7 @@ int deroulement_vague_classique(joueur *player, t_wave *vague, SDL_Renderer *ren
         vague = suivant_entite_survivant(vague);
     }
   }
+
   if (vague != NULL)
   { // dans le cas ou il ne reste plus qu'une entité dans la liste ou on est à la fin
     if (!vague->ent->temps && vague->ent->pv > 0)
@@ -233,24 +484,23 @@ int fin_partie_classique(t_wave *vague)
  * \brief fonction qui sert à vérifier si la partie est finie ou si elle est toujours en cours (et si elle est finie si
  * le joueur a gagné ou perdu) \param t_wave *vague, joueur *player \return int
  */
-int etat_partie_classique(t_wave *vague, joueur *player)
+int etat_partie_classique(t_wave *vague, joueur *player, joueur *player2)
 { // retourne l'état de la partie (0 si elle est toujours en cours, 2 si le joueur a gagné, -1 si il a perdu)
-  if (player != NULL)
+  if (player != NULL && player2 != NULL)
   {
-    if (player->pv > 0)
-    {
-      /* if (vague == NULL)
-      {
-        printf("gagné\n");
-        return 2;
-      } */
-      return 0;
-    }
+    if (player->pv < 0)
+        return 2; //gagné
+    else if (player2->pv < 0)
+      return -1; //perdu
     else
-      return -1;
+      return 0;
   }
   return 1; // si on est pas rentré
 }
+
+
+
+
 
 /**
  * \fn int demarrer_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, char lvl)
@@ -283,7 +533,7 @@ int demarrer_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
 
   charger_image(bg, rendu, 0, 0, 1);
   int pause = 0;
-  while (etat_partie_classique(vague_ennemies, player) == 0)
+  while (etat_partie_classique(vague_ennemies, player, player2) == 0)
   {
     while (SDL_PollEvent(event))
     { // on réécoute les évènements mais avec un pointeur sur event car en SDL on ne peut pas faire plusieurs
@@ -351,7 +601,7 @@ int demarrer_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
       {
         indic = 6;
         if (event->type == SDL_MOUSEBUTTONDOWN)
-          vague_ennemies = ajouter_voisin(player2, vague_ennemies, &msg);
+          vague_ennemies = ajouter_voisin_classique(player2, vague_ennemies, &msg, 1);
       }
       else if ((event->motion.x <= taille_fenetre - 290 && event->motion.x >= taille_fenetre - 350) &&
                (event->motion.y >= 10 && event->motion.y <= 60))
@@ -365,7 +615,7 @@ int demarrer_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
       {
         indic = 8;
         if (event->type == SDL_MOUSEBUTTONDOWN)
-          vague_ennemies = ajouter_bandit(player2, vague_ennemies, &msg);
+          vague_ennemies = ajouter_bandit_classique(player2, vague_ennemies, &msg);
       }
       else if ((event->motion.x <= taille_fenetre - 430 && event->motion.x >= taille_fenetre - 500) &&
                (event->motion.y >= 10 && event->motion.y <= 60))
@@ -461,29 +711,36 @@ int demarrer_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
     }
 
     met_a_jour_img_argent(player, rendu);
+    met_a_jour_img_argent(player2, rendu);
+
+
     afficher_survivant(rendu, player, pause);
-    gestion_environnement(vague_ennemies, vague_joueur, player, rendu);
+    afficher_survivant_classique(rendu, player2, pause);
+
+    gestion_environnement_classique(vague_ennemies, vague_joueur, player, player2, rendu);
     if (!pause)
     {
-      if (deroulement_vague(player2, vague_ennemies, rendu, 1) == -1)
+      if (deroulement_vague_classique(player2, vague_ennemies, rendu, 1) == -1)
         vague_ennemies = NULL;
-      if (deroulement_vague(player, vague_joueur, rendu, 0) == -1)
+      if (deroulement_vague_classique(player, vague_joueur, rendu, 0) == -1)
         vague_joueur = NULL;
     }
     SDL_RenderPresent(rendu);
   }
-  if (etat_partie_survivant(vague_ennemies, player) == 2)
+  if (etat_partie_classique(vague_ennemies, player, player2) == 2)
   {
     free(player);
+    free(player2);
     fin_partie_survivant(vague_ennemies);
     fin_partie_survivant(vague_joueur);
     charger_image("data/inventaire/gagne.png", rendu, 400, 300, 1);
     SDL_Delay(1500);
     return 1;
   }
-  else if (etat_partie_survivant(vague_ennemies, player) == -1)
+  else if (etat_partie_classique(vague_ennemies, player, player2) == -1)
   {
     free(player);
+    free(player2);
     fin_partie_survivant(vague_ennemies);
     fin_partie_survivant(vague_joueur);
     charger_image("data/inventaire/perd.png", rendu, 400, 300, 1);

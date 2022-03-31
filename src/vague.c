@@ -194,8 +194,8 @@ int compter_elem(t_wave *vague){
 
 void met_a_jour_img_argent(joueur *j, SDL_Renderer *rendu){
   convert_argent(j);
-  int x=60, y=45;
-  for(int i=0;i<15;i++,x+=10){
+  int x=1250 - 60, y=1250 - 45;
+  for(int i=0; i<15; i++, x+=10){
     charger_image(j->argent_img[i],rendu,  x, y, 0);
   }
 }
