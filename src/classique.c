@@ -343,7 +343,7 @@ int demarrer_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
     free(player2);
     fin_partie(vague_ennemies);
     fin_partie(vague_joueur);
-    charger_image("data/inventaire/gagne.png", rendu, 400, 300, 1);
+    charger_image("data/inventaire/j1.png", rendu, 400, 300, 1);
     SDL_Delay(1500);
     return 0;
   }
@@ -353,7 +353,7 @@ int demarrer_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
     free(player2);
     fin_partie(vague_ennemies);
     fin_partie(vague_joueur);
-    charger_image("data/inventaire/perd.png", rendu, 400, 300, 1);
+    charger_image("data/inventaire/j2.png", rendu, 400, 300, 1);
     SDL_Delay(1500);
     return 0;
   }
