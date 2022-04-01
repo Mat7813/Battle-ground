@@ -347,6 +347,7 @@ int menu_jouer_difficulte(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *ev
       }
     }
   }
+  charger_image("data/backgrounds/bgmenu1.png", rendu, 0, 0, 1); 
   return 0;
 }
 /**
@@ -407,6 +408,7 @@ int select_multi(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)
       }
     }
   }
+  charger_image("data/backgrounds/bgmenu1.png", rendu, 0, 0, 1);
   return 0;
 }
 
@@ -476,6 +478,7 @@ int sous_menu_jouer(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)
       }
     }
   }
+  charger_image("data/backgrounds/bgmenu1.png", rendu, 0, 0, 1);
   return 0;
 }
 
@@ -539,6 +542,7 @@ void menu(SDL_Window *window, SDL_Renderer *rendu)
       }
     }
   }
+  SDL_RenderClear(rendu);
 }
 
 /**
