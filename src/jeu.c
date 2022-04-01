@@ -21,7 +21,7 @@
  * \param SDL_Window *window, SDL_Renderer *rendu, int difficulte
  * \return -1, 0 ou 1
  */
-int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, int difficulte)
+int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)
 { // fonction qui démarre une partie
   SDL_SetWindowPosition(window, 50, 50);
   SDL_SetWindowSize(window, 1250, 694);
