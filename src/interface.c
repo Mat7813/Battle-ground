@@ -15,7 +15,7 @@
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
 
-// pthread_t audio; /*thread pour la gestion de l'audio*/
+pthread_t audio; /*thread pour la gestion de l'audio*/
 
 #define menu_x 400
 /**
@@ -380,9 +380,11 @@ int sous_menu_jouer(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)
         if (event->type == SDL_MOUSEBUTTONDOWN)
         {
           if (jeu_classique(window, rendu, event) == -1)
-            return -1;
+            return -1; // si la fonction retourne -1 c'est que l'utilisateur a appuyé sur la croix rouge. on retourne donc -1
+          else
+            charger_image("data/backgrounds/bgmenu1.bmp", rendu, 0, 0, 1);
         }
-      }
+        }
       else if ((event->motion.x >= menu_x && event->motion.x <= 555) && (event->motion.y >= 300 && event->motion.y <= 350))
       { // pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
         charger_image("data/menu/jouer/multiover.png", rendu, menu_x, 300, 1);
@@ -490,10 +492,10 @@ int initialise_jeu()
   window = SDL_CreateWindow("Battle Ground", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1000, 564, SDL_WINDOW_RESIZABLE); // on crée une fenetre de type "window_resizable" car par la suite on pourra agrandir la fenêtre
   rendu = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);                                                               // on crée le rendu
   demarrage(rendu);                                                                                                            // fonction qui sert simplement à afficher un petit logo qui clignote lorsu'on lance le jeu
-  // int th1=pthread_create(&audio, NULL, audio_initialise, NULL);
-  // pthread_detach(audio);
+  int th1=pthread_create(&audio, NULL, audio_initialise, NULL);
+  pthread_detach(audio);
   menu(window, rendu); // fonction principale qui charge le menu. en parametre on passe tous les pointeurs qu'on a créé dans la fonction.
-  // pthread_cancel(audio);
+  pthread_cancel(audio);
   SDL_DestroyRenderer(rendu); // lorsque l'utilisateur quitte le jeu on détruit le rendu et la fenetre
   SDL_DestroyWindow(window);
   SDL_Quit(); // enfin on quitte la SDL.

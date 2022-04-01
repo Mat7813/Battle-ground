@@ -42,16 +42,10 @@ int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)
       else if (event->window.event == SDL_WINDOWEVENT_RESIZED)
         SDL_SetWindowSize(window, 1250, 694);
 
-      for (int i = 0; i < 1; i++)
-      {
         result = demarrer_classique(window, rendu, event);
-        if (result == 0 || result == -1)
-          break;
-      } 
-      return  result;
-
-      while(result)
-         result = demarrer_classique(window, rendu, event);
+        SDL_SetWindowPosition(window, 50, 50);
+        SDL_SetWindowSize(window, 1000, 564);
+        SDL_RenderClear(rendu);
       return  result;
     }
   }

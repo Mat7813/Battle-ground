@@ -10,15 +10,9 @@
 #include "ajout_entites.h"
 #include "animations.h"
 #include "interactions.h"
-//#include "interface.h"
 #include "structures.h"
 #include "vague.h"
 #include "survivant.h"
-//#include <assert.h>
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <string.h>
-
 #define V 5
 #define x_def 100
 #define y_def 470
@@ -147,8 +141,7 @@ int demarrer_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
   while (etat_partie_classique(vague_ennemies, player, player2) == 0)
   {
     while (SDL_PollEvent(event))
-    { // on réécoute les évènements mais avec un pointeur sur event car en SDL on ne peut pas faire plusieurs
-      // listener d'évènements.
+    {
       //  if(etat_partie_survivant(vague, &player)==1)return 1;//on verifie à chaque tour de boucle l'état de la
       //  partie if(etat_partie_survivant(vague, &player)==-1)return 0;
       if (event->type == SDL_QUIT)

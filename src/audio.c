@@ -11,7 +11,7 @@
 #include <time.h>
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_image.h"
-//#include "SDL2/SDL_mixer.h"
+#include "SDL2/SDL_mixer.h"
 
 #define AUDIO_PATH "data/sounds/"
 
@@ -20,7 +20,7 @@
  * \brief fonction qui affiche le type de fichier audio (mp3, wav, ogg etc...)
  * \param int flags
  */
-/*
+
 void print_init_flags(int flags)
 {
 #define PFLAG(a) if(flags&MIX_INIT_##a) printf(#a " ")
@@ -31,7 +31,7 @@ void print_init_flags(int flags)
         if(!flags)
                 printf("None");
         printf("\n");
-} */
+}
 
 /**
  * \fn void* audio_initialise(void *v)
@@ -39,7 +39,7 @@ void print_init_flags(int flags)
  * \param void *v
  * \return void *
  */
-/*
+
 void* audio_initialise(void *v)
 {
    srand(time(NULL));
@@ -62,7 +62,7 @@ void* audio_initialise(void *v)
    Mix_Music *musique; //Création du pointeur de type Mix_Music
    //Mix_Chunk *musique = NULL;
    char music_file[200];
-   if(nb%2==0)sprintf(music_file, "%s%s", AUDIO_PATH, "title_theme.wav");
+   if(nb%2==0)sprintf(music_file, "%s%s", AUDIO_PATH, "mainmusic2.wav");
    else sprintf(music_file, "%s%s", AUDIO_PATH, "mainmusic.wav");
    fprintf(stderr, "Loading music %s\n", music_file);
    musique = Mix_LoadMUS(music_file); //Chargement de la musique
@@ -86,4 +86,4 @@ void* audio_initialise(void *v)
    Mix_FreeMusic(musique); //Libération de la musique
    Mix_CloseAudio(); //Fermeture de l'API
    return NULL;
-} */
+}
