@@ -9,7 +9,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <pthread.h>
-#include <windows.h>
 #include "audio.h"
 #include "jeu.h"
 #include "structures.h"
@@ -487,8 +486,7 @@ void menu(SDL_Window *window, SDL_Renderer *rendu)
  * \return 0
  */
 int initialise_jeu()
-{
-  FreeConsole();                                                                                                                            // fonction servant à initialiser completement le jeu en appelant les fonctions principales d'affichages qui elles-mêmes appeleront toutes les autres sous fonctions pour le jeu
+{                                                                                                                       // fonction servant à initialiser completement le jeu en appelant les fonctions principales d'affichages qui elles-mêmes appeleront toutes les autres sous fonctions pour le jeu
   SDL_Window *window = NULL;                                                                                                   // pointeur pour la fentre (ici on travaille uniquement avec des pointeurs pour que toutes les variables soient accessibles partout dans le code et modifiables par d'autres fonctions facilement)
   SDL_Renderer *rendu = NULL;                                                                                                  // pointeur rendu
   window = SDL_CreateWindow("Battle Ground", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1000, 564, SDL_WINDOW_RESIZABLE); // on crée une fenetre de type "window_resizable" car par la suite on pourra agrandir la fenêtre
