@@ -13,7 +13,7 @@
 #include "vague.h"
 #include "interface.h"
 #include "classique.h"
-#define NB_niv_survivant 3
+#define NB_NIV_SURVIVANT 3
 
 /**
  * \fn int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, int difficulte)
@@ -42,11 +42,11 @@ int jeu_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)
       else if (event->window.event == SDL_WINDOWEVENT_RESIZED)
         SDL_SetWindowSize(window, 1250, 694);
 
-        result = demarrer_classique(window, rendu, event);
-        SDL_SetWindowPosition(window, 50, 50);
-        SDL_SetWindowSize(window, 1000, 564);
-        SDL_RenderClear(rendu);
-      return  result;
+      result = demarrer_classique(window, rendu, event);
+      SDL_SetWindowPosition(window, 50, 50);
+      SDL_SetWindowSize(window, 1000, 564);
+      SDL_RenderClear(rendu);
+      return result;
     }
   }
   return 0;
@@ -63,7 +63,7 @@ int jeu_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)
   SDL_SetWindowSize(window, 1250, 694);
   char niveau = '1';
   int result; // on appelle la fonction démarrer_survivant et en fonction de ce qu'elle retourne on aura différents traitements
-  for (int i = 0; i < NB_niv_survivant; i++)
+  for (int i = 0; i < NB_NIV_SURVIVANT; i++)
   {
     result = demarrer_survivant(window, rendu, event, niveau);
     niveau++;

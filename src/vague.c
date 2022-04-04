@@ -224,13 +224,15 @@ int compter_elem(t_wave *vague)
   return nb;
 }
 
-void met_a_jour_img_argent(joueur *j, SDL_Renderer *rendu)
+void met_a_jour_img_argent(joueur *player, SDL_Renderer *rendu)
 {
-  convert_argent(j);
+  convert_argent(player);
   int x = 60, y = 45;
+  if (player->camp < 0)
+    x = 1250 - x;
   for (int i = 0; i < 15; i++, x += 10)
   {
-    charger_image(j->argent_img[i], rendu, x, y, 0);
+    charger_image(player->argent_img[i], rendu, x, y, 0);
   }
 }
 /**
