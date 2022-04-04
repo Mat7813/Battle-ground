@@ -148,7 +148,10 @@ void creer_defense(joueur *p, int x, int y, int degat, message *msg)
       if (p->argent >= 2000)
       {
         p->def = malloc(sizeof(defense));
-        strcpy(p->def->nom_fichier, "data/inventaire/mitraillette.png");
+        if (p->camp > 0)
+          strcpy(p->def->nom_fichier, "data/inventaire/mitraillette.png");
+        else if (p->camp < 0)
+          strcpy(p->def->nom_fichier, "data/inventaire/mitraillette_reverse.png");
         p->def->degat = degat;
         p->def->indice_vie = 1;
         p->def->temps = 0;

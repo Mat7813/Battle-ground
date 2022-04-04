@@ -205,8 +205,8 @@ int demarrer_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
                (event->motion.y >= 10 && event->motion.y <= 60))
       {
         indic = 6;
-        if (event->type == SDL_MOUSEBUTTONDOWN)
-          vague_ennemies = ajouter_voisin(player2, vague_ennemies, &msg);
+        // if (event->type == SDL_MOUSEBUTTONDOWN)
+        // vague_ennemies = ajouter_voisin(player2, vague_ennemies, &msg);
       }
       else if ((event->motion.x <= TAILLE_FENETRE - 290 && event->motion.x >= TAILLE_FENETRE - 350) &&
                (event->motion.y >= 10 && event->motion.y <= 60))
@@ -227,7 +227,7 @@ int demarrer_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
       {
         indic = 9;
         if (event->type == SDL_MOUSEBUTTONDOWN)
-          creer_defense(player2, TAILLE_FENETRE - X_DEF, Y_DEF, 15, &msg);
+          creer_defense(player2, TAILLE_FENETRE - X_DEF - 75, Y_DEF, 15, &msg);
       }
 
       else if ((event->motion.x >= 0 && event->motion.x <= 100) &&

@@ -262,13 +262,41 @@ int charger_partie_image(char *nom, SDL_Renderer *rendu, int x, int y, int w, in
     return -1; // si on arrive pas à créer de texture on retourne -1 aussi
   if (SDL_QueryTexture(texture, NULL, NULL, NULL, NULL) != 0)
     return -1; // on place la texture dans le rectangle qu'on a reçu en paramètre. si on y arrive pas on retourne -1
-  if (SDL_RenderCopy(rendu, texture, &taille, &rect) != 0)
-    return -1; // on copie la texture dans le rendu
+
+  if (option == 0)
+  {
+    // if (SDL_RenderCopy(rendu, texture, &taille, &rect) != 0)
+    if (SDL_RenderCopyEx(rendu, texture, &taille, &rect, 0, 0, SDL_FLIP_NONE) != 0)
+      return -1; // on copie la texture dans le rendu
+  }
+  else if (option == 1)
+  {
+    if (SDL_RenderCopyEx(rendu, texture, &taille, &rect, 0, 0, SDL_FLIP_HORIZONTAL) != 0)
+      return -1; // on copie la texture dans le rendu
+  }
+
+  /*
+  int SDL_RenderCopyEx(SDL_Renderer * renderer,
+                   SDL_Texture * texture,
+                   const SDL_Rect * srcrect,
+                   const SDL_Rect * dstrect,
+                   const double angle,
+                   const SDL_Point *center,
+                   const SDL_RendererFlip flip);
+
+
+  int SDL_RenderCopy(SDL_Renderer * renderer,
+                   SDL_Texture * texture,
+                   const SDL_Rect * srcrect,
+                   const SDL_Rect * dstrect);
+*/
+
   if (option == 1)
     SDL_RenderPresent(rendu); // on a l'option de présentation du rendu ou non pour éviter les beug d'affichage on superpose tout avant d'afficher
   SDL_DestroyTexture(texture);
   return 0;
 }
+
 /**
  * \fn void demarrage(SDL_Renderer *rendu)
  * \brief Fonction servant d'introduction au jeu en faisant une animation à l'écran

@@ -352,3 +352,13 @@ void charger_img_sprite(entite *ent, SDL_Renderer *rendu)
 {
   charger_partie_image(ent->nom_fichier, rendu, ent->x, ent->y, ent->w, ent->h, ent->w_image, ent->h_image, ent->x_image, ent->y_image, 0);
 }
+
+/**
+ * \fn void charger_img_separees(entite *ent, SDL_Renderer *rendu)
+ * \brief fonction qui sert à charger les images lorsque l'animation est faite avec une seule image pour toute les positions de l'entité
+ * \param entite *ent
+ */
+void charger_img_sprite_reverse(entite *ent, SDL_Renderer *rendu)
+{
+  charger_partie_image(ent->nom_fichier, rendu, ent->x, ent->y, ent->w, ent->h, ent->w_image, ent->h_image, ent->x_image, ent->y_image, 1);
+}
