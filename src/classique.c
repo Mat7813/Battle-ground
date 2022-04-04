@@ -1,7 +1,10 @@
 /**
  * \file classique.c
  * \brief Contient toutes les fonctions utiles au mode de jeu classique de battle ground (gestion de l'évolution de la
- * partie, implémentation des structures de jeu, etc..) \author Geoffrey Posé \version 3.2.4 \date 31/03/2022
+ * partie, implémentation des structures de jeu, etc..) 
+ * \author Geoffrey Posé 
+ * \version 3.2.4 
+ * \date 31/03/2022
  */
 
 #include "SDL2/SDL.h"
