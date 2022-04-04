@@ -1,7 +1,7 @@
 /**
  * \file ajout_entites.c
- * \brief Contient les fonctions pour l'audio du jeu (la musique principale qui est jouée en boucle)
- * \author Matthieu Brière, Lazare Maclouf
+ * \brief Contient les fonctions pour l'audio du jeu (la musique principale est jouée en boucle)
+ * \author Mathieu Brière
  * \version 1
  * \date 25/03/2022
  */
