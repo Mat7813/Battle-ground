@@ -7,13 +7,13 @@ typedef struct entity
 {
 	void (*met_a_jour)(struct entity *);
 	void (*charger_img)(struct entity *, SDL_Renderer *);
-	int attaque; /*valeur qui correspond à l'attaque si l'entité doit attaquer ou non*/
+	int attaque; 		/*valeur qui correspond à l'attaque si l'entité doit attaquer ou non*/
 	int pv;
-	int type; /*attaque à distance ou de près*/
+	int type; 			/*attaque à distance ou de près*/
 	int degat;
 	int x;
 	int y;
-	int x_barre; /*valeur qui correspond à la position de la barre de vie*/
+	int x_barre; 		/*valeur qui correspond à la position de la barre de vie*/
 	int y_barre;
 	int w;				/*dimensions de l'image affichée à l'écran (largeur)*/
 	int h;				/*dimensions de l'image affichée à l'écran (hauteur)*/
@@ -26,7 +26,7 @@ typedef struct entity
 	int nb_pos_attaque; /*correspond au nombre de position dans le fichier en mode attaque*/
 	char nom_fichier[100];
 	char nom_fichier_attaque[100];
-	int montant; /*indicateur permettant de savoir si les images sont en phases montantes ou ascendantes*/
+	int montant; 		/*indicateur permettant de savoir si les images sont en phases montantes ou ascendantes*/
 } entite;
 
 typedef struct wave
@@ -53,6 +53,4 @@ void met_a_jour_images_separees(entite *ent);
 void met_a_jour_images_sprite(entite *ent);
 void charger_img_separees(entite *ent, SDL_Renderer *rendu);
 void charger_img_sprite(entite *ent, SDL_Renderer *rendu);
-void charger_img_sprite_reverse(entite *ent, SDL_Renderer *rendu);
-
 #endif
