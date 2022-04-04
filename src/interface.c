@@ -17,7 +17,7 @@
 
 pthread_t audio; /*thread pour la gestion de l'audio*/
 
-#define menu_x 400
+#define MENU_X 400
 /**
  * \fn void convert_argent(joueur *p)
  * \brief Fonction qui sert à savoir quels chiffres composent le budget du joueur pour les afficher à l'écran (pour 1000 par exemple on aura 1.png, 0.png, 0.png, 0.png)
@@ -262,8 +262,34 @@ int charger_partie_image(char *nom, SDL_Renderer *rendu, int x, int y, int w, in
     return -1; // si on arrive pas à créer de texture on retourne -1 aussi
   if (SDL_QueryTexture(texture, NULL, NULL, NULL, NULL) != 0)
     return -1; // on place la texture dans le rectangle qu'on a reçu en paramètre. si on y arrive pas on retourne -1
-  if (SDL_RenderCopy(rendu, texture, &taille, &rect) != 0)
-    return -1; // on copie la texture dans le rendu
+
+  if (option == 0)
+  {
+    // if (SDL_RenderCopy(rendu, texture, &taille, &rect) != 0)
+    if (SDL_RenderCopyEx(rendu, texture, &taille, &rect, 0, 0, SDL_FLIP_NONE) != 0)
+      return -1; // on copie la texture dans le rendu
+  }
+  else if (option == 1)
+  {
+    if (SDL_RenderCopyEx(rendu, texture, &taille, &rect, 0, 0, SDL_FLIP_HORIZONTAL) != 0)
+      return -1; // on copie la texture dans le rendu
+  }
+
+  /*
+  int SDL_RenderCopyEx(SDL_Renderer * renderer,
+                   SDL_Texture * texture,
+                   const SDL_Rect * srcrect,
+                   const SDL_Rect * dstrect,
+                   const double angle,
+                   const SDL_Point *center,
+                   const SDL_RendererFlip flip);
+
+
+  int SDL_RenderCopy(SDL_Renderer * renderer,
+                   SDL_Texture * texture,
+                   const SDL_Rect * srcrect,
+                   const SDL_Rect * dstrect);
+*/
   if (option == 1)
     SDL_RenderPresent(rendu); // on a l'option de présentation du rendu ou non pour éviter les beug d'affichage on superpose tout avant d'afficher
   SDL_DestroyTexture(texture);
@@ -307,25 +333,25 @@ int select_multi(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)
       {            // lorsque l'utilisateur appuie sur la croix rouge de la fenetre
         return -1; // on retourne -1
       }
-      else if ((event->motion.x >= menu_x && event->motion.x <= 555) && (event->motion.y >= 200 && event->motion.y <= 260))
+      else if ((event->motion.x >= MENU_X && event->motion.x <= 555) && (event->motion.y >= 200 && event->motion.y <= 260))
       { // pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
-        charger_image("data/menu/hoteover.png", rendu, menu_x, 200, 1);
+        charger_image("data/menu/hoteover.png", rendu, MENU_X, 200, 1);
         if (event->type == SDL_MOUSEBUTTONDOWN)
         {
-          jouer=SDL_FALSE;
+          jouer = SDL_FALSE;
         }
       }
-      else if ((event->motion.x >= menu_x && event->motion.x <= 555) && (event->motion.y >= 285 && event->motion.y <= 345))
+      else if ((event->motion.x >= MENU_X && event->motion.x <= 555) && (event->motion.y >= 285 && event->motion.y <= 345))
       { // pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
-        charger_image("data/menu/invitover.png", rendu, menu_x, 285, 1);
+        charger_image("data/menu/invitover.png", rendu, MENU_X, 285, 1);
         if (event->type == SDL_MOUSEBUTTONDOWN)
         {
-          jouer=SDL_FALSE;
+          jouer = SDL_FALSE;
         }
       }
-      else if ((event->motion.x >= menu_x && event->motion.x <= 555) && (event->motion.y >= 375 && event->motion.y <= 425))
+      else if ((event->motion.x >= MENU_X && event->motion.x <= 555) && (event->motion.y >= 375 && event->motion.y <= 425))
       { // pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
-        charger_image("data/menu/jouer/retourover.png", rendu, menu_x, 375, 1);
+        charger_image("data/menu/jouer/retourover.png", rendu, MENU_X, 375, 1);
         if (event->type == SDL_MOUSEBUTTONDOWN)
         {
           charger_image("data/backgrounds/bgmenu1.bmp", rendu, 0, 0, 1); // on recharge le décors pour effacer les boutons du menu actuel
@@ -334,9 +360,9 @@ int select_multi(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)
       }
       else
       {
-        charger_image("data/menu/hote.png", rendu, menu_x, 200, 1);
-        charger_image("data/menu/invit.png", rendu, menu_x, 285, 1);
-        charger_image("data/menu/jouer/retour.png", rendu, menu_x, 375, 1);
+        charger_image("data/menu/hote.png", rendu, MENU_X, 200, 1);
+        charger_image("data/menu/invit.png", rendu, MENU_X, 285, 1);
+        charger_image("data/menu/jouer/retour.png", rendu, MENU_X, 375, 1);
       }
     }
   }
@@ -363,9 +389,9 @@ int sous_menu_jouer(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)
       {            // lorsque l'utilisateur appuie sur la croix rouge de la fenetre
         return -1; // on retourne -1
       }
-      else if ((event->motion.x >= menu_x && event->motion.x <= 555) && (event->motion.y >= 150 && event->motion.y <= 200))
+      else if ((event->motion.x >= MENU_X && event->motion.x <= 555) && (event->motion.y >= 150 && event->motion.y <= 200))
       { // pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
-        charger_image("data/menu/jouer/survieover.png", rendu, menu_x, 150, 1);
+        charger_image("data/menu/jouer/survieover.png", rendu, MENU_X, 150, 1);
         if (event->type == SDL_MOUSEBUTTONDOWN)
         {
           if (jeu_survivant(window, rendu, event) == -1)
@@ -374,9 +400,9 @@ int sous_menu_jouer(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)
             charger_image("data/backgrounds/bgmenu1.bmp", rendu, 0, 0, 1);
         }
       }
-      else if ((event->motion.x >= menu_x && event->motion.x <= 555) && (event->motion.y >= 225 && event->motion.y <= 275))
+      else if ((event->motion.x >= MENU_X && event->motion.x <= 555) && (event->motion.y >= 225 && event->motion.y <= 275))
       { // pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
-        charger_image("data/menu/jouer/classiqueover.png", rendu, menu_x, 225, 1);
+        charger_image("data/menu/jouer/classiqueover.png", rendu, MENU_X, 225, 1);
         if (event->type == SDL_MOUSEBUTTONDOWN)
         {
           if (jeu_classique(window, rendu, event) == -1)
@@ -384,19 +410,19 @@ int sous_menu_jouer(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)
           else
             charger_image("data/backgrounds/bgmenu1.bmp", rendu, 0, 0, 1);
         }
-        }
-      else if ((event->motion.x >= menu_x && event->motion.x <= 555) && (event->motion.y >= 300 && event->motion.y <= 350))
+      }
+      else if ((event->motion.x >= MENU_X && event->motion.x <= 555) && (event->motion.y >= 300 && event->motion.y <= 350))
       { // pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
-        charger_image("data/menu/jouer/multiover.png", rendu, menu_x, 300, 1);
+        charger_image("data/menu/jouer/multiover.png", rendu, MENU_X, 300, 1);
         if (event->type == SDL_MOUSEBUTTONDOWN)
         {
           if (select_multi(window, rendu, event) == -1)
             return -1; // changer menu_jouer et rediriger vers page réseau avec sélection host client
         }
       }
-      else if ((event->motion.x >= menu_x && event->motion.x <= 555) && (event->motion.y >= 375 && event->motion.y <= 425))
+      else if ((event->motion.x >= MENU_X && event->motion.x <= 555) && (event->motion.y >= 375 && event->motion.y <= 425))
       { // pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
-        charger_image("data/menu/jouer/retourover.png", rendu, menu_x, 375, 1);
+        charger_image("data/menu/jouer/retourover.png", rendu, MENU_X, 375, 1);
         if (event->type == SDL_MOUSEBUTTONDOWN)
         {
           charger_image("data/backgrounds/bgmenu1.bmp", rendu, 0, 0, 1); // on recharge le décors pour effacer les boutons du menu actuel
@@ -405,10 +431,10 @@ int sous_menu_jouer(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)
       }
       else
       {
-        charger_image("data/menu/jouer/survie.png", rendu, menu_x, 150, 1);
-        charger_image("data/menu/jouer/classique.png", rendu, menu_x, 225, 1);
-        charger_image("data/menu/jouer/multi.png", rendu, menu_x, 300, 1);
-        charger_image("data/menu/jouer/retour.png", rendu, menu_x, 375, 1);
+        charger_image("data/menu/jouer/survie.png", rendu, MENU_X, 150, 1);
+        charger_image("data/menu/jouer/classique.png", rendu, MENU_X, 225, 1);
+        charger_image("data/menu/jouer/multi.png", rendu, MENU_X, 300, 1);
+        charger_image("data/menu/jouer/retour.png", rendu, MENU_X, 375, 1);
       }
     }
   }
@@ -437,27 +463,27 @@ void menu(SDL_Window *window, SDL_Renderer *rendu)
       { // lorsque l'utilisateur appuie sur la croix rouge de la fenetre
         programme = SDL_FALSE;
       }
-      if ((event.motion.x >= menu_x && event.motion.x <= 605) && (event.motion.y >= 150 && event.motion.y <= 200))
+      if ((event.motion.x >= MENU_X && event.motion.x <= 605) && (event.motion.y >= 150 && event.motion.y <= 200))
       { // pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
-        charger_image("data/menu/jouerover.png", rendu, menu_x, 150, 1);
+        charger_image("data/menu/jouerover.png", rendu, MENU_X, 150, 1);
         if (event.type == SDL_MOUSEBUTTONDOWN)
         {
           if (sous_menu_jouer(window, rendu, &event) == -1)
             programme = SDL_FALSE; // on quitte si la fonction retourne -1
         }
       }
-      else if ((event.motion.x >= menu_x && event.motion.x <= 605) && (event.motion.y >= 250 && event.motion.y <= 300))
+      else if ((event.motion.x >= MENU_X && event.motion.x <= 605) && (event.motion.y >= 250 && event.motion.y <= 300))
       {
-        charger_image("data/menu/parametresover.png", rendu, menu_x, 250, 1);
+        charger_image("data/menu/parametresover.png", rendu, MENU_X, 250, 1);
         if (event.type == SDL_MOUSEBUTTONDOWN)
         {
           if (sous_menu_jouer(window, rendu, &event) == -1)
             programme = SDL_FALSE; // on quitte si la fonction retourne -1
         }
       }
-      else if ((event.motion.x >= menu_x && event.motion.x <= 605) && (event.motion.y >= 350 && event.motion.y <= 400))
+      else if ((event.motion.x >= MENU_X && event.motion.x <= 605) && (event.motion.y >= 350 && event.motion.y <= 400))
       {
-        charger_image("data/menu/quitterover.png", rendu, menu_x, 350, 1);
+        charger_image("data/menu/quitterover.png", rendu, MENU_X, 350, 1);
         if (event.type == SDL_MOUSEBUTTONDOWN)
         {
           programme = SDL_FALSE;
@@ -470,9 +496,9 @@ void menu(SDL_Window *window, SDL_Renderer *rendu)
       }
       else
       { // lorsque l'utilisateur ne fait rien on recharge les boutons par défaut
-        charger_image("data/menu/jouer.png", rendu, menu_x, 150, 1);
-        charger_image("data/menu/parametres.png", rendu, menu_x, 250, 1);
-        charger_image("data/menu/quitter.png", rendu, menu_x, 350, 1);
+        charger_image("data/menu/jouer.png", rendu, MENU_X, 150, 1);
+        charger_image("data/menu/parametres.png", rendu, MENU_X, 250, 1);
+        charger_image("data/menu/quitter.png", rendu, MENU_X, 350, 1);
       }
     }
   }
@@ -486,13 +512,13 @@ void menu(SDL_Window *window, SDL_Renderer *rendu)
  * \return 0
  */
 int initialise_jeu()
-{                                                                                                                       // fonction servant à initialiser completement le jeu en appelant les fonctions principales d'affichages qui elles-mêmes appeleront toutes les autres sous fonctions pour le jeu
+{                                                                                                                              // fonction servant à initialiser completement le jeu en appelant les fonctions principales d'affichages qui elles-mêmes appeleront toutes les autres sous fonctions pour le jeu
   SDL_Window *window = NULL;                                                                                                   // pointeur pour la fentre (ici on travaille uniquement avec des pointeurs pour que toutes les variables soient accessibles partout dans le code et modifiables par d'autres fonctions facilement)
   SDL_Renderer *rendu = NULL;                                                                                                  // pointeur rendu
   window = SDL_CreateWindow("Battle Ground", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1000, 564, SDL_WINDOW_RESIZABLE); // on crée une fenetre de type "window_resizable" car par la suite on pourra agrandir la fenêtre
   rendu = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);                                                               // on crée le rendu
   demarrage(rendu);                                                                                                            // fonction qui sert simplement à afficher un petit logo qui clignote lorsu'on lance le jeu
-  int th1=pthread_create(&audio, NULL, audio_initialise, NULL);
+  int th1 = pthread_create(&audio, NULL, audio_initialise, NULL);
   pthread_detach(audio);
   menu(window, rendu); // fonction principale qui charge le menu. en parametre on passe tous les pointeurs qu'on a créé dans la fonction.
   pthread_cancel(audio);
