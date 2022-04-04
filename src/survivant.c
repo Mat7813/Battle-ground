@@ -18,11 +18,12 @@
 #include "vague.h"
 #include "ajout_entites.h"
 #include "interactions.h"
-#define Y_ENTITY 470
-#define X_DEF 100
-#define Y_DEF 470
-#define PV_JOUEUR 200
-#define ARGENT_JOUEUR 1000
+#define V 5
+#define y_entity 470
+#define x_def 100
+#define y_def 470
+#define pv_joueur 200
+#define argent_joueur 1000
 
 /**
  * \fn t_wave* charger_niveau(char *nom)
@@ -56,7 +57,7 @@ t_wave *charger_niveau(char *nom)
     }
     else
       vague->ent->temps = temps;
-    vague->ent->y = Y_ENTITY;
+    vague->ent->y = y_entity;
     vague->ent->attaque = 1;
     if (vague->ent->w_image != 0)
     {
@@ -185,7 +186,7 @@ int deroulement_vague(joueur *player, t_wave *vague, SDL_Renderer *rendu, int ca
         vague->ent->charger_img(vague->ent, rendu);
       vague->ent->met_a_jour(vague->ent);
       dessiner_rectangle_vide(rendu, code_contour_barre_vie, vague->ent->x_barre, vague->ent->y_barre, 8, 52, 0); /*met à jour la barre de vie*/
-      dessiner_rectangle_plein(rendu, code_interieur_barre_vie, vague->ent->x_barre, vague->ent->y_barre + 1, 6, vague->ent->pv, 0);
+      dessiner_rectangle_plein(rendu, code_interieur_barre_vie, vague->ent->x_barre + 1, vague->ent->y_barre + 1, 6, vague->ent->pv, 0);
       if (camp && vague->ent->montant != 2)
       {
         vague->ent->x -= 2;
@@ -288,8 +289,8 @@ int fin_partie(t_wave *vague)
 joueur *creer_joueur()
 {
   joueur *player = malloc(sizeof(joueur));
-  player->pv = PV_JOUEUR;
-  player->argent = ARGENT_JOUEUR;
+  player->pv = pv_joueur;
+  player->argent = argent_joueur;
   player->t = NULL;
   player->def = NULL;
   player->create = 0;
@@ -462,7 +463,7 @@ int demarrer_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event
       { // pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci
         indic = 4;
         if (event->type == SDL_MOUSEBUTTONDOWN)
-          creer_defense(player, X_DEF, Y_DEF, 15, &msg);
+          creer_defense(player, x_def, y_def, 15, &msg);
       }
       else if ((event->motion.x >= 0 && event->motion.x <= 100) && (event->motion.y >= 0 && event->motion.y <= 30))
       { // pour les trois conditions qui suivent : si l'utilisateur passe sa souris dans la zone d'un bouton (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version "over" de celui-ci

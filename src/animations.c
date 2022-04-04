@@ -13,7 +13,9 @@
 #include "interface.h"
 #include "structures.h"
 #include "vague.h"
-#define TAILLE_FENETRE 1250
+#define y_entity 470
+#define limit_x 100
+#define taille_fenetre 1250
 
 /**
  * \fn void afficher_survivant(SDL_Renderer *rendu, joueur *player, int pause)
@@ -47,23 +49,23 @@ void afficher_survivant(SDL_Renderer *rendu, joueur *player, int pause)
   }
   else if (player->camp < 0)
   {
-    dessiner_rectangle_vide(rendu, code_contour_barre_vie, TAILLE_FENETRE - 20, 180, 202, 12, 0); /*barre de vie du joueur*/     /*barre de vie du joueur*/
-    dessiner_rectangle_plein(rendu, code_interieur_barre_vie, TAILLE_FENETRE - 20, 181 + (200 - player->pv), player->pv, 10, 0); /*barre de vie du joueur, l'abcisse est proportionnelle au nombre de pv du joueur*/
+    dessiner_rectangle_vide(rendu, code_contour_barre_vie, taille_fenetre - 10, 180, 202, 12, 0); /*barre de vie du joueur*/     /*barre de vie du joueur*/
+    dessiner_rectangle_plein(rendu, code_interieur_barre_vie, taille_fenetre - 11, 181 + (200 - player->pv), player->pv, 10, 0); /*barre de vie du joueur, l'abcisse est proportionnelle au nombre de pv du joueur*/
     if (pause)
     {
-      dessiner_rectangle_plein(rendu, code_interieur_barre_vie, TAILLE_FENETRE - 620, 10, 50, 20, 0);
-      dessiner_rectangle_plein(rendu, code_interieur_barre_vie, TAILLE_FENETRE - 650, 10, 50, 20, 0);
+      dessiner_rectangle_plein(rendu, code_interieur_barre_vie, taille_fenetre - 620, 10, 50, 20, 0);
+      dessiner_rectangle_plein(rendu, code_interieur_barre_vie, taille_fenetre - 650, 10, 50, 20, 0);
     }
     else
     {
-      dessiner_rectangle_plein(rendu, code_contour_barre_vie, TAILLE_FENETRE - 620, 10, 50, 20, 0);
-      dessiner_rectangle_plein(rendu, code_contour_barre_vie, TAILLE_FENETRE - 650, 10, 50, 20, 0);
+      dessiner_rectangle_plein(rendu, code_contour_barre_vie, taille_fenetre - 620, 10, 50, 20, 0);
+      dessiner_rectangle_plein(rendu, code_contour_barre_vie, taille_fenetre - 650, 10, 50, 20, 0);
     }
     if (player->create)
     {
       int code_interieur_creation[4] = {255, 0, 0, 255};
-      dessiner_rectangle_vide(rendu, code_contour_barre_vie, TAILLE_FENETRE - 220, 100, 12, 272, 0);
-      dessiner_rectangle_plein(rendu, code_interieur_creation, TAILLE_FENETRE - 221, 101, 10, player->x_create, 0);
+      dessiner_rectangle_vide(rendu, code_contour_barre_vie, taille_fenetre - 220, 100, 12, 272, 0);
+      dessiner_rectangle_plein(rendu, code_interieur_creation, taille_fenetre - 221, 101, 10, player->x_create, 0);
     }
   }
 }
