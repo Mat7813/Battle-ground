@@ -30,13 +30,6 @@ t_wave *creer_vague()
   return vague;
 }
 
-char *creer_char()
-{
-  char *pc = malloc(10 * sizeof(char));
-  fprintf(stderr, "monchar => %p\n", pc);
-  return pc;
-}
-
 /**
  * \fn  t_wave *suivant_entite_survivant(t_wave *vague)
  * \brief place le pointeur passé en paramètre de la liste sur l'élément suivant
@@ -224,15 +217,13 @@ int compter_elem(t_wave *vague)
   return nb;
 }
 
-void met_a_jour_img_argent(joueur *player, SDL_Renderer *rendu)
+void met_a_jour_img_argent(joueur *j, SDL_Renderer *rendu)
 {
-  convert_argent(player);
+  convert_argent(j);
   int x = 60, y = 45;
-  if (player->camp < 0)
-    x = 1250 - x;
   for (int i = 0; i < 15; i++, x += 10)
   {
-    charger_image(player->argent_img[i], rendu, x, y, 0);
+    charger_image(j->argent_img[i], rendu, x, y, 0);
   }
 }
 /**
@@ -323,7 +314,7 @@ void met_a_jour_images_sprite(entite *ent)
     else if (ent->montant == 2)
     {
       ent->y_image = 0;
-      ent->x_image = ent->h_image * ent->nb_pos;
+      ent->x_image = 0;
     }
     if (ent->nom_fichier_attaque[0] > 0)
       ent->nom_fichier_attaque[0]--;
@@ -351,14 +342,4 @@ void charger_img_separees(entite *ent, SDL_Renderer *rendu)
 void charger_img_sprite(entite *ent, SDL_Renderer *rendu)
 {
   charger_partie_image(ent->nom_fichier, rendu, ent->x, ent->y, ent->w, ent->h, ent->w_image, ent->h_image, ent->x_image, ent->y_image, 0);
-}
-
-/**
- * \fn void charger_img_separees(entite *ent, SDL_Renderer *rendu)
- * \brief fonction qui sert à charger les images lorsque l'animation est faite avec une seule image pour toute les positions de l'entité
- * \param entite *ent
- */
-void charger_img_sprite_reverse(entite *ent, SDL_Renderer *rendu)
-{
-  charger_partie_image(ent->nom_fichier, rendu, ent->x, ent->y, ent->w, ent->h, ent->w_image, ent->h_image, ent->x_image, ent->y_image, 1);
 }

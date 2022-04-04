@@ -13,7 +13,9 @@
 #include "structures.h"
 #include "animations.h"
 #include "survivant.h"
-
+#define y_tir 475
+#define x_tir 165
+#define ATTACK_DEF -1
 /**
  * \fn void attaque_entites(t_wave *vague_ennemie, t_wave *vague_joueur, joueur *player)
  * \brief fonction qui sert à gérer les attaques des entités entre elles (les dégats qu'elles se causent lorsqu'elles s'affrontent)
@@ -148,10 +150,7 @@ void creer_defense(joueur *p, int x, int y, int degat, message *msg)
       if (p->argent >= 2000)
       {
         p->def = malloc(sizeof(defense));
-        if (p->camp > 0)
-          strcpy(p->def->nom_fichier, "data/inventaire/mitraillette.png");
-        else if (p->camp < 0)
-          strcpy(p->def->nom_fichier, "data/inventaire/mitraillette_reverse.png");
+        strcpy(p->def->nom_fichier, "data/inventaire/mitraillette.png");
         p->def->degat = degat;
         p->def->indice_vie = 1;
         p->def->temps = 0;
@@ -273,7 +272,7 @@ void gestion_environnement(t_wave *vague_ennemie, t_wave *vague_joueur, joueur *
       {
         if (!player->def->temps)
         {
-          player->t = creer_tir(player->t, 165, 475); // coordonnées x et y du tire
+          player->t = creer_tir(player->t, x_tir, y_tir);
           player->def->temps = 20;
         }
         else
