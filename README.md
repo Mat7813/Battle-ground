@@ -24,4 +24,4 @@ https://docs.google.com/spreadsheets/d/1nGvW8YsbBU_SToFOijIJNXJWGJEKcOc36ztXyP-i
 https://docs.google.com/spreadsheets/d/13q1ZOdnywWDGVXpLznJHODp4Z-5laKuhWFcjdYSvfuU/edit?usp=sharing
 
 ## site web :
-http://web-info.univ-lemans.fr/~s194173
+https://mat7813.github.io/Battle-ground/doc/html/index.html
