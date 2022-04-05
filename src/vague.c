@@ -2,8 +2,8 @@
  * \file vague.c
  * \brief Contient toutes les fonctions relatives à la gestion et à la manipulation des vague d'entités
  * \author Lazare Maclouf
- * \version 1
- * \date 27/02/2022
+ * \version 2
+ * \date 30/03/2022
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -188,6 +188,7 @@ t_wave *supprimer_entite_survivant(t_wave *vague)
     }
   }
 }
+
 /**
  * \fn  t_wave* vider_liste_survivant(t_wave *vague)
  * \brief fonction qui sert à vider la liste.
@@ -204,6 +205,12 @@ t_wave *vider_liste_survivant(t_wave *vague)
   return NULL;
 }
 
+/**
+ * \fn  int compter_elem(t_wave *vague)
+ * \brief compte le nombre de vague restante ( et renvoie le nombre d'entité encore à tuer)
+ * \param t_wave *vague
+ * \return int nb
+ */
 int compter_elem(t_wave *vague)
 {
   if (vague == NULL)
@@ -217,6 +224,11 @@ int compter_elem(t_wave *vague)
   return nb;
 }
 
+/**
+ * \fnvoid met_a_jour_img_argent(joueur *player, SDL_Renderer *rendu)
+ * \brief met la somme d'agent a jour en fonction de ce que le player a dépensé et gangé en changeant les imgages pour monter la quantité d'argent
+ * \param entite joueur *player, SDL_Renderer *rendu
+ */
 void met_a_jour_img_argent(joueur *player, SDL_Renderer *rendu)
 {
   convert_argent(player);
@@ -228,6 +240,7 @@ void met_a_jour_img_argent(joueur *player, SDL_Renderer *rendu)
     charger_image(player->argent_img[i], rendu, x, y, 0);
   }
 }
+
 /**
  * \fn void met_a_jour_images_separees(entite *ent)
  * \brief fonction qui sert à mettre automatiquement les images de l'entité à jour. pour qu'elle continue son animation soit en incrémentant le chiffre correspondant au numéro de l'image soit en le décrémentant et en changeant l'indice d'animation à chaque fois que nécéssaire
@@ -347,8 +360,8 @@ void charger_img_sprite(entite *ent, SDL_Renderer *rendu)
 }
 
 /**
- * \fn void charger_img_separees(entite *ent, SDL_Renderer *rendu)
- * \brief fonction qui sert à charger les images lorsque l'animation est faite avec une seule image pour toute les positions de l'entité
+ * \fn void charger_img_sprite_reverse(entite *ent, SDL_Renderer *rendu)
+ * \brief fonction qui sert à charger les images inverser pour le mode 1 vs 1
  * \param entite *ent
  */
 void charger_img_sprite_reverse(entite *ent, SDL_Renderer *rendu)
