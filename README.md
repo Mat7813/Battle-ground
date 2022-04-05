@@ -3,7 +3,7 @@
 disponible sous Linux, Windows et MacOS
 
 ## prérequis
-[SDL_image / SDL_ttf / SDL_Mixer](https://www.libsdl.org)
+[SDL_image et SDL_Mixer](https://www.libsdl.org)
 
 # compilation 
 
