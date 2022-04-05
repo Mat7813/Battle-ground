@@ -25,15 +25,15 @@
 var NAVTREE =
 [
   [ "Battle-ground", "index.html", [
-    [ "Battle-ground", "d3/d9f/md__home_attadeurtia__bureau__battle_ground__r_e_a_d_m_e.html", [
-      [ "Portabilité", "d3/d9f/md__home_attadeurtia__bureau__battle_ground__r_e_a_d_m_e.html#autotoc_md1", null ],
-      [ "prérequis", "d3/d9f/md__home_attadeurtia__bureau__battle_ground__r_e_a_d_m_e.html#autotoc_md2", null ],
-      [ "compilation", "d3/d9f/md__home_attadeurtia__bureau__battle_ground__r_e_a_d_m_e.html#autotoc_md3", [
-        [ "GANTT", "d3/d9f/md__home_attadeurtia__bureau__battle_ground__r_e_a_d_m_e.html#autotoc_md4", [
-          [ "effectif", "d3/d9f/md__home_attadeurtia__bureau__battle_ground__r_e_a_d_m_e.html#autotoc_md5", null ],
-          [ "previsionnel", "d3/d9f/md__home_attadeurtia__bureau__battle_ground__r_e_a_d_m_e.html#autotoc_md6", null ]
+    [ "Battle-ground", "df/d48/md__info_etu_l2info_s193316__bureau__battle_ground__r_e_a_d_m_e.html", [
+      [ "Portabilité", "df/d48/md__info_etu_l2info_s193316__bureau__battle_ground__r_e_a_d_m_e.html#autotoc_md1", null ],
+      [ "prérequis", "df/d48/md__info_etu_l2info_s193316__bureau__battle_ground__r_e_a_d_m_e.html#autotoc_md2", null ],
+      [ "compilation", "df/d48/md__info_etu_l2info_s193316__bureau__battle_ground__r_e_a_d_m_e.html#autotoc_md3", [
+        [ "GANTT", "df/d48/md__info_etu_l2info_s193316__bureau__battle_ground__r_e_a_d_m_e.html#autotoc_md4", [
+          [ "effectif", "df/d48/md__info_etu_l2info_s193316__bureau__battle_ground__r_e_a_d_m_e.html#autotoc_md5", null ],
+          [ "previsionnel", "df/d48/md__info_etu_l2info_s193316__bureau__battle_ground__r_e_a_d_m_e.html#autotoc_md6", null ]
         ] ],
-        [ "site web :", "d3/d9f/md__home_attadeurtia__bureau__battle_ground__r_e_a_d_m_e.html#autotoc_md7", null ]
+        [ "site web :", "df/d48/md__info_etu_l2info_s193316__bureau__battle_ground__r_e_a_d_m_e.html#autotoc_md7", null ]
       ] ]
     ] ],
     [ "Structures de données", "annotated.html", [
