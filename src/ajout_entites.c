@@ -237,7 +237,7 @@ t_wave *ajouter_fighter(joueur *player, t_wave *vague, message *msg)
         }
         else if (player->camp < 0)
         {
-          nouv->ent->x_barre = TAILLE_FENETRE - 130;
+          nouv->ent->x_barre = TAILLE_FENETRE - 110 + 50;
           nouv->ent->x = TAILLE_FENETRE - 110;
           nouv->ent->charger_img = charger_img_sprite_reverse;
         }
@@ -279,7 +279,7 @@ t_wave *ajouter_fighter(joueur *player, t_wave *vague, message *msg)
       }
       else if (player->camp < 0)
       {
-        vague->ent->x_barre = TAILLE_FENETRE - 130;
+        vague->ent->x_barre = TAILLE_FENETRE - 110 + 50;
         vague->ent->x = TAILLE_FENETRE - 110;
         vague->ent->charger_img = charger_img_sprite_reverse;
       }
