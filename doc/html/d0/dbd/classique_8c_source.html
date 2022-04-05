@@ -1,0 +1,481 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Battle-ground:  Fichier source de classique.c</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../launcher.bmp"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Battle-ground
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d0/dbd/classique_8c_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">classique.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d0/dbd/classique_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;SDL2/SDL.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;SDL2/SDL_image.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../df/df5/ajout__entites_8h.html">ajout_entites.h</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d8a/animations_8h.html">animations.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d5c/interactions_8h.html">interactions.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/da3/structures_8h.html">structures.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/ddc/vague_8h.html">vague.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/da0/survivant_8h.html">survivant.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../d0/dbd/classique_8c.html#a2be86c4f44fa6d26882dc202d5971cf2">   18</a></span>&#160;<span class="preprocessor">#define X_DEF 100</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="../../d0/dbd/classique_8c.html#a1bc79ca6e30058a469ccd462a931631a">   19</a></span>&#160;<span class="preprocessor">#define Y_DEF 470</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">   20</a></span>&#160;<span class="preprocessor">#define TAILLE_FENETRE 1250</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../d0/dbd/classique_8c.html#aa5cfedf736784ee8dc2bbde44f87a4cb">   22</a></span>&#160;<span class="preprocessor">#define Y_TIR 475</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="../../d0/dbd/classique_8c.html#a64f6fec99e6348d121d15edc60c9d691">   23</a></span>&#160;<span class="preprocessor">#define X_TIR 165</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d0/dbd/classique_8c.html#a562f70e5a97604d7f24ede9169c94550">   30</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d0/dbd/classique_8c.html#a562f70e5a97604d7f24ede9169c94550">gestion_environnement_classique</a>(<a class="code" href="../../d2/dd7/structwave.html">t_wave</a> *vague_ennemie, <a class="code" href="../../d2/dd7/structwave.html">t_wave</a> *vague_joueur, <a class="code" href="../../d3/da4/structjoue.html">joueur</a> *player, <a class="code" href="../../d3/da4/structjoue.html">joueur</a> *player2, SDL_Renderer *rendu)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{ <span class="comment">// fonction qui vérifie qu&#39;un élément ne rentre pas en contact avec un autre</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  vague_ennemie = <a class="code" href="../../d7/ddc/vague_8h.html#ae3fcab327d09d9d1a7fa544eff027c78">deb_liste_vague</a>(vague_ennemie);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  vague_joueur = <a class="code" href="../../d7/ddc/vague_8h.html#ae3fcab327d09d9d1a7fa544eff027c78">deb_liste_vague</a>(vague_joueur);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordflow">if</span> (vague_ennemie != NULL)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">if</span> (vague_ennemie-&gt;<a class="code" href="../../d2/dd7/structwave.html#a81f8e7aa70b6b48277e4a4b14f7eb7d6">ent</a>-&gt;<a class="code" href="../../db/dd1/structentity.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> &lt;= 400)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keywordflow">if</span> (player-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a> != NULL &amp;&amp; player-&gt;<a class="code" href="../../d3/da4/structjoue.html#aa38f9488ca72a3a9d0c85bff213642c8">t</a> == NULL)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">if</span> (!player-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a>-&gt;<a class="code" href="../../dd/d8a/structdef.html#ac85a28512daa89028cd4dd0024a04ab1">temps</a>)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;          player-&gt;<a class="code" href="../../d3/da4/structjoue.html#aa38f9488ca72a3a9d0c85bff213642c8">t</a> = <a class="code" href="../../db/d5c/interactions_8h.html#af43635ef0cff118e4f4b6cbcc85032d6">creer_tir</a>(player-&gt;<a class="code" href="../../d3/da4/structjoue.html#aa38f9488ca72a3a9d0c85bff213642c8">t</a>, <a class="code" href="../../d0/dbd/classique_8c.html#a64f6fec99e6348d121d15edc60c9d691">X_TIR</a>, <a class="code" href="../../d0/dbd/classique_8c.html#aa5cfedf736784ee8dc2bbde44f87a4cb">Y_TIR</a>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;          player-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a>-&gt;<a class="code" href="../../dd/d8a/structdef.html#ac85a28512daa89028cd4dd0024a04ab1">temps</a> = 20;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;          player-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a>-&gt;<a class="code" href="../../dd/d8a/structdef.html#ac85a28512daa89028cd4dd0024a04ab1">temps</a>--;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (player-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a> != NULL)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      player-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a>-&gt;<a class="code" href="../../dd/d8a/structdef.html#ac85a28512daa89028cd4dd0024a04ab1">temps</a> = 0;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (player-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a> != NULL)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    player-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a>-&gt;<a class="code" href="../../dd/d8a/structdef.html#ac85a28512daa89028cd4dd0024a04ab1">temps</a> = 0;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordflow">if</span> (vague_joueur != NULL)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span> (vague_joueur-&gt;<a class="code" href="../../d2/dd7/structwave.html#a81f8e7aa70b6b48277e4a4b14f7eb7d6">ent</a>-&gt;<a class="code" href="../../db/dd1/structentity.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> <span class="comment">/*  &gt;= TAILLE_FENETRE- 400 */</span>)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keywordflow">if</span> (player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a> != NULL &amp;&amp; player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#aa38f9488ca72a3a9d0c85bff213642c8">t</a> == NULL)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">if</span> (!player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a>-&gt;<a class="code" href="../../dd/d8a/structdef.html#ac85a28512daa89028cd4dd0024a04ab1">temps</a>)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;          player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#aa38f9488ca72a3a9d0c85bff213642c8">t</a> = <a class="code" href="../../db/d5c/interactions_8h.html#af43635ef0cff118e4f4b6cbcc85032d6">creer_tir</a>(player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#aa38f9488ca72a3a9d0c85bff213642c8">t</a>, <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - <a class="code" href="../../d0/dbd/classique_8c.html#a64f6fec99e6348d121d15edc60c9d691">X_TIR</a>, <a class="code" href="../../d0/dbd/classique_8c.html#aa5cfedf736784ee8dc2bbde44f87a4cb">Y_TIR</a>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;          player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a>-&gt;<a class="code" href="../../dd/d8a/structdef.html#ac85a28512daa89028cd4dd0024a04ab1">temps</a> = 20;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;          player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a>-&gt;<a class="code" href="../../dd/d8a/structdef.html#ac85a28512daa89028cd4dd0024a04ab1">temps</a>--;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a> != NULL)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a>-&gt;<a class="code" href="../../dd/d8a/structdef.html#ac85a28512daa89028cd4dd0024a04ab1">temps</a> = 0;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a> != NULL)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a>-&gt;<a class="code" href="../../dd/d8a/structdef.html#ac85a28512daa89028cd4dd0024a04ab1">temps</a> = 0;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <a class="code" href="../../db/d5c/interactions_8h.html#a2d749398b79f32c096a2a83d30cebecf">gestion_ligne_entite</a>(vague_ennemie, 1);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <a class="code" href="../../db/d5c/interactions_8h.html#a2d749398b79f32c096a2a83d30cebecf">gestion_ligne_entite</a>(vague_joueur, 0);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <a class="code" href="../../db/d5c/interactions_8h.html#a94b4336f8fc12ba81bd566bc22db324a">attaque_entites</a>(vague_ennemie, vague_joueur, player);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <a class="code" href="../../d4/d8a/animations_8h.html#a224255b9c1e0d904da5e1f32fbab01c5">animation_attaque</a>(rendu, vague_ennemie);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <a class="code" href="../../d4/d8a/animations_8h.html#a224255b9c1e0d904da5e1f32fbab01c5">animation_attaque</a>(rendu, vague_joueur);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <a class="code" href="../../d4/d8a/animations_8h.html#a04e54a9a69f10e92243b4cac04df15f8">animation_tir_gauche</a>(rendu, player);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <a class="code" href="../../d4/d8a/animations_8h.html#a04e54a9a69f10e92243b4cac04df15f8">animation_tir_gauche</a>(rendu, player2);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  player-&gt;<a class="code" href="../../d3/da4/structjoue.html#aa38f9488ca72a3a9d0c85bff213642c8">t</a> = <a class="code" href="../../db/d5c/interactions_8h.html#a37a87014d3e43e9f508dfb96237e8e40">etat_tir</a>(player-&gt;<a class="code" href="../../d3/da4/structjoue.html#aa38f9488ca72a3a9d0c85bff213642c8">t</a>); <span class="comment">/*on met à jour le tir si besoin*/</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  player-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a> = <a class="code" href="../../db/d5c/interactions_8h.html#a5b6e6d34f775da1682e110ae7b4c4711">etat_defense</a>(player-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a>);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#aa38f9488ca72a3a9d0c85bff213642c8">t</a> = <a class="code" href="../../db/d5c/interactions_8h.html#a37a87014d3e43e9f508dfb96237e8e40">etat_tir</a>(player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#aa38f9488ca72a3a9d0c85bff213642c8">t</a>); <span class="comment">/*on met à jour le tir si besoin*/</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a> = <a class="code" href="../../db/d5c/interactions_8h.html#a5b6e6d34f775da1682e110ae7b4c4711">etat_defense</a>(player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">def</a>);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../d0/dbd/classique_8c.html#afadc53889a27d609b048d299d00c034d">   96</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d0/dbd/classique_8c.html#afadc53889a27d609b048d299d00c034d">etat_partie_classique</a>(<a class="code" href="../../d2/dd7/structwave.html">t_wave</a> *vague, <a class="code" href="../../d3/da4/structjoue.html">joueur</a> *player, <a class="code" href="../../d3/da4/structjoue.html">joueur</a> *player2)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{ <span class="comment">// retourne l&#39;état de la partie (0 si elle est toujours en cours, 2 si le joueur a gagné, -1 si il a perdu)</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keywordflow">if</span> (player != NULL &amp;&amp; player2 != NULL)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">if</span> (player-&gt;<a class="code" href="../../d3/da4/structjoue.html#af1b58e608320ff939118a2a719ba3e6b">pv</a> &lt; 0)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      <span class="keywordflow">return</span> 1; <span class="comment">// gagné</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#af1b58e608320ff939118a2a719ba3e6b">pv</a> &lt; 0)</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="keywordflow">return</span> 2; <span class="comment">// perdu</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keywordflow">return</span> -1; <span class="comment">// si on est pas rentré</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="../../dc/da0/classique_8h.html#a75a80ef972ade9d22e924f548a0dcdd9">  117</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d0/dbd/classique_8c.html#a75a80ef972ade9d22e924f548a0dcdd9">demarrer_classique</a>(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;{ <span class="comment">// crée un ordinateur avec le nombre de vague liées au niveau.</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="keywordtype">int</span> indic;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <a class="code" href="../../db/d46/structmes.html">message</a> msg;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <a class="code" href="../../d3/da0/survivant_8h.html#ae47a4d482094d91fa851ce1a5f9500a1">message_box</a>(&amp;msg, 0);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="comment">/*   char level[100] = &quot;data/modejeu/survivant/level1.txt&quot;;</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">    level[28] = lvl; */</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keywordtype">char</span> bg[100] = <span class="stringliteral">&quot;data/backgrounds/bg1classique.png&quot;</span>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  bg[19] = <span class="charliteral">&#39;1&#39;</span>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="comment">/* t_wave *vague_ennemies = charger_niveau(level);</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">  if (vague_ennemies == NULL)</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">    printf(&quot;echec lors de la creation de vague\n&quot;);</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <a class="code" href="../../d2/dd7/structwave.html">t_wave</a> *vague_joueur = NULL;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <a class="code" href="../../d2/dd7/structwave.html">t_wave</a> *vague_ennemies = NULL;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <a class="code" href="../../d3/da4/structjoue.html">joueur</a> *player = <a class="code" href="../../d3/da0/survivant_8h.html#a12811e3477454ce02219842c456b13aa">creer_joueur</a>();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  <a class="code" href="../../d3/da4/structjoue.html">joueur</a> *player2 = <a class="code" href="../../d3/da0/survivant_8h.html#a12811e3477454ce02219842c456b13aa">creer_joueur</a>();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#ac6460e0b6ff5c9bbac97742c19d3e72b">camp</a> = -1; <span class="comment">// camp enemie</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  player-&gt;<a class="code" href="../../d3/da4/structjoue.html#aaf2331208dfb16a05b9f58f27bb24fa9">argent</a> = 10000;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  player2-&gt;<a class="code" href="../../d3/da4/structjoue.html#aaf2331208dfb16a05b9f58f27bb24fa9">argent</a> = 10000;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(bg, rendu, 0, 0, 1);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keywordtype">int</span> pause = 0;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <span class="keywordflow">while</span> (<a class="code" href="../../d0/dbd/classique_8c.html#afadc53889a27d609b048d299d00c034d">etat_partie_classique</a>(vague_ennemies, player, player2) == 0)</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  {</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordflow">while</span> (SDL_PollEvent(event))</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    {</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      <span class="comment">//  if(etat_partie_survivant(vague, &amp;player)==1)return 1;//on verifie à chaque tour de boucle l&#39;état de la</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      <span class="comment">//  partie if(etat_partie_survivant(vague, &amp;player)==-1)return 0;</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      <span class="keywordflow">if</span> (event-&gt;type == SDL_QUIT)</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      { <span class="comment">// lorsque l&#39;utilisateur appuie sur la croix rouge de la fenetre</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../d4/da9/interface_8h.html#aeeed8d057580924798b64772bbb772db">quit_message</a>() == -1)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        {</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;          <a class="code" href="../../d3/da0/survivant_8h.html#a4897508691483d5352cb1bc504b781a0">fin_partie</a>(vague_ennemies);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;          <a class="code" href="../../d3/da0/survivant_8h.html#a4897508691483d5352cb1bc504b781a0">fin_partie</a>(vague_joueur);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;          <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        }</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      }</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      <span class="keywordflow">if</span> (event-&gt;window.event == SDL_WINDOWEVENT_RESIZED)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        SDL_SetWindowSize(window, 1250, 694);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="../../d7/ddc/vague_8h.html#a00cd4125ea655d5053749a6f44037784">compter_elem</a>(vague_ennemies) &gt;= 20)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <a class="code" href="../../d3/da0/survivant_8h.html#ae47a4d482094d91fa851ce1a5f9500a1">message_box</a>(&amp;msg, <span class="stringliteral">&quot;data/inventaire/derniere.png&quot;</span>);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;      <span class="keywordflow">if</span> ((event-&gt;motion.x &gt;= 620 &amp;&amp; event-&gt;motion.x &lt;= 670) &amp;&amp; (event-&gt;motion.y &gt;= 10 &amp;&amp; event-&gt;motion.y &lt;= 50))</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;      {</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordflow">if</span> (event-&gt;type == SDL_MOUSEBUTTONDOWN)</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        {</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;          <span class="keywordflow">if</span> (pause)</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            pause = 0;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;          <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            pause = 1;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;          <a class="code" href="../../d4/d8a/animations_8h.html#a4615f322e1018ed51d63dac4259af654">afficher_survivant</a>(rendu, player, pause);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        }</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;      <span class="keywordflow">if</span> ((event-&gt;motion.x &gt;= 220 &amp;&amp; event-&gt;motion.x &lt;= 280) &amp;&amp; (event-&gt;motion.y &gt;= 10 &amp;&amp; event-&gt;motion.y &lt;= 60))</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;      { <span class="comment">// pour les trois conditions qui suivent : si l&#39;utilisateur passe sa souris dans la zone d&#39;un bouton</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="comment">// (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version &quot;over&quot; de celui-ci</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        indic = 1;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keywordflow">if</span> (event-&gt;type == SDL_MOUSEBUTTONDOWN)</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;          vague_joueur = <a class="code" href="../../df/df5/ajout__entites_8h.html#ac02b78a6e1b8bf7318fb257ea8ba8c76">ajouter_voisin</a>(player, vague_joueur, &amp;msg); <span class="comment">/*ajouter_voisin(player, vague_joueur);*/</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      }</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((event-&gt;motion.x &gt;= 290 &amp;&amp; event-&gt;motion.x &lt;= 350) &amp;&amp;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;               (event-&gt;motion.y &gt;= 10 &amp;&amp; event-&gt;motion.y &lt;= 60))</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;      {</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        indic = 2;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="keywordflow">if</span> (event-&gt;type == SDL_MOUSEBUTTONDOWN)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;          vague_joueur = <a class="code" href="../../df/df5/ajout__entites_8h.html#a37fc57313d4b7cf3a0037043c560ec9f">ajouter_fighter</a>(player, vague_joueur, &amp;msg);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      }</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((event-&gt;motion.x &gt;= 360 &amp;&amp; event-&gt;motion.x &lt;= 420) &amp;&amp;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;               (event-&gt;motion.y &gt;= 10 &amp;&amp; event-&gt;motion.y &lt;= 60))</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      {</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        indic = 3;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="keywordflow">if</span> (event-&gt;type == SDL_MOUSEBUTTONDOWN)</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;          vague_joueur = <a class="code" href="../../df/df5/ajout__entites_8h.html#a65aac9fc6bb168572a003ef10672d200">ajouter_bandit</a>(player, vague_joueur, &amp;msg);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;      }</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((event-&gt;motion.x &gt;= 430 &amp;&amp; event-&gt;motion.x &lt;= 500) &amp;&amp;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;               (event-&gt;motion.y &gt;= 10 &amp;&amp; event-&gt;motion.y &lt;= 60))</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;      {</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        indic = 4;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordflow">if</span> (event-&gt;type == SDL_MOUSEBUTTONDOWN)</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;          <a class="code" href="../../db/d5c/interactions_8h.html#af9160b9c29b83fbc6456fe6de3e5ab6a">creer_defense</a>(player, <a class="code" href="../../d0/dbd/classique_8c.html#a2be86c4f44fa6d26882dc202d5971cf2">X_DEF</a>, <a class="code" href="../../d0/dbd/classique_8c.html#a1bc79ca6e30058a469ccd462a931631a">Y_DEF</a>, 15, &amp;msg);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      }</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;      <span class="comment">// inverse:</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((event-&gt;motion.x &lt;= <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 220 &amp;&amp; event-&gt;motion.x &gt;= <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 280) &amp;&amp;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;               (event-&gt;motion.y &gt;= 10 &amp;&amp; event-&gt;motion.y &lt;= 60))</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;      {</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        indic = 6;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="comment">// if (event-&gt;type == SDL_MOUSEBUTTONDOWN)</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="comment">// vague_ennemies = ajouter_voisin(player2, vague_ennemies, &amp;msg);</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      }</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((event-&gt;motion.x &lt;= <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 290 &amp;&amp; event-&gt;motion.x &gt;= <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 350) &amp;&amp;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;               (event-&gt;motion.y &gt;= 10 &amp;&amp; event-&gt;motion.y &lt;= 60))</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;      {</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        indic = 7;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">if</span> (event-&gt;type == SDL_MOUSEBUTTONDOWN)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;          vague_ennemies = <a class="code" href="../../df/df5/ajout__entites_8h.html#a37fc57313d4b7cf3a0037043c560ec9f">ajouter_fighter</a>(player2, vague_ennemies, &amp;msg);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      }</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((event-&gt;motion.x &lt;= <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 360 &amp;&amp; event-&gt;motion.x &gt;= <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 420) &amp;&amp;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;               (event-&gt;motion.y &gt;= 10 &amp;&amp; event-&gt;motion.y &lt;= 60))</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;      {</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        indic = 8;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">if</span> (event-&gt;type == SDL_MOUSEBUTTONDOWN)</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;          vague_ennemies = <a class="code" href="../../df/df5/ajout__entites_8h.html#a65aac9fc6bb168572a003ef10672d200">ajouter_bandit</a>(player2, vague_ennemies, &amp;msg);</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      }</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((event-&gt;motion.x &lt;= <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 430 &amp;&amp; event-&gt;motion.x &gt;= <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 500) &amp;&amp;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;               (event-&gt;motion.y &gt;= 10 &amp;&amp; event-&gt;motion.y &lt;= 60))</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;      {</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        indic = 9;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="keywordflow">if</span> (event-&gt;type == SDL_MOUSEBUTTONDOWN)</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;          <a class="code" href="../../db/d5c/interactions_8h.html#af9160b9c29b83fbc6456fe6de3e5ab6a">creer_defense</a>(player2, <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - <a class="code" href="../../d0/dbd/classique_8c.html#a2be86c4f44fa6d26882dc202d5971cf2">X_DEF</a> - 75, <a class="code" href="../../d0/dbd/classique_8c.html#a1bc79ca6e30058a469ccd462a931631a">Y_DEF</a>, 15, &amp;msg);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      }</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((event-&gt;motion.x &gt;= 0 &amp;&amp; event-&gt;motion.x &lt;= 100) &amp;&amp;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;               (event-&gt;motion.y &gt;= 0 &amp;&amp; event-&gt;motion.y &lt;= 30))</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      { <span class="comment">// pour les trois conditions qui suivent : si l&#39;utilisateur passe sa souris dans la zone d&#39;un bouton</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <span class="comment">// (jouer, paramètres ou quitter), on change le fond du bouton en chargeant la version &quot;over&quot; de celui-ci</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        indic = 5;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <span class="keywordflow">if</span> (event-&gt;type == SDL_MOUSEBUTTONDOWN)</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        {</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;          <span class="keywordflow">if</span> (<a class="code" href="../../d3/da0/survivant_8h.html#a82ab3fa1a79f96660b1a24075747402c">return_message</a>() == -1)</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;          {</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            <a class="code" href="../../d3/da0/survivant_8h.html#a4897508691483d5352cb1bc504b781a0">fin_partie</a>(vague_ennemies);</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            <a class="code" href="../../d3/da0/survivant_8h.html#a4897508691483d5352cb1bc504b781a0">fin_partie</a>(vague_joueur);</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;          }</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        }</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      }</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        indic = 0;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      <span class="keywordflow">if</span> (msg.<a class="code" href="../../db/d46/structmes.html#ac85a28512daa89028cd4dd0024a04ab1">temps</a> &gt; 0)</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      {</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../db/d5c/interactions_8h.html#a5036d698e5fcdacef68aafe11cf7605e">fichier_existe</a>(msg.<a class="code" href="../../db/d46/structmes.html#a302608f50d98bb0a759560e1e7b7af37">nom_fichier</a>))</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;          <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(msg.<a class="code" href="../../db/d46/structmes.html#a302608f50d98bb0a759560e1e7b7af37">nom_fichier</a>, rendu, msg.<a class="code" href="../../db/d46/structmes.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>, msg.<a class="code" href="../../db/d46/structmes.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>, 0);</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        msg.<a class="code" href="../../db/d46/structmes.html#ac85a28512daa89028cd4dd0024a04ab1">temps</a>--;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      }</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    }</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordflow">if</span> (msg.<a class="code" href="../../db/d46/structmes.html#ac85a28512daa89028cd4dd0024a04ab1">temps</a> &gt; 0)</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    {</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="../../db/d5c/interactions_8h.html#a5036d698e5fcdacef68aafe11cf7605e">fichier_existe</a>(msg.<a class="code" href="../../db/d46/structmes.html#a302608f50d98bb0a759560e1e7b7af37">nom_fichier</a>))</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(msg.<a class="code" href="../../db/d46/structmes.html#a302608f50d98bb0a759560e1e7b7af37">nom_fichier</a>, rendu, msg.<a class="code" href="../../db/d46/structmes.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>, msg.<a class="code" href="../../db/d46/structmes.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>, 0);</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;      msg.<a class="code" href="../../db/d46/structmes.html#ac85a28512daa89028cd4dd0024a04ab1">temps</a>--;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    }</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keywordflow">if</span> (!pause)</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    {</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(bg, rendu, 0, 0, 0);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/backover.png&quot;</span>, rendu, 0, 10, 0);</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carre1.png&quot;</span>, rendu, 220, 10, 0);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carre2.png&quot;</span>, rendu, 290, 10, 0);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carre3.png&quot;</span>, rendu, 360, 10, 0);</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carre4.png&quot;</span>, rendu, 430, 10, 0);</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carreover.png&quot;</span>, rendu, 220, 10, 0);</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carreover.png&quot;</span>, rendu, 290, 10, 0);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carreover.png&quot;</span>, rendu, 360, 10, 0);</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carreover.png&quot;</span>, rendu, 430, 10, 0);</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      <span class="comment">// charger_image(&quot;data/inventaire/survivant.png&quot;, rendu, 740, 10, 0);</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/piece1.png&quot;</span>, rendu, 20, 40, 0);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/retoursurv.png&quot;</span>, rendu, 60, 10, 0);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;      <span class="keywordflow">if</span> (indic != 1)</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carre1.png&quot;</span>, rendu, 220, 10, 0);</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      <span class="keywordflow">if</span> (indic != 2)</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carre2.png&quot;</span>, rendu, 290, 10, 0);</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;      <span class="keywordflow">if</span> (indic != 3)</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carre3.png&quot;</span>, rendu, 360, 10, 0);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;      <span class="keywordflow">if</span> (indic != 4)</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carre4.png&quot;</span>, rendu, 430, 10, 0);</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      <span class="keywordflow">if</span> (indic != 5)</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/back.png&quot;</span>, rendu, 0, 10, 0);</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      <span class="keywordflow">if</span> (msg.<a class="code" href="../../db/d46/structmes.html#ac85a28512daa89028cd4dd0024a04ab1">temps</a> &gt; 0)</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      {</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../db/d5c/interactions_8h.html#a5036d698e5fcdacef68aafe11cf7605e">fichier_existe</a>(msg.<a class="code" href="../../db/d46/structmes.html#a302608f50d98bb0a759560e1e7b7af37">nom_fichier</a>))</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;          <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(msg.<a class="code" href="../../db/d46/structmes.html#a302608f50d98bb0a759560e1e7b7af37">nom_fichier</a>, rendu, msg.<a class="code" href="../../db/d46/structmes.html#a6150e0515f7202e2fb518f7206ed97dc">x</a>, msg.<a class="code" href="../../db/d46/structmes.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a>, 0);</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        msg.<a class="code" href="../../db/d46/structmes.html#ac85a28512daa89028cd4dd0024a04ab1">temps</a>--;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      }</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;      <span class="comment">// inverse</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      <span class="comment">// charger_image(&quot;data/inventaire/backover.png&quot;, rendu, TAILLE_FENETRE-0, 10, 0);</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;      <span class="comment">// charger_image(&quot;data/inventaire/survivant.png&quot;, rendu, TAILLE_FENETRE-740, 10, 0);</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;      <span class="comment">// charger_image(&quot;data/inventaire/retoursurv.png&quot;, rendu, TAILLE_FENETRE-60, 10, 0);</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carre1.png&quot;</span>, rendu, <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 60 - 220, 10, 0); <span class="comment">// 60 est la longueur du carre</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carre2.png&quot;</span>, rendu, <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 60 - 290, 10, 0);</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carre3.png&quot;</span>, rendu, <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 60 - 360, 10, 0);</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carre4.png&quot;</span>, rendu, <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 60 - 430, 10, 0);</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carreover.png&quot;</span>, rendu, <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 60 - 220, 10, 0);</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carreover.png&quot;</span>, rendu, <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 60 - 290, 10, 0);</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carreover.png&quot;</span>, rendu, <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 60 - 360, 10, 0);</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carreover.png&quot;</span>, rendu, <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 60 - 430, 10, 0);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;      <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/piece1.png&quot;</span>, rendu, <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 60 - 37, 40, 0);</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      <span class="keywordflow">if</span> (indic != 6)</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carre1.png&quot;</span>, rendu, <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 60 - 220, 10, 0);</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      <span class="keywordflow">if</span> (indic != 7)</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carre2.png&quot;</span>, rendu, <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 60 - 290, 10, 0);</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;      <span class="keywordflow">if</span> (indic != 8)</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carre3.png&quot;</span>, rendu, <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 60 - 360, 10, 0);</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      <span class="keywordflow">if</span> (indic != 9)</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/carre4.png&quot;</span>, rendu, <a class="code" href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a> - 60 - 430, 10, 0);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    }</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <a class="code" href="../../d7/ddc/vague_8h.html#abd2e11fd0be91e81ee8d2eb04b97d309">met_a_jour_img_argent</a>(player, rendu);</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <a class="code" href="../../d7/ddc/vague_8h.html#abd2e11fd0be91e81ee8d2eb04b97d309">met_a_jour_img_argent</a>(player2, rendu);</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <a class="code" href="../../d4/d8a/animations_8h.html#a4615f322e1018ed51d63dac4259af654">afficher_survivant</a>(rendu, player, pause);</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <a class="code" href="../../d4/d8a/animations_8h.html#a4615f322e1018ed51d63dac4259af654">afficher_survivant</a>(rendu, player2, pause);</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <a class="code" href="../../d0/dbd/classique_8c.html#a562f70e5a97604d7f24ede9169c94550">gestion_environnement_classique</a>(vague_ennemies, vague_joueur, player, player2, rendu);</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordflow">if</span> (!pause)</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    {</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="../../d3/da0/survivant_8h.html#a063b3e9084755f025bc160926a05f4c9">deroulement_vague</a>(player2, vague_ennemies, rendu, 1) == -1)</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        vague_ennemies = NULL;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="../../d3/da0/survivant_8h.html#a063b3e9084755f025bc160926a05f4c9">deroulement_vague</a>(player, vague_joueur, rendu, 0) == -1)</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        vague_joueur = NULL;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    }</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    SDL_RenderPresent(rendu);</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;  }</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="../../d0/dbd/classique_8c.html#afadc53889a27d609b048d299d00c034d">etat_partie_classique</a>(vague_ennemies, player, player2) == 2) <span class="comment">// le joueur2 a gagné</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  {</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    free(player);</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    free(player2);</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <a class="code" href="../../d3/da0/survivant_8h.html#a4897508691483d5352cb1bc504b781a0">fin_partie</a>(vague_ennemies);</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <a class="code" href="../../d3/da0/survivant_8h.html#a4897508691483d5352cb1bc504b781a0">fin_partie</a>(vague_joueur);</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/j1.png&quot;</span>, rendu, 400, 300, 1);</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    SDL_Delay(1500);</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  }</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="../../d0/dbd/classique_8c.html#afadc53889a27d609b048d299d00c034d">etat_partie_classique</a>(vague_ennemies, player, player2) == 1) <span class="comment">// le joueur1 a gagné</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;  {</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    free(player);</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    free(player2);</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <a class="code" href="../../d3/da0/survivant_8h.html#a4897508691483d5352cb1bc504b781a0">fin_partie</a>(vague_ennemies);</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <a class="code" href="../../d3/da0/survivant_8h.html#a4897508691483d5352cb1bc504b781a0">fin_partie</a>(vague_joueur);</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <a class="code" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a>(<span class="stringliteral">&quot;data/inventaire/j2.png&quot;</span>, rendu, 400, 300, 1);</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    SDL_Delay(1500);</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;  }</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;}</div>
+<div class="ttc" id="aajout__entites_8h_html"><div class="ttname"><a href="../../df/df5/ajout__entites_8h.html">ajout_entites.h</a></div></div>
+<div class="ttc" id="aajout__entites_8h_html_a37fc57313d4b7cf3a0037043c560ec9f"><div class="ttname"><a href="../../df/df5/ajout__entites_8h.html#a37fc57313d4b7cf3a0037043c560ec9f">ajouter_fighter</a></div><div class="ttdeci">t_wave * ajouter_fighter(joueur *player, t_wave *vague, message *msg)</div><div class="ttdoc">fonction qui crée une entité fighter et renvoie le pointeur sur celle-ci</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d60/ajout__entites_8c_source.html#l00219">ajout_entites.c:219</a></div></div>
+<div class="ttc" id="aajout__entites_8h_html_a65aac9fc6bb168572a003ef10672d200"><div class="ttname"><a href="../../df/df5/ajout__entites_8h.html#a65aac9fc6bb168572a003ef10672d200">ajouter_bandit</a></div><div class="ttdeci">t_wave * ajouter_bandit(joueur *player, t_wave *vague, message *msg)</div><div class="ttdoc">fonction qui crée une entité bandit et renvoie le pointeur sur celle-ci</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d60/ajout__entites_8c_source.html#l00120">ajout_entites.c:120</a></div></div>
+<div class="ttc" id="aajout__entites_8h_html_ac02b78a6e1b8bf7318fb257ea8ba8c76"><div class="ttname"><a href="../../df/df5/ajout__entites_8h.html#ac02b78a6e1b8bf7318fb257ea8ba8c76">ajouter_voisin</a></div><div class="ttdeci">t_wave * ajouter_voisin(joueur *player, t_wave *vague, message *msg)</div><div class="ttdoc">fonction qui crée une entité voisin et renvoie le pointeur sur celle-ci</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d60/ajout__entites_8c_source.html#l00025">ajout_entites.c:25</a></div></div>
+<div class="ttc" id="aanimations_8h_html"><div class="ttname"><a href="../../d4/d8a/animations_8h.html">animations.h</a></div></div>
+<div class="ttc" id="aanimations_8h_html_a04e54a9a69f10e92243b4cac04df15f8"><div class="ttname"><a href="../../d4/d8a/animations_8h.html#a04e54a9a69f10e92243b4cac04df15f8">animation_tir_gauche</a></div><div class="ttdeci">void animation_tir_gauche(SDL_Renderer *rendu, joueur *player)</div><div class="ttdoc">fonction qui effectue l'animation d'un tir provenant de gauche jusqu'à sa cible</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dea/animations_8c_source.html#l00075">animations.c:75</a></div></div>
+<div class="ttc" id="aanimations_8h_html_a224255b9c1e0d904da5e1f32fbab01c5"><div class="ttname"><a href="../../d4/d8a/animations_8h.html#a224255b9c1e0d904da5e1f32fbab01c5">animation_attaque</a></div><div class="ttdeci">void animation_attaque(SDL_Renderer *rendu, t_wave *vague)</div><div class="ttdoc">fonction qui met anime l'attaque de certaines entités</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dea/animations_8c_source.html#l00092">animations.c:92</a></div></div>
+<div class="ttc" id="aanimations_8h_html_a4615f322e1018ed51d63dac4259af654"><div class="ttname"><a href="../../d4/d8a/animations_8h.html#a4615f322e1018ed51d63dac4259af654">afficher_survivant</a></div><div class="ttdeci">void afficher_survivant(SDL_Renderer *rendu, joueur *player, int pause)</div><div class="ttdoc">fonction qui affiche le décors en mode survivant avec la barre de vie des joueurs,...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/dea/animations_8c_source.html#l00023">animations.c:23</a></div></div>
+<div class="ttc" id="aclassique_8c_html_a1bc79ca6e30058a469ccd462a931631a"><div class="ttname"><a href="../../d0/dbd/classique_8c.html#a1bc79ca6e30058a469ccd462a931631a">Y_DEF</a></div><div class="ttdeci">#define Y_DEF</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dbd/classique_8c_source.html#l00019">classique.c:19</a></div></div>
+<div class="ttc" id="aclassique_8c_html_a2be86c4f44fa6d26882dc202d5971cf2"><div class="ttname"><a href="../../d0/dbd/classique_8c.html#a2be86c4f44fa6d26882dc202d5971cf2">X_DEF</a></div><div class="ttdeci">#define X_DEF</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dbd/classique_8c_source.html#l00018">classique.c:18</a></div></div>
+<div class="ttc" id="aclassique_8c_html_a55d4dbd488efda7ebb10f06d3f234805"><div class="ttname"><a href="../../d0/dbd/classique_8c.html#a55d4dbd488efda7ebb10f06d3f234805">TAILLE_FENETRE</a></div><div class="ttdeci">#define TAILLE_FENETRE</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dbd/classique_8c_source.html#l00020">classique.c:20</a></div></div>
+<div class="ttc" id="aclassique_8c_html_a562f70e5a97604d7f24ede9169c94550"><div class="ttname"><a href="../../d0/dbd/classique_8c.html#a562f70e5a97604d7f24ede9169c94550">gestion_environnement_classique</a></div><div class="ttdeci">void gestion_environnement_classique(t_wave *vague_ennemie, t_wave *vague_joueur, joueur *player, joueur *player2, SDL_Renderer *rendu)</div><div class="ttdoc">fonction qui sert à gérer l'environnement et ses interactions avec les entités ainsi que l'interactio...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dbd/classique_8c_source.html#l00030">classique.c:30</a></div></div>
+<div class="ttc" id="aclassique_8c_html_a64f6fec99e6348d121d15edc60c9d691"><div class="ttname"><a href="../../d0/dbd/classique_8c.html#a64f6fec99e6348d121d15edc60c9d691">X_TIR</a></div><div class="ttdeci">#define X_TIR</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dbd/classique_8c_source.html#l00023">classique.c:23</a></div></div>
+<div class="ttc" id="aclassique_8c_html_a75a80ef972ade9d22e924f548a0dcdd9"><div class="ttname"><a href="../../d0/dbd/classique_8c.html#a75a80ef972ade9d22e924f548a0dcdd9">demarrer_classique</a></div><div class="ttdeci">int demarrer_classique(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event)</div><div class="ttdoc">cette fonction démarre le mode classique qui est finalement le mode 1 vs 1. C'est la fonction princip...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dbd/classique_8c_source.html#l00117">classique.c:117</a></div></div>
+<div class="ttc" id="aclassique_8c_html_aa5cfedf736784ee8dc2bbde44f87a4cb"><div class="ttname"><a href="../../d0/dbd/classique_8c.html#aa5cfedf736784ee8dc2bbde44f87a4cb">Y_TIR</a></div><div class="ttdeci">#define Y_TIR</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dbd/classique_8c_source.html#l00022">classique.c:22</a></div></div>
+<div class="ttc" id="aclassique_8c_html_afadc53889a27d609b048d299d00c034d"><div class="ttname"><a href="../../d0/dbd/classique_8c.html#afadc53889a27d609b048d299d00c034d">etat_partie_classique</a></div><div class="ttdeci">int etat_partie_classique(t_wave *vague, joueur *player, joueur *player2)</div><div class="ttdoc">fonction qui sert à vérifier si la partie est finie ou si elle est toujours en cours (et si elle est ...</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dbd/classique_8c_source.html#l00096">classique.c:96</a></div></div>
+<div class="ttc" id="ainteractions_8h_html"><div class="ttname"><a href="../../db/d5c/interactions_8h.html">interactions.h</a></div></div>
+<div class="ttc" id="ainteractions_8h_html_a2d749398b79f32c096a2a83d30cebecf"><div class="ttname"><a href="../../db/d5c/interactions_8h.html#a2d749398b79f32c096a2a83d30cebecf">gestion_ligne_entite</a></div><div class="ttdeci">void gestion_ligne_entite(t_wave *vague, int camp)</div><div class="ttdoc">Sert à la gestion des listes chaînées d'entités. Si la première entité de la file s'arrête à cause d'...</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d4f/interactions_8c_source.html#l00216">interactions.c:216</a></div></div>
+<div class="ttc" id="ainteractions_8h_html_a37a87014d3e43e9f508dfb96237e8e40"><div class="ttname"><a href="../../db/d5c/interactions_8h.html#a37a87014d3e43e9f508dfb96237e8e40">etat_tir</a></div><div class="ttdeci">tir * etat_tir(tir *t)</div><div class="ttdoc">Sert à mettre à jour un tir. Si il a été en contact avec une entité et lui a fait des dégats (son ind...</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d4f/interactions_8c_source.html#l00176">interactions.c:176</a></div></div>
+<div class="ttc" id="ainteractions_8h_html_a5036d698e5fcdacef68aafe11cf7605e"><div class="ttname"><a href="../../db/d5c/interactions_8h.html#a5036d698e5fcdacef68aafe11cf7605e">fichier_existe</a></div><div class="ttdeci">int fichier_existe(char *nom)</div><div class="ttdoc">fonction qui sert à verifier l'existance d'un fichier dont le nom est passé en paramètre en tentant d...</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d4f/interactions_8c_source.html#l00304">interactions.c:304</a></div></div>
+<div class="ttc" id="ainteractions_8h_html_a5b6e6d34f775da1682e110ae7b4c4711"><div class="ttname"><a href="../../db/d5c/interactions_8h.html#a5b6e6d34f775da1682e110ae7b4c4711">etat_defense</a></div><div class="ttdeci">defense * etat_defense(defense *def)</div><div class="ttdoc">Sert à mettre à jour une défense.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d4f/interactions_8c_source.html#l00196">interactions.c:196</a></div></div>
+<div class="ttc" id="ainteractions_8h_html_a94b4336f8fc12ba81bd566bc22db324a"><div class="ttname"><a href="../../db/d5c/interactions_8h.html#a94b4336f8fc12ba81bd566bc22db324a">attaque_entites</a></div><div class="ttdeci">void attaque_entites(t_wave *vague_ennemie, t_wave *vague_joueur, joueur *player)</div><div class="ttdoc">fonction qui sert à gérer les attaques des entités entre elles (les dégats qu'elles se causent lorsqu...</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d4f/interactions_8c_source.html#l00023">interactions.c:23</a></div></div>
+<div class="ttc" id="ainteractions_8h_html_af43635ef0cff118e4f4b6cbcc85032d6"><div class="ttname"><a href="../../db/d5c/interactions_8h.html#af43635ef0cff118e4f4b6cbcc85032d6">creer_tir</a></div><div class="ttdeci">tir * creer_tir(tir *t, int x, int y)</div><div class="ttdoc">Sert à créer un tir en allouant la mémoire nécéssaire et en initialisant ses attributs avec les valeu...</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d4f/interactions_8c_source.html#l00128">interactions.c:128</a></div></div>
+<div class="ttc" id="ainteractions_8h_html_af9160b9c29b83fbc6456fe6de3e5ab6a"><div class="ttname"><a href="../../db/d5c/interactions_8h.html#af9160b9c29b83fbc6456fe6de3e5ab6a">creer_defense</a></div><div class="ttdeci">void creer_defense(joueur *p, int x, int y, int degat, message *msg)</div><div class="ttdoc">Sert à créer une défense en allouant la mémoire nécéssaire et en initialisant ses attributs avec les ...</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d4f/interactions_8c_source.html#l00142">interactions.c:142</a></div></div>
+<div class="ttc" id="ainterface_8h_html_accd4312a4eb5b49920dbe2a0294dce5b"><div class="ttname"><a href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b">charger_image</a></div><div class="ttdeci">int charger_image(char *nom, SDL_Renderer *rendu, int x, int y, int option)</div><div class="ttdoc">sert à charger une image avec tous les formats (grâce à SDL_image) sur le rendu et à présenter le ren...</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dda/interface_8c_source.html#l00219">interface.c:219</a></div></div>
+<div class="ttc" id="ainterface_8h_html_aeeed8d057580924798b64772bbb772db"><div class="ttname"><a href="../../d4/da9/interface_8h.html#aeeed8d057580924798b64772bbb772db">quit_message</a></div><div class="ttdeci">int quit_message()</div><div class="ttdoc">affiche un message qui demande si on veut quitter la partie</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dda/interface_8c_source.html#l00141">interface.c:141</a></div></div>
+<div class="ttc" id="astructdef_html_ac85a28512daa89028cd4dd0024a04ab1"><div class="ttname"><a href="../../dd/d8a/structdef.html#ac85a28512daa89028cd4dd0024a04ab1">def::temps</a></div><div class="ttdeci">int temps</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/structures_8h_source.html#l00019">structures.h:19</a></div></div>
+<div class="ttc" id="astructentity_html_a6150e0515f7202e2fb518f7206ed97dc"><div class="ttname"><a href="../../db/dd1/structentity.html#a6150e0515f7202e2fb518f7206ed97dc">entity::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/ddc/vague_8h_source.html#l00014">vague.h:14</a></div></div>
+<div class="ttc" id="astructjoue_html"><div class="ttname"><a href="../../d3/da4/structjoue.html">joue</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/structures_8h_source.html#l00032">structures.h:33</a></div></div>
+<div class="ttc" id="astructjoue_html_aa38f9488ca72a3a9d0c85bff213642c8"><div class="ttname"><a href="../../d3/da4/structjoue.html#aa38f9488ca72a3a9d0c85bff213642c8">joue::t</a></div><div class="ttdeci">tir * t</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/structures_8h_source.html#l00034">structures.h:34</a></div></div>
+<div class="ttc" id="astructjoue_html_aaf2331208dfb16a05b9f58f27bb24fa9"><div class="ttname"><a href="../../d3/da4/structjoue.html#aaf2331208dfb16a05b9f58f27bb24fa9">joue::argent</a></div><div class="ttdeci">int argent</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/structures_8h_source.html#l00036">structures.h:36</a></div></div>
+<div class="ttc" id="astructjoue_html_ac6460e0b6ff5c9bbac97742c19d3e72b"><div class="ttname"><a href="../../d3/da4/structjoue.html#ac6460e0b6ff5c9bbac97742c19d3e72b">joue::camp</a></div><div class="ttdeci">int camp</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/structures_8h_source.html#l00042">structures.h:42</a></div></div>
+<div class="ttc" id="astructjoue_html_acf0fcd1b3f87a2a16b7711dae1456273"><div class="ttname"><a href="../../d3/da4/structjoue.html#acf0fcd1b3f87a2a16b7711dae1456273">joue::def</a></div><div class="ttdeci">defense * def</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/structures_8h_source.html#l00035">structures.h:35</a></div></div>
+<div class="ttc" id="astructjoue_html_af1b58e608320ff939118a2a719ba3e6b"><div class="ttname"><a href="../../d3/da4/structjoue.html#af1b58e608320ff939118a2a719ba3e6b">joue::pv</a></div><div class="ttdeci">int pv</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/structures_8h_source.html#l00037">structures.h:37</a></div></div>
+<div class="ttc" id="astructmes_html"><div class="ttname"><a href="../../db/d46/structmes.html">mes</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/structures_8h_source.html#l00006">structures.h:7</a></div></div>
+<div class="ttc" id="astructmes_html_a0a2f84ed7838f07779ae24c5a9086d33"><div class="ttname"><a href="../../db/d46/structmes.html#a0a2f84ed7838f07779ae24c5a9086d33">mes::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/structures_8h_source.html#l00011">structures.h:11</a></div></div>
+<div class="ttc" id="astructmes_html_a302608f50d98bb0a759560e1e7b7af37"><div class="ttname"><a href="../../db/d46/structmes.html#a302608f50d98bb0a759560e1e7b7af37">mes::nom_fichier</a></div><div class="ttdeci">char nom_fichier[100]</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/structures_8h_source.html#l00009">structures.h:9</a></div></div>
+<div class="ttc" id="astructmes_html_a6150e0515f7202e2fb518f7206ed97dc"><div class="ttname"><a href="../../db/d46/structmes.html#a6150e0515f7202e2fb518f7206ed97dc">mes::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/structures_8h_source.html#l00010">structures.h:10</a></div></div>
+<div class="ttc" id="astructmes_html_ac85a28512daa89028cd4dd0024a04ab1"><div class="ttname"><a href="../../db/d46/structmes.html#ac85a28512daa89028cd4dd0024a04ab1">mes::temps</a></div><div class="ttdeci">int temps</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/structures_8h_source.html#l00008">structures.h:8</a></div></div>
+<div class="ttc" id="astructures_8h_html"><div class="ttname"><a href="../../dd/da3/structures_8h.html">structures.h</a></div></div>
+<div class="ttc" id="astructwave_html"><div class="ttname"><a href="../../d2/dd7/structwave.html">wave</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d7/ddc/vague_8h_source.html#l00032">vague.h:33</a></div></div>
+<div class="ttc" id="astructwave_html_a81f8e7aa70b6b48277e4a4b14f7eb7d6"><div class="ttname"><a href="../../d2/dd7/structwave.html#a81f8e7aa70b6b48277e4a4b14f7eb7d6">wave::ent</a></div><div class="ttdeci">entite * ent</div><div class="ttdef"><b>Definition:</b> <a href="../../d7/ddc/vague_8h_source.html#l00034">vague.h:34</a></div></div>
+<div class="ttc" id="asurvivant_8h_html"><div class="ttname"><a href="../../d3/da0/survivant_8h.html">survivant.h</a></div></div>
+<div class="ttc" id="asurvivant_8h_html_a063b3e9084755f025bc160926a05f4c9"><div class="ttname"><a href="../../d3/da0/survivant_8h.html#a063b3e9084755f025bc160926a05f4c9">deroulement_vague</a></div><div class="ttdeci">int deroulement_vague(joueur *player, t_wave *vague, SDL_Renderer *rendu, int camp)</div><div class="ttdoc">fonction qui sert à mettre automatiquement les images des entités à jour ainsi que d'autres champs (p...</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d74/survivant_8c_source.html#l00088">survivant.c:88</a></div></div>
+<div class="ttc" id="asurvivant_8h_html_a12811e3477454ce02219842c456b13aa"><div class="ttname"><a href="../../d3/da0/survivant_8h.html#a12811e3477454ce02219842c456b13aa">creer_joueur</a></div><div class="ttdeci">joueur * creer_joueur()</div><div class="ttdoc">fonction qui sert à créer une variable de type joueur pour la partie.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d74/survivant_8c_source.html#l00289">survivant.c:289</a></div></div>
+<div class="ttc" id="asurvivant_8h_html_a4897508691483d5352cb1bc504b781a0"><div class="ttname"><a href="../../d3/da0/survivant_8h.html#a4897508691483d5352cb1bc504b781a0">fin_partie</a></div><div class="ttdeci">int fin_partie(t_wave *vague)</div><div class="ttdoc">fonction qui sert à vider une liste chainée d'entité. c'est-à-dire supprimer toutes les entités qui l...</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d74/survivant_8c_source.html#l00277">survivant.c:277</a></div></div>
+<div class="ttc" id="asurvivant_8h_html_a82ab3fa1a79f96660b1a24075747402c"><div class="ttname"><a href="../../d3/da0/survivant_8h.html#a82ab3fa1a79f96660b1a24075747402c">return_message</a></div><div class="ttdeci">int return_message()</div><div class="ttdoc">fonction qui sert à afficher un message de prévention lorsque l'utilisateur veut quitter une partie l...</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d74/survivant_8c_source.html#l00354">survivant.c:354</a></div></div>
+<div class="ttc" id="asurvivant_8h_html_ae47a4d482094d91fa851ce1a5f9500a1"><div class="ttname"><a href="../../d3/da0/survivant_8h.html#ae47a4d482094d91fa851ce1a5f9500a1">message_box</a></div><div class="ttdeci">void message_box(message *msg, char nom_fic[100])</div><div class="ttdoc">fonction qui sert à créer une variable de msg.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d74/survivant_8c_source.html#l00308">survivant.c:308</a></div></div>
+<div class="ttc" id="avague_8h_html"><div class="ttname"><a href="../../d7/ddc/vague_8h.html">vague.h</a></div></div>
+<div class="ttc" id="avague_8h_html_a00cd4125ea655d5053749a6f44037784"><div class="ttname"><a href="../../d7/ddc/vague_8h.html#a00cd4125ea655d5053749a6f44037784">compter_elem</a></div><div class="ttdeci">int compter_elem(t_wave *vague)</div><div class="ttdoc">compte le nombre de vague restante ( et renvoie le nombre d'entité encore à tuer)</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d14/vague_8c_source.html#l00214">vague.c:214</a></div></div>
+<div class="ttc" id="avague_8h_html_abd2e11fd0be91e81ee8d2eb04b97d309"><div class="ttname"><a href="../../d7/ddc/vague_8h.html#abd2e11fd0be91e81ee8d2eb04b97d309">met_a_jour_img_argent</a></div><div class="ttdeci">void met_a_jour_img_argent(joueur *j, SDL_Renderer *rendu)</div><div class="ttdoc">met la somme d'agent a jour en fonction de ce que le player a dépensé et gangé en changeant les imgag...</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d14/vague_8c_source.html#l00232">vague.c:232</a></div></div>
+<div class="ttc" id="avague_8h_html_ae3fcab327d09d9d1a7fa544eff027c78"><div class="ttname"><a href="../../d7/ddc/vague_8h.html#ae3fcab327d09d9d1a7fa544eff027c78">deb_liste_vague</a></div><div class="ttdeci">t_wave * deb_liste_vague(t_wave *vague)</div><div class="ttdoc">place le pointeur passé en paramètre au début de la liste. il s'agit d'une boucle....</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d14/vague_8c_source.html#l00086">vague.c:86</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../d0/dbd/classique_8c.html">classique.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

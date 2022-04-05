@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Battle-ground:  Fichier source de survivant.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../launcher.bmp"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Battle-ground
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d3/da0/survivant_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">survivant.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d3/da0/survivant_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __SURVIVANT_H_</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __SURVIVANT_H_</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/da9/interface_8h.html">interface.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dd/da3/structures_8h.html">structures.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d7/ddc/vague_8h.html">vague.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;SDL2/SDL.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<a class="code" href="../../d2/dd7/structwave.html">t_wave</a> *<a class="code" href="../../d3/da0/survivant_8h.html#a27ce4709415f914c0eabe6e6d2e46e67">charger_niveau</a>(<span class="keywordtype">char</span> *nom);</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<a class="code" href="../../d3/da4/structjoue.html">joueur</a> *<a class="code" href="../../d3/da0/survivant_8h.html#a12811e3477454ce02219842c456b13aa">creer_joueur</a>();</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d3/da0/survivant_8h.html#a8c0d8334fd8c193beb8784c7487c95d0">etat_partie_survivant</a>(<a class="code" href="../../d2/dd7/structwave.html">t_wave</a> *vague, <a class="code" href="../../d3/da4/structjoue.html">joueur</a> *player);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/da0/survivant_8h.html#ae47a4d482094d91fa851ce1a5f9500a1">message_box</a>(<a class="code" href="../../db/d46/structmes.html">message</a> *msg, <span class="keywordtype">char</span> nom_fic[100]);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d3/da0/survivant_8h.html#a87fb34ff22476ea7da3e5c5d5b9c667e">demarrer_survivant</a>(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, <span class="keywordtype">char</span> lvl);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d3/da0/survivant_8h.html#a063b3e9084755f025bc160926a05f4c9">deroulement_vague</a>(<a class="code" href="../../d3/da4/structjoue.html">joueur</a> *player, <a class="code" href="../../d2/dd7/structwave.html">t_wave</a> *vague, SDL_Renderer *rendu, <span class="keywordtype">int</span> camp);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d3/da0/survivant_8h.html#a4897508691483d5352cb1bc504b781a0">fin_partie</a>(<a class="code" href="../../d2/dd7/structwave.html">t_wave</a> *vague);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d3/da0/survivant_8h.html#a82ab3fa1a79f96660b1a24075747402c">return_message</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="ainterface_8h_html"><div class="ttname"><a href="../../d4/da9/interface_8h.html">interface.h</a></div></div>
+<div class="ttc" id="astructjoue_html"><div class="ttname"><a href="../../d3/da4/structjoue.html">joue</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/structures_8h_source.html#l00032">structures.h:33</a></div></div>
+<div class="ttc" id="astructmes_html"><div class="ttname"><a href="../../db/d46/structmes.html">mes</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/structures_8h_source.html#l00006">structures.h:7</a></div></div>
+<div class="ttc" id="astructures_8h_html"><div class="ttname"><a href="../../dd/da3/structures_8h.html">structures.h</a></div></div>
+<div class="ttc" id="astructwave_html"><div class="ttname"><a href="../../d2/dd7/structwave.html">wave</a></div><div class="ttdef"><b>Definition:</b> <a href="../../d7/ddc/vague_8h_source.html#l00032">vague.h:33</a></div></div>
+<div class="ttc" id="asurvivant_8h_html_a063b3e9084755f025bc160926a05f4c9"><div class="ttname"><a href="../../d3/da0/survivant_8h.html#a063b3e9084755f025bc160926a05f4c9">deroulement_vague</a></div><div class="ttdeci">int deroulement_vague(joueur *player, t_wave *vague, SDL_Renderer *rendu, int camp)</div><div class="ttdoc">fonction qui sert à mettre automatiquement les images des entités à jour ainsi que d'autres champs (p...</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d74/survivant_8c_source.html#l00088">survivant.c:88</a></div></div>
+<div class="ttc" id="asurvivant_8h_html_a12811e3477454ce02219842c456b13aa"><div class="ttname"><a href="../../d3/da0/survivant_8h.html#a12811e3477454ce02219842c456b13aa">creer_joueur</a></div><div class="ttdeci">joueur * creer_joueur()</div><div class="ttdoc">fonction qui sert à créer une variable de type joueur pour la partie.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d74/survivant_8c_source.html#l00289">survivant.c:289</a></div></div>
+<div class="ttc" id="asurvivant_8h_html_a27ce4709415f914c0eabe6e6d2e46e67"><div class="ttname"><a href="../../d3/da0/survivant_8h.html#a27ce4709415f914c0eabe6e6d2e46e67">charger_niveau</a></div><div class="ttdeci">t_wave * charger_niveau(char *nom)</div><div class="ttdoc">fonction qui sert à charger un niveau en mode survivant, en allant chercher dans un fichier dont le n...</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d74/survivant_8c_source.html#l00034">survivant.c:34</a></div></div>
+<div class="ttc" id="asurvivant_8h_html_a4897508691483d5352cb1bc504b781a0"><div class="ttname"><a href="../../d3/da0/survivant_8h.html#a4897508691483d5352cb1bc504b781a0">fin_partie</a></div><div class="ttdeci">int fin_partie(t_wave *vague)</div><div class="ttdoc">fonction qui sert à vider une liste chainée d'entité. c'est-à-dire supprimer toutes les entités qui l...</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d74/survivant_8c_source.html#l00277">survivant.c:277</a></div></div>
+<div class="ttc" id="asurvivant_8h_html_a82ab3fa1a79f96660b1a24075747402c"><div class="ttname"><a href="../../d3/da0/survivant_8h.html#a82ab3fa1a79f96660b1a24075747402c">return_message</a></div><div class="ttdeci">int return_message()</div><div class="ttdoc">fonction qui sert à afficher un message de prévention lorsque l'utilisateur veut quitter une partie l...</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d74/survivant_8c_source.html#l00354">survivant.c:354</a></div></div>
+<div class="ttc" id="asurvivant_8h_html_a87fb34ff22476ea7da3e5c5d5b9c667e"><div class="ttname"><a href="../../d3/da0/survivant_8h.html#a87fb34ff22476ea7da3e5c5d5b9c667e">demarrer_survivant</a></div><div class="ttdeci">int demarrer_survivant(SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, char lvl)</div><div class="ttdoc">Comme son nom l'indique, cette fonction démarre le mode survivant. C'est la fonction principale du mo...</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d74/survivant_8c_source.html#l00395">survivant.c:395</a></div></div>
+<div class="ttc" id="asurvivant_8h_html_a8c0d8334fd8c193beb8784c7487c95d0"><div class="ttname"><a href="../../d3/da0/survivant_8h.html#a8c0d8334fd8c193beb8784c7487c95d0">etat_partie_survivant</a></div><div class="ttdeci">int etat_partie_survivant(t_wave *vague, joueur *player)</div><div class="ttdoc">fonction qui sert à vérifier si la partie est finie ou si elle est toujours en cours (et si elle est ...</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d74/survivant_8c_source.html#l00329">survivant.c:329</a></div></div>
+<div class="ttc" id="asurvivant_8h_html_ae47a4d482094d91fa851ce1a5f9500a1"><div class="ttname"><a href="../../d3/da0/survivant_8h.html#ae47a4d482094d91fa851ce1a5f9500a1">message_box</a></div><div class="ttdeci">void message_box(message *msg, char nom_fic[100])</div><div class="ttdoc">fonction qui sert à créer une variable de msg.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d74/survivant_8c_source.html#l00308">survivant.c:308</a></div></div>
+<div class="ttc" id="avague_8h_html"><div class="ttname"><a href="../../d7/ddc/vague_8h.html">vague.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../d3/da0/survivant_8h.html">survivant.h</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Battle-ground: Référence du fichier audio.c</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../launcher.bmp"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Battle-ground
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d3/d9a/audio_8c.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier audio.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &quot;SDL2/SDL.h&quot;</code><br />
+<code>#include &quot;SDL2/SDL_image.h&quot;</code><br />
+<code>#include &quot;SDL2/SDL_mixer.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de audio.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../db/dd4/audio_8c__incl.png" border="0" usemap="#aaudio_8c" alt=""/></div>
+<map name="aaudio_8c" id="aaudio_8c">
+<area shape="rect" title=" " alt="" coords="284,5,353,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,72,107"/>
+<area shape="rect" title=" " alt="" coords="97,80,167,107"/>
+<area shape="rect" title=" " alt="" coords="191,80,262,107"/>
+<area shape="rect" title=" " alt="" coords="287,80,351,107"/>
+<area shape="rect" title=" " alt="" coords="375,80,471,107"/>
+<area shape="rect" title=" " alt="" coords="495,80,639,107"/>
+<area shape="rect" title=" " alt="" coords="663,80,804,107"/>
+</map>
+</div>
+</div>
+<p><a href="../../d3/d9a/audio_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a54b402ad8894b4e8bd93b1a10ce76e70"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d9a/audio_8c.html#a54b402ad8894b4e8bd93b1a10ce76e70">AUDIO_PATH</a>&#160;&#160;&#160;&quot;data/sounds/&quot;</td></tr>
+<tr class="separator:a54b402ad8894b4e8bd93b1a10ce76e70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a723d9a59a1303c25c24572b3b35b0e8f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d9a/audio_8c.html#a723d9a59a1303c25c24572b3b35b0e8f">PFLAG</a>(a)&#160;&#160;&#160;if(flags&amp;MIX_INIT_##a) printf(#a &quot; &quot;)</td></tr>
+<tr class="separator:a723d9a59a1303c25c24572b3b35b0e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a15f46c0d69ff1930592408519b789970"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d9a/audio_8c.html#a15f46c0d69ff1930592408519b789970">print_init_flags</a> (int flags)</td></tr>
+<tr class="memdesc:a15f46c0d69ff1930592408519b789970"><td class="mdescLeft">&#160;</td><td class="mdescRight">fonction qui affiche le type de fichier audio (mp3, wav, ogg etc...)  <a href="../../d3/d9a/audio_8c.html#a15f46c0d69ff1930592408519b789970">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a15f46c0d69ff1930592408519b789970"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af26b81cf609c6d3f288ca372551f35fb"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d9a/audio_8c.html#af26b81cf609c6d3f288ca372551f35fb">audio_initialise</a> (void *v)</td></tr>
+<tr class="memdesc:af26b81cf609c6d3f288ca372551f35fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">fonction qui lance la musique à l'aide de la librairie SDL_mixer  <a href="../../d3/d9a/audio_8c.html#af26b81cf609c6d3f288ca372551f35fb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af26b81cf609c6d3f288ca372551f35fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a id="a54b402ad8894b4e8bd93b1a10ce76e70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54b402ad8894b4e8bd93b1a10ce76e70">&#9670;&nbsp;</a></span>AUDIO_PATH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AUDIO_PATH&#160;&#160;&#160;&quot;data/sounds/&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d3/d9a/audio_8c_source.html#l00016">16</a> du fichier <a class="el" href="../../d3/d9a/audio_8c_source.html">audio.c</a>.</p>
+
+</div>
+</div>
+<a id="a723d9a59a1303c25c24572b3b35b0e8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a723d9a59a1303c25c24572b3b35b0e8f">&#9670;&nbsp;</a></span>PFLAG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PFLAG</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;if(flags&amp;MIX_INIT_##a) printf(#a &quot; &quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="af26b81cf609c6d3f288ca372551f35fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af26b81cf609c6d3f288ca372551f35fb">&#9670;&nbsp;</a></span>audio_initialise()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* audio_initialise </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>fonction qui lance la musique à l'aide de la librairie SDL_mixer </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td>*v </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void * </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d3/d9a/audio_8c_source.html#l00043">43</a> du fichier <a class="el" href="../../d3/d9a/audio_8c_source.html">audio.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d3/d9a/audio_8c_af26b81cf609c6d3f288ca372551f35fb_cgraph.png" border="0" usemap="#ad3/d9a/audio_8c_af26b81cf609c6d3f288ca372551f35fb_cgraph" alt=""/></div>
+<map name="ad3/d9a/audio_8c_af26b81cf609c6d3f288ca372551f35fb_cgraph" id="ad3/d9a/audio_8c_af26b81cf609c6d3f288ca372551f35fb_cgraph">
+<area shape="rect" title="fonction qui lance la musique à l&#39;aide de la librairie SDL_mixer" alt="" coords="5,5,127,32"/>
+<area shape="rect" href="../../d3/d9a/audio_8c.html#a15f46c0d69ff1930592408519b789970" title="fonction qui affiche le type de fichier audio (mp3, wav, ogg etc...)" alt="" coords="175,5,293,32"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d3/d9a/audio_8c_af26b81cf609c6d3f288ca372551f35fb_icgraph.png" border="0" usemap="#ad3/d9a/audio_8c_af26b81cf609c6d3f288ca372551f35fb_icgraph" alt=""/></div>
+<map name="ad3/d9a/audio_8c_af26b81cf609c6d3f288ca372551f35fb_icgraph" id="ad3/d9a/audio_8c_af26b81cf609c6d3f288ca372551f35fb_icgraph">
+<area shape="rect" title="fonction qui lance la musique à l&#39;aide de la librairie SDL_mixer" alt="" coords="261,5,383,32"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#af9234f89d76a82b5ad782d2af726eab1" title="fonction principale du jeu. Elle est chargée de la Création et du lancement de la fenêtre du jeu,..." alt="" coords="108,5,213,32"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="fonction qui sert à lancer le jeu en faisant appel à la fonction initialise_jeu" alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a15f46c0d69ff1930592408519b789970"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15f46c0d69ff1930592408519b789970">&#9670;&nbsp;</a></span>print_init_flags()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_init_flags </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>flags</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>fonction qui affiche le type de fichier audio (mp3, wav, ogg etc...) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">int</td><td>flags </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d3/d9a/audio_8c_source.html#l00024">24</a> du fichier <a class="el" href="../../d3/d9a/audio_8c_source.html">audio.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d3/d9a/audio_8c_a15f46c0d69ff1930592408519b789970_icgraph.png" border="0" usemap="#ad3/d9a/audio_8c_a15f46c0d69ff1930592408519b789970_icgraph" alt=""/></div>
+<map name="ad3/d9a/audio_8c_a15f46c0d69ff1930592408519b789970_icgraph" id="ad3/d9a/audio_8c_a15f46c0d69ff1930592408519b789970_icgraph">
+<area shape="rect" title="fonction qui affiche le type de fichier audio (mp3, wav, ogg etc...)" alt="" coords="431,5,549,32"/>
+<area shape="rect" href="../../da/d09/audio_8h.html#aa9b3bfc09e985c3a62aead4031c5cbdd" title="fonction qui lance la musique à l&#39;aide de la librairie SDL_mixer" alt="" coords="261,5,383,32"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#af9234f89d76a82b5ad782d2af726eab1" title="fonction principale du jeu. Elle est chargée de la Création et du lancement de la fenêtre du jeu,..." alt="" coords="108,5,213,32"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="fonction qui sert à lancer le jeu en faisant appel à la fonction initialise_jeu" alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../d3/d9a/audio_8c.html">audio.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

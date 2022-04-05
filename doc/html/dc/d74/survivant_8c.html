@@ -1,0 +1,813 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Battle-ground: Référence du fichier survivant.c</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="../../launcher.bmp"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Battle-ground
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('dc/d74/survivant_8c.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier survivant.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contient toutes les fonctions utiles au mode de jeu survivant de battle ground (gestion de l'évolution de la partie, implémentation des structures de jeu, etc..)  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
+<code>#include &quot;SDL2/SDL.h&quot;</code><br />
+<code>#include &quot;SDL2/SDL_image.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/da9/interface_8h_source.html">interface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d4/d8a/animations_8h_source.html">animations.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dd/da3/structures_8h_source.html">structures.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/ddc/vague_8h_source.html">vague.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../df/df5/ajout__entites_8h_source.html">ajout_entites.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/d5c/interactions_8h_source.html">interactions.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de survivant.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d07/survivant_8c__incl.png" border="0" usemap="#asurvivant_8c" alt=""/></div>
+<map name="asurvivant_8c" id="asurvivant_8c">
+<area shape="rect" title="Contient toutes les fonctions utiles au mode de jeu survivant de battle ground (gestion de l&#39;évolutio..." alt="" coords="399,5,494,32"/>
+<area shape="rect" title=" " alt="" coords="770,304,837,331"/>
+<area shape="rect" title=" " alt="" coords="439,304,510,331"/>
+<area shape="rect" title=" " alt="" coords="52,80,123,107"/>
+<area shape="rect" title=" " alt="" coords="148,80,222,107"/>
+<area shape="rect" title=" " alt="" coords="562,229,658,256"/>
+<area shape="rect" title=" " alt="" coords="297,80,441,107"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html" title=" " alt="" coords="563,155,655,181"/>
+<area shape="rect" href="../../dd/da3/structures_8h.html" title=" " alt="" coords="754,229,853,256"/>
+<area shape="rect" href="../../d4/d8a/animations_8h.html" title=" " alt="" coords="609,80,716,107"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html" title=" " alt="" coords="680,155,754,181"/>
+<area shape="rect" href="../../df/df5/ajout__entites_8h.html" title=" " alt="" coords="466,80,584,107"/>
+<area shape="rect" href="../../db/d5c/interactions_8h.html" title=" " alt="" coords="842,80,952,107"/>
+</map>
+</div>
+</div>
+<p><a href="../../dc/d74/survivant_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:af40a326b23c68a27cebe60f16634a2cb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d74/survivant_8c.html#af40a326b23c68a27cebe60f16634a2cb">V</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:af40a326b23c68a27cebe60f16634a2cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56176d6a4f1a9de45da221224ff83c00"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d74/survivant_8c.html#a56176d6a4f1a9de45da221224ff83c00">y_entity</a>&#160;&#160;&#160;470</td></tr>
+<tr class="separator:a56176d6a4f1a9de45da221224ff83c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45a46486b71327c725db6c99648fb183"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d74/survivant_8c.html#a45a46486b71327c725db6c99648fb183">x_def</a>&#160;&#160;&#160;100</td></tr>
+<tr class="separator:a45a46486b71327c725db6c99648fb183"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a444c1433236ff681fa8dbbcf8ece397b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d74/survivant_8c.html#a444c1433236ff681fa8dbbcf8ece397b">y_def</a>&#160;&#160;&#160;470</td></tr>
+<tr class="separator:a444c1433236ff681fa8dbbcf8ece397b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86932d3325f42fc7e4fa1c2d10d56a18"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d74/survivant_8c.html#a86932d3325f42fc7e4fa1c2d10d56a18">pv_joueur</a>&#160;&#160;&#160;200</td></tr>
+<tr class="separator:a86932d3325f42fc7e4fa1c2d10d56a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63f15a8fdbeb4f4f6538626ca9461ad1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d74/survivant_8c.html#a63f15a8fdbeb4f4f6538626ca9461ad1">argent_joueur</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="separator:a63f15a8fdbeb4f4f6538626ca9461ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a006fce195f0e8521e7ce12256c46de63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/ddc/vague_8h.html#a2ed7796f352eb254198d48197bb9ba9e">t_wave</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d74/survivant_8c.html#a006fce195f0e8521e7ce12256c46de63">charger_niveau</a> (char *nom)</td></tr>
+<tr class="memdesc:a006fce195f0e8521e7ce12256c46de63"><td class="mdescLeft">&#160;</td><td class="mdescRight">fonction qui sert à charger un niveau en mode survivant, en allant chercher dans un fichier dont le nom est passé en paramètres les informations du niveau (pour chaque vague le nombres d'entités, leur types, leur pv, le temps entre les vague etc..).  <a href="../../dc/d74/survivant_8c.html#a006fce195f0e8521e7ce12256c46de63">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a006fce195f0e8521e7ce12256c46de63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80824f4b8d124806bb2064478daa979e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d74/survivant_8c.html#a80824f4b8d124806bb2064478daa979e">deroulement_vague</a> (<a class="el" href="../../dd/da3/structures_8h.html#ab4669ed75ada4f8b6b91eca908a519ad">joueur</a> *player, <a class="el" href="../../d7/ddc/vague_8h.html#a2ed7796f352eb254198d48197bb9ba9e">t_wave</a> *vague, SDL_Renderer *rendu, int camp)</td></tr>
+<tr class="memdesc:a80824f4b8d124806bb2064478daa979e"><td class="mdescLeft">&#160;</td><td class="mdescRight">fonction qui sert à mettre automatiquement les images des entités à jour ainsi que d'autres champs (points de vie, position etc...).  <a href="../../dc/d74/survivant_8c.html#a80824f4b8d124806bb2064478daa979e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a80824f4b8d124806bb2064478daa979e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a037fe87d11eeada7f4bc8119a382bf69"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d74/survivant_8c.html#a037fe87d11eeada7f4bc8119a382bf69">fin_partie</a> (<a class="el" href="../../d7/ddc/vague_8h.html#a2ed7796f352eb254198d48197bb9ba9e">t_wave</a> *vague)</td></tr>
+<tr class="memdesc:a037fe87d11eeada7f4bc8119a382bf69"><td class="mdescLeft">&#160;</td><td class="mdescRight">fonction qui sert à vider une liste chainée d'entité. c'est-à-dire supprimer toutes les entités qui la compose et ainsi libérer la mémoire.  <a href="../../dc/d74/survivant_8c.html#a037fe87d11eeada7f4bc8119a382bf69">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a037fe87d11eeada7f4bc8119a382bf69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a256e4043ec12f6aa896ec044ef5dda4d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/da3/structures_8h.html#ab4669ed75ada4f8b6b91eca908a519ad">joueur</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d74/survivant_8c.html#a256e4043ec12f6aa896ec044ef5dda4d">creer_joueur</a> ()</td></tr>
+<tr class="memdesc:a256e4043ec12f6aa896ec044ef5dda4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">fonction qui sert à créer une variable de type joueur pour la partie.  <a href="../../dc/d74/survivant_8c.html#a256e4043ec12f6aa896ec044ef5dda4d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a256e4043ec12f6aa896ec044ef5dda4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae47a4d482094d91fa851ce1a5f9500a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d74/survivant_8c.html#ae47a4d482094d91fa851ce1a5f9500a1">message_box</a> (<a class="el" href="../../dd/da3/structures_8h.html#aa9b957c4d53c8d108857fe4cb41236e0">message</a> *msg, char nom_fic[100])</td></tr>
+<tr class="memdesc:ae47a4d482094d91fa851ce1a5f9500a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">fonction qui sert à créer une variable de msg.  <a href="../../dc/d74/survivant_8c.html#ae47a4d482094d91fa851ce1a5f9500a1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae47a4d482094d91fa851ce1a5f9500a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c0d8334fd8c193beb8784c7487c95d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d74/survivant_8c.html#a8c0d8334fd8c193beb8784c7487c95d0">etat_partie_survivant</a> (<a class="el" href="../../d7/ddc/vague_8h.html#a2ed7796f352eb254198d48197bb9ba9e">t_wave</a> *vague, <a class="el" href="../../dd/da3/structures_8h.html#ab4669ed75ada4f8b6b91eca908a519ad">joueur</a> *player)</td></tr>
+<tr class="memdesc:a8c0d8334fd8c193beb8784c7487c95d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">fonction qui sert à vérifier si la partie est finie ou si elle est toujours en cours (et si elle est finie si le joueur a gagné ou perdu)  <a href="../../dc/d74/survivant_8c.html#a8c0d8334fd8c193beb8784c7487c95d0">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8c0d8334fd8c193beb8784c7487c95d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82ab3fa1a79f96660b1a24075747402c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d74/survivant_8c.html#a82ab3fa1a79f96660b1a24075747402c">return_message</a> ()</td></tr>
+<tr class="memdesc:a82ab3fa1a79f96660b1a24075747402c"><td class="mdescLeft">&#160;</td><td class="mdescRight">fonction qui sert à afficher un message de prévention lorsque l'utilisateur veut quitter une partie lancée et en fonction du retour de ce dernier (oui, non ou annuler) retourner une valeur entière  <a href="../../dc/d74/survivant_8c.html#a82ab3fa1a79f96660b1a24075747402c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a82ab3fa1a79f96660b1a24075747402c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87fb34ff22476ea7da3e5c5d5b9c667e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d74/survivant_8c.html#a87fb34ff22476ea7da3e5c5d5b9c667e">demarrer_survivant</a> (SDL_Window *window, SDL_Renderer *rendu, SDL_Event *event, char lvl)</td></tr>
+<tr class="memdesc:a87fb34ff22476ea7da3e5c5d5b9c667e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comme son nom l'indique, cette fonction démarre le mode survivant. C'est la fonction principale du mode jeu survivant et s'occupe de tout gérer (les évènements, l'argent et les unités de l'utilisateur; charger le niveau et toutes les entités qui vont avec etc/..)  <a href="../../dc/d74/survivant_8c.html#a87fb34ff22476ea7da3e5c5d5b9c667e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a87fb34ff22476ea7da3e5c5d5b9c667e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Contient toutes les fonctions utiles au mode de jeu survivant de battle ground (gestion de l'évolution de la partie, implémentation des structures de jeu, etc..) </p>
+<dl class="section author"><dt>Auteur</dt><dd>Lazare Maclouf </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>25/02/2022 </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="../../dc/d74/survivant_8c_source.html">survivant.c</a>.</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="a63f15a8fdbeb4f4f6538626ca9461ad1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63f15a8fdbeb4f4f6538626ca9461ad1">&#9670;&nbsp;</a></span>argent_joueur</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define argent_joueur&#160;&#160;&#160;1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dc/d74/survivant_8c_source.html#l00026">26</a> du fichier <a class="el" href="../../dc/d74/survivant_8c_source.html">survivant.c</a>.</p>
+
+</div>
+</div>
+<a id="a86932d3325f42fc7e4fa1c2d10d56a18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86932d3325f42fc7e4fa1c2d10d56a18">&#9670;&nbsp;</a></span>pv_joueur</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define pv_joueur&#160;&#160;&#160;200</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dc/d74/survivant_8c_source.html#l00025">25</a> du fichier <a class="el" href="../../dc/d74/survivant_8c_source.html">survivant.c</a>.</p>
+
+</div>
+</div>
+<a id="af40a326b23c68a27cebe60f16634a2cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af40a326b23c68a27cebe60f16634a2cb">&#9670;&nbsp;</a></span>V</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define V&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dc/d74/survivant_8c_source.html#l00021">21</a> du fichier <a class="el" href="../../dc/d74/survivant_8c_source.html">survivant.c</a>.</p>
+
+</div>
+</div>
+<a id="a45a46486b71327c725db6c99648fb183"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45a46486b71327c725db6c99648fb183">&#9670;&nbsp;</a></span>x_def</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define x_def&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dc/d74/survivant_8c_source.html#l00023">23</a> du fichier <a class="el" href="../../dc/d74/survivant_8c_source.html">survivant.c</a>.</p>
+
+</div>
+</div>
+<a id="a444c1433236ff681fa8dbbcf8ece397b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a444c1433236ff681fa8dbbcf8ece397b">&#9670;&nbsp;</a></span>y_def</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define y_def&#160;&#160;&#160;470</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dc/d74/survivant_8c_source.html#l00024">24</a> du fichier <a class="el" href="../../dc/d74/survivant_8c_source.html">survivant.c</a>.</p>
+
+</div>
+</div>
+<a id="a56176d6a4f1a9de45da221224ff83c00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56176d6a4f1a9de45da221224ff83c00">&#9670;&nbsp;</a></span>y_entity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define y_entity&#160;&#160;&#160;470</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dc/d74/survivant_8c_source.html#l00022">22</a> du fichier <a class="el" href="../../dc/d74/survivant_8c_source.html">survivant.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a006fce195f0e8521e7ce12256c46de63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a006fce195f0e8521e7ce12256c46de63">&#9670;&nbsp;</a></span>charger_niveau()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/ddc/vague_8h.html#a2ed7796f352eb254198d48197bb9ba9e">t_wave</a>* charger_niveau </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>fonction qui sert à charger un niveau en mode survivant, en allant chercher dans un fichier dont le nom est passé en paramètres les informations du niveau (pour chaque vague le nombres d'entités, leur types, leur pv, le temps entre les vague etc..). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">char</td><td>*nom </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>t_wave * (pointeur sur t_wave qui aura été rempli par les informations contenu dans le fichier.) </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dc/d74/survivant_8c_source.html#l00034">34</a> du fichier <a class="el" href="../../dc/d74/survivant_8c_source.html">survivant.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d74/survivant_8c_a006fce195f0e8521e7ce12256c46de63_cgraph.png" border="0" usemap="#adc/d74/survivant_8c_a006fce195f0e8521e7ce12256c46de63_cgraph" alt=""/></div>
+<map name="adc/d74/survivant_8c_a006fce195f0e8521e7ce12256c46de63_cgraph" id="adc/d74/survivant_8c_a006fce195f0e8521e7ce12256c46de63_cgraph">
+<area shape="rect" title="fonction qui sert à charger un niveau en mode survivant, en allant chercher dans un fichier dont le n..." alt="" coords="5,157,128,184"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a530a976a3e3e9fed5057373f148e51a6" title="ajoute une entité à la liste et met le pointeur passé en paramètre sur le nouvel élément...." alt="" coords="193,5,375,32"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a90efeb9af576b5cc7fc005e67e4a2460" title="fonction qui sert à charger les images lorsque l&#39;animation est faite avec des images séparées." alt="" coords="199,56,369,83"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a908125d2f4ea6a6c88f71aa3e608c59a" title=" " alt="" coords="211,107,357,133"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a10445c674d1e555924e0d7a76722d91a" title="crée une variable de type t_wave (une vague)." alt="" coords="233,157,335,184"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a0cc0afc37077c9fd85de8eae1766a14f" title="fonction qui sert à mettre automatiquement les images de l&#39;entité à jour. pour qu&#39;elle continue son a..." alt="" coords="176,208,392,235"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a883102ecf84c04c53b7779a15f87d79b" title="fonction qui sert à mettre automatiquement les images de l&#39;entité à jour. pour qu&#39;elle continue son a..." alt="" coords="187,259,381,285"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a7f2a217fd1af9eefe5c92548abe2faac" title="supprime l&#39;entité au niveau du pointeur passé en paramètres. retourne un pointeur sur l&#39;élément précé..." alt="" coords="183,309,385,336"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#a66cda8217be80c2e3f18d2b3790b359a" title="crée une variable de type t_wave (une vague)." alt="" coords="471,5,573,32"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b" title="sert à charger une image avec tous les formats (grâce à SDL_image) sur le rendu et à présenter le ren..." alt="" coords="463,56,581,83"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#a8a0d866e3592a64eca707ba1f4ac0a90" title="sert à charger un morceau d&#39;une image (la taille de la figure à rogner, sa position et autres passés ..." alt="" coords="440,107,604,133"/>
+<area shape="rect" href="../../db/d5c/interactions_8h.html#a5036d698e5fcdacef68aafe11cf7605e" title="fonction qui sert à verifier l&#39;existance d&#39;un fichier dont le nom est passé en paramètre en tentant d..." alt="" coords="467,208,577,235"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#ac1266d19a3825169b0aa53490fdd8d1e" title="place le pointeur passé en paramètre au début de la liste. il s&#39;agit d&#39;une boucle...." alt="" coords="458,309,586,336"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#abef8e9975711078078bf3e7ae2136156" title="place le pointeur passé en paramètre de la liste sur l&#39;élément précédent" alt="" coords="652,309,852,336"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d74/survivant_8c_a006fce195f0e8521e7ce12256c46de63_icgraph.png" border="0" usemap="#adc/d74/survivant_8c_a006fce195f0e8521e7ce12256c46de63_icgraph" alt=""/></div>
+<map name="adc/d74/survivant_8c_a006fce195f0e8521e7ce12256c46de63_icgraph" id="adc/d74/survivant_8c_a006fce195f0e8521e7ce12256c46de63_icgraph">
+<area shape="rect" title="fonction qui sert à charger un niveau en mode survivant, en allant chercher dans un fichier dont le n..." alt="" coords="909,5,1032,32"/>
+<area shape="rect" href="../../d3/da0/survivant_8h.html#a87fb34ff22476ea7da3e5c5d5b9c667e" title="Comme son nom l&#39;indique, cette fonction démarre le mode survivant. C&#39;est la fonction principale du mo..." alt="" coords="711,5,861,32"/>
+<area shape="rect" href="../../db/df7/jeu_8h.html#a45d38405670e46a8bc63c080dc26957a" title="lance une partie du jeu en mode survivant (gère tout l&#39;affichage, les évènements etc...." alt="" coords="552,5,663,32"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#ae24a35a63a74643551f9399edf243a2f" title="fonction servant à afficher les options de jeu et à charger les autres fonctions en conséquence (mode..." alt="" coords="368,5,504,32"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#aebad03055582261944e91731b0570c45" title="fonction servant à afficher le menu principal du jeu avec ses différentes options (jouer,..." alt="" coords="261,5,320,32"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#af9234f89d76a82b5ad782d2af726eab1" title="fonction principale du jeu. Elle est chargée de la Création et du lancement de la fenêtre du jeu,..." alt="" coords="108,5,213,32"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="fonction qui sert à lancer le jeu en faisant appel à la fonction initialise_jeu" alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a256e4043ec12f6aa896ec044ef5dda4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a256e4043ec12f6aa896ec044ef5dda4d">&#9670;&nbsp;</a></span>creer_joueur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/da3/structures_8h.html#ab4669ed75ada4f8b6b91eca908a519ad">joueur</a>* creer_joueur </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>fonction qui sert à créer une variable de type joueur pour la partie. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>joueur * </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dc/d74/survivant_8c_source.html#l00289">289</a> du fichier <a class="el" href="../../dc/d74/survivant_8c_source.html">survivant.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d74/survivant_8c_a256e4043ec12f6aa896ec044ef5dda4d_icgraph.png" border="0" usemap="#adc/d74/survivant_8c_a256e4043ec12f6aa896ec044ef5dda4d_icgraph" alt=""/></div>
+<map name="adc/d74/survivant_8c_a256e4043ec12f6aa896ec044ef5dda4d_icgraph" id="adc/d74/survivant_8c_a256e4043ec12f6aa896ec044ef5dda4d_icgraph">
+<area shape="rect" title="fonction qui sert à créer une variable de type joueur pour la partie." alt="" coords="909,31,1012,57"/>
+<area shape="rect" href="../../dc/da0/classique_8h.html#a75a80ef972ade9d22e924f548a0dcdd9" title="cette fonction démarre le mode classique qui est finalement le mode 1 vs 1. C&#39;est la fonction princip..." alt="" coords="711,5,861,32"/>
+<area shape="rect" href="../../d3/da0/survivant_8h.html#a87fb34ff22476ea7da3e5c5d5b9c667e" title="Comme son nom l&#39;indique, cette fonction démarre le mode survivant. C&#39;est la fonction principale du mo..." alt="" coords="711,56,861,83"/>
+<area shape="rect" href="../../db/df7/jeu_8h.html#a97bc51112cd00d6d7f85016ee34aa492" title=" " alt="" coords="552,5,663,32"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#ae24a35a63a74643551f9399edf243a2f" title="fonction servant à afficher les options de jeu et à charger les autres fonctions en conséquence (mode..." alt="" coords="368,31,504,57"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#aebad03055582261944e91731b0570c45" title="fonction servant à afficher le menu principal du jeu avec ses différentes options (jouer,..." alt="" coords="261,31,320,57"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#af9234f89d76a82b5ad782d2af726eab1" title="fonction principale du jeu. Elle est chargée de la Création et du lancement de la fenêtre du jeu,..." alt="" coords="108,31,213,57"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="fonction qui sert à lancer le jeu en faisant appel à la fonction initialise_jeu" alt="" coords="5,31,60,57"/>
+<area shape="rect" href="../../db/df7/jeu_8h.html#a45d38405670e46a8bc63c080dc26957a" title="lance une partie du jeu en mode survivant (gère tout l&#39;affichage, les évènements etc...." alt="" coords="552,56,663,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a87fb34ff22476ea7da3e5c5d5b9c667e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87fb34ff22476ea7da3e5c5d5b9c667e">&#9670;&nbsp;</a></span>demarrer_survivant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int demarrer_survivant </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Window *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Event *&#160;</td>
+          <td class="paramname"><em>event</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>lvl</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Comme son nom l'indique, cette fonction démarre le mode survivant. C'est la fonction principale du mode jeu survivant et s'occupe de tout gérer (les évènements, l'argent et les unités de l'utilisateur; charger le niveau et toutes les entités qui vont avec etc/..) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">SDL_Window</td><td>*window, SDL_Renderer *rendu, SDL_Event *event, char lvl </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dc/d74/survivant_8c_source.html#l00395">395</a> du fichier <a class="el" href="../../dc/d74/survivant_8c_source.html">survivant.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d74/survivant_8c_a87fb34ff22476ea7da3e5c5d5b9c667e_cgraph.png" border="0" usemap="#adc/d74/survivant_8c_a87fb34ff22476ea7da3e5c5d5b9c667e_cgraph" alt=""/></div>
+<map name="adc/d74/survivant_8c_a87fb34ff22476ea7da3e5c5d5b9c667e_cgraph" id="adc/d74/survivant_8c_a87fb34ff22476ea7da3e5c5d5b9c667e_cgraph">
+<area shape="rect" title="Comme son nom l&#39;indique, cette fonction démarre le mode survivant. C&#39;est la fonction principale du mo..." alt="" coords="5,705,156,732"/>
+<area shape="rect" href="../../d4/d8a/animations_8h.html#a4615f322e1018ed51d63dac4259af654" title="fonction qui affiche le décors en mode survivant avec la barre de vie des joueurs,..." alt="" coords="222,781,362,808"/>
+<area shape="rect" href="../../df/df5/ajout__entites_8h.html#a65aac9fc6bb168572a003ef10672d200" title="fonction qui crée une entité bandit et renvoie le pointeur sur celle&#45;ci" alt="" coords="234,173,350,200"/>
+<area shape="rect" href="../../df/df5/ajout__entites_8h.html#a37fc57313d4b7cf3a0037043c560ec9f" title="fonction qui crée une entité fighter et renvoie le pointeur sur celle&#45;ci" alt="" coords="233,224,351,251"/>
+<area shape="rect" href="../../df/df5/ajout__entites_8h.html#ac02b78a6e1b8bf7318fb257ea8ba8c76" title="fonction qui crée une entité voisin et renvoie le pointeur sur celle&#45;ci" alt="" coords="235,325,349,352"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#accd4312a4eb5b49920dbe2a0294dce5b" title="sert à charger une image avec tous les formats (grâce à SDL_image) sur le rendu et à présenter le ren..." alt="" coords="733,1253,852,1280"/>
+<area shape="rect" href="../../db/d5c/interactions_8h.html#a5036d698e5fcdacef68aafe11cf7605e" title="fonction qui sert à verifier l&#39;existance d&#39;un fichier dont le nom est passé en paramètre en tentant d..." alt="" coords="737,452,848,479"/>
+<area shape="rect" href="../../dc/d74/survivant_8c.html#a006fce195f0e8521e7ce12256c46de63" title="fonction qui sert à charger un niveau en mode survivant, en allant chercher dans un fichier dont le n..." alt="" coords="231,376,353,403"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a00cd4125ea655d5053749a6f44037784" title="compte le nombre de vague restante ( et renvoie le nombre d&#39;entité encore à tuer)" alt="" coords="735,516,851,543"/>
+<area shape="rect" href="../../db/d5c/interactions_8h.html#af9160b9c29b83fbc6456fe6de3e5ab6a" title="Sert à créer une défense en allouant la mémoire nécéssaire et en initialisant ses attributs avec les ..." alt="" coords="235,64,349,91"/>
+<area shape="rect" href="../../dc/d74/survivant_8c.html#a256e4043ec12f6aa896ec044ef5dda4d" title="fonction qui sert à créer une variable de type joueur pour la partie." alt="" coords="241,731,343,757"/>
+<area shape="rect" href="../../dc/d74/survivant_8c.html#a80824f4b8d124806bb2064478daa979e" title="fonction qui sert à mettre automatiquement les images des entités à jour ainsi que d&#39;autres champs (p..." alt="" coords="216,680,368,707"/>
+<area shape="rect" href="../../dc/d74/survivant_8c.html#a8c0d8334fd8c193beb8784c7487c95d0" title="fonction qui sert à vérifier si la partie est finie ou si elle est toujours en cours (et si elle est ..." alt="" coords="211,832,373,859"/>
+<area shape="rect" href="../../dc/d74/survivant_8c.html#a037fe87d11eeada7f4bc8119a382bf69" title="fonction qui sert à vider une liste chainée d&#39;entité. c&#39;est&#45;à&#45;dire supprimer toutes les entités qui l..." alt="" coords="250,604,334,631"/>
+<area shape="rect" href="../../db/d5c/interactions_8h.html#a04e16373a936c722768d0e785e53c04f" title="fonction qui sert à gérer l&#39;environnement et ses interactions avec les entités ainsi que l&#39;interactio..." alt="" coords="204,1051,380,1077"/>
+<area shape="rect" href="../../dc/d74/survivant_8c.html#ae47a4d482094d91fa851ce1a5f9500a1" title="fonction qui sert à créer une variable de msg." alt="" coords="236,1304,348,1331"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#abd2e11fd0be91e81ee8d2eb04b97d309" title="met la somme d&#39;agent a jour en fonction de ce que le player a dépensé et gangé en changeant les imgag..." alt="" coords="204,1355,380,1381"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#aeeed8d057580924798b64772bbb772db" title="affiche un message qui demande si on veut quitter la partie" alt="" coords="235,1405,349,1432"/>
+<area shape="rect" href="../../dc/d74/survivant_8c.html#a82ab3fa1a79f96660b1a24075747402c" title="fonction qui sert à afficher un message de prévention lorsque l&#39;utilisateur veut quitter une partie l..." alt="" coords="229,1456,355,1483"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#a47265a3ebefa5e52cbfd1dbd82888d0c" title="dessine un rectangle plein" alt="" coords="463,833,609,874"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#adbe5d10c97f5909b50ced402920c8378" title="dessine un rectangle vide" alt="" coords="446,781,626,808"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a530a976a3e3e9fed5057373f148e51a6" title="ajoute une entité à la liste et met le pointeur passé en paramètre sur le nouvel élément...." alt="" coords="445,224,627,251"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a908125d2f4ea6a6c88f71aa3e608c59a" title=" " alt="" coords="463,123,609,149"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a37f471a11ed619d8980a33e28d4d4644" title="fonction qui sert à charger les images inverser pour le mode 1 vs 1" alt="" coords="463,57,609,98"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a10445c674d1e555924e0d7a76722d91a" title="crée une variable de type t_wave (une vague)." alt="" coords="485,275,587,301"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#ac5c9847489c6627ae59397108fbfd461" title="place le pointeur passé en paramètre à la fin de la liste il s&#39;agit d&#39;une boucle. tant qu&#39;on est pas ..." alt="" coords="465,325,607,352"/>
+<area shape="rect" href="../../d3/da0/survivant_8h.html#ae47a4d482094d91fa851ce1a5f9500a1" title="fonction qui sert à créer une variable de msg." alt="" coords="480,5,592,32"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a883102ecf84c04c53b7779a15f87d79b" title="fonction qui sert à mettre automatiquement les images de l&#39;entité à jour. pour qu&#39;elle continue son a..." alt="" coords="439,173,633,200"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#a66cda8217be80c2e3f18d2b3790b359a" title="crée une variable de type t_wave (une vague)." alt="" coords="741,224,844,251"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#a8a0d866e3592a64eca707ba1f4ac0a90" title="sert à charger un morceau d&#39;une image (la taille de la figure à rogner, sa position et autres passés ..." alt="" coords="711,93,875,120"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#a98fbbb88ff12ff78a514dde50dc90d80" title="place le pointeur passé en paramètre de la liste sur l&#39;élément suivant" alt="" coords="941,516,1124,543"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a90efeb9af576b5cc7fc005e67e4a2460" title="fonction qui sert à charger les images lorsque l&#39;animation est faite avec des images séparées." alt="" coords="451,427,621,453"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a0cc0afc37077c9fd85de8eae1766a14f" title="fonction qui sert à mettre automatiquement les images de l&#39;entité à jour. pour qu&#39;elle continue son a..." alt="" coords="428,376,644,403"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a7f2a217fd1af9eefe5c92548abe2faac" title="supprime l&#39;entité au niveau du pointeur passé en paramètres. retourne un pointeur sur l&#39;élément précé..." alt="" coords="435,629,637,656"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#ac1266d19a3825169b0aa53490fdd8d1e" title="place le pointeur passé en paramètre au début de la liste. il s&#39;agit d&#39;une boucle...." alt="" coords="969,668,1097,695"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#abef8e9975711078078bf3e7ae2136156" title="place le pointeur passé en paramètre de la liste sur l&#39;élément précédent" alt="" coords="1172,777,1372,804"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#ae3fcab327d09d9d1a7fa544eff027c78" title="place le pointeur passé en paramètre au début de la liste. il s&#39;agit d&#39;une boucle...." alt="" coords="729,899,857,925"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a6f188cd9ce083917f957f4c126d22034" title="place le pointeur passé en paramètre de la liste sur l&#39;élément suivant" alt="" coords="701,777,884,804"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a9775525bc6693b8353c5abf3e04633ec" title="fonction qui sert à vider la liste." alt="" coords="457,579,615,605"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#a96d1ec499b66202486da58203f64cdb0" title="place le pointeur passé en paramètre à la fin de la liste il s&#39;agit d&#39;une boucle. tant qu&#39;on est pas ..." alt="" coords="721,567,864,593"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#a2afb61c975d0a5f375d626efd37c1216" title="supprime l&#39;entité au niveau du pointeur passé en paramètres. retourne un pointeur sur l&#39;élément précé..." alt="" coords="692,617,893,644"/>
+<area shape="rect" href="../../d4/d8a/animations_8h.html#a224255b9c1e0d904da5e1f32fbab01c5" title="fonction qui met anime l&#39;attaque de certaines entités" alt="" coords="463,1253,609,1280"/>
+<area shape="rect" href="../../d4/d8a/animations_8h.html#a04e54a9a69f10e92243b4cac04df15f8" title="fonction qui effectue l&#39;animation d&#39;un tir provenant de gauche jusqu&#39;à sa cible" alt="" coords="455,1101,617,1128"/>
+<area shape="rect" href="../../d4/d4f/interactions_8c.html#a94b4336f8fc12ba81bd566bc22db324a" title="fonction qui sert à gérer les attaques des entités entre elles (les dégats qu&#39;elles se causent lorsqu..." alt="" coords="474,949,598,976"/>
+<area shape="rect" href="../../d4/d4f/interactions_8c.html#a553338cb27d9a4278bee107f2834c806" title="Sert à créer un tir en allouant la mémoire nécéssaire et en initialisant ses attributs avec les valeu..." alt="" coords="498,1203,574,1229"/>
+<area shape="rect" href="../../d4/d4f/interactions_8c.html#a060d0710910502e3cd8fa712366390d9" title="Sert à mettre à jour une défense." alt="" coords="483,1051,589,1077"/>
+<area shape="rect" href="../../d4/d4f/interactions_8c.html#aa5f5014d80e37f2831d306ec5741a1ad" title="Sert à mettre à jour un tir. Si il a été en contact avec une entité et lui a fait des dégats (son ind..." alt="" coords="501,1152,571,1179"/>
+<area shape="rect" href="../../d4/d4f/interactions_8c.html#a25b87f43a2b721cc189c9ff166fcb1ed" title="Sert à la gestion des listes chaînées d&#39;entités. Si la première entité de la file s&#39;arrête à cause d&#39;..." alt="" coords="459,899,613,925"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#a1118b5825f46a29804377ab20fef3d8c" title="Fonction qui sert à savoir quels chiffres composent le budget du joueur pour les afficher à l&#39;écran (..." alt="" coords="476,1405,596,1432"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d74/survivant_8c_a87fb34ff22476ea7da3e5c5d5b9c667e_icgraph.png" border="0" usemap="#adc/d74/survivant_8c_a87fb34ff22476ea7da3e5c5d5b9c667e_icgraph" alt=""/></div>
+<map name="adc/d74/survivant_8c_a87fb34ff22476ea7da3e5c5d5b9c667e_icgraph" id="adc/d74/survivant_8c_a87fb34ff22476ea7da3e5c5d5b9c667e_icgraph">
+<area shape="rect" title="Comme son nom l&#39;indique, cette fonction démarre le mode survivant. C&#39;est la fonction principale du mo..." alt="" coords="711,5,861,32"/>
+<area shape="rect" href="../../db/df7/jeu_8h.html#a45d38405670e46a8bc63c080dc26957a" title="lance une partie du jeu en mode survivant (gère tout l&#39;affichage, les évènements etc...." alt="" coords="552,5,663,32"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#ae24a35a63a74643551f9399edf243a2f" title="fonction servant à afficher les options de jeu et à charger les autres fonctions en conséquence (mode..." alt="" coords="368,5,504,32"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#aebad03055582261944e91731b0570c45" title="fonction servant à afficher le menu principal du jeu avec ses différentes options (jouer,..." alt="" coords="261,5,320,32"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#af9234f89d76a82b5ad782d2af726eab1" title="fonction principale du jeu. Elle est chargée de la Création et du lancement de la fenêtre du jeu,..." alt="" coords="108,5,213,32"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="fonction qui sert à lancer le jeu en faisant appel à la fonction initialise_jeu" alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a80824f4b8d124806bb2064478daa979e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80824f4b8d124806bb2064478daa979e">&#9670;&nbsp;</a></span>deroulement_vague()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int deroulement_vague </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/da3/structures_8h.html#ab4669ed75ada4f8b6b91eca908a519ad">joueur</a> *&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/ddc/vague_8h.html#a2ed7796f352eb254198d48197bb9ba9e">t_wave</a> *&#160;</td>
+          <td class="paramname"><em>vague</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>rendu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>camp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>fonction qui sert à mettre automatiquement les images des entités à jour ainsi que d'autres champs (points de vie, position etc...). </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t_wave</td><td>*vague, SDL_Renderer *rendu, int camp </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>rien </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dc/d74/survivant_8c_source.html#l00088">88</a> du fichier <a class="el" href="../../dc/d74/survivant_8c_source.html">survivant.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d74/survivant_8c_a80824f4b8d124806bb2064478daa979e_cgraph.png" border="0" usemap="#adc/d74/survivant_8c_a80824f4b8d124806bb2064478daa979e_cgraph" alt=""/></div>
+<map name="adc/d74/survivant_8c_a80824f4b8d124806bb2064478daa979e_cgraph" id="adc/d74/survivant_8c_a80824f4b8d124806bb2064478daa979e_cgraph">
+<area shape="rect" title="fonction qui sert à mettre automatiquement les images des entités à jour ainsi que d&#39;autres champs (p..." alt="" coords="5,128,157,155"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#ae3fcab327d09d9d1a7fa544eff027c78" title="place le pointeur passé en paramètre au début de la liste. il s&#39;agit d&#39;une boucle...." alt="" coords="482,44,610,71"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#a47265a3ebefa5e52cbfd1dbd82888d0c" title="dessine un rectangle plein" alt="" coords="233,37,379,78"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#adbe5d10c97f5909b50ced402920c8378" title="dessine un rectangle vide" alt="" coords="216,103,396,130"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#ac5c9847489c6627ae59397108fbfd461" title="place le pointeur passé en paramètre à la fin de la liste il s&#39;agit d&#39;une boucle. tant qu&#39;on est pas ..." alt="" coords="235,154,377,180"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a6f188cd9ce083917f957f4c126d22034" title="place le pointeur passé en paramètre de la liste sur l&#39;élément suivant" alt="" coords="215,204,397,231"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a7f2a217fd1af9eefe5c92548abe2faac" title="supprime l&#39;entité au niveau du pointeur passé en paramètres. retourne un pointeur sur l&#39;élément précé..." alt="" coords="205,255,407,282"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#abef8e9975711078078bf3e7ae2136156" title="place le pointeur passé en paramètre de la liste sur l&#39;élément précédent" alt="" coords="685,179,885,206"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#a98fbbb88ff12ff78a514dde50dc90d80" title="place le pointeur passé en paramètre de la liste sur l&#39;élément suivant" alt="" coords="455,154,637,180"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#ac1266d19a3825169b0aa53490fdd8d1e" title="place le pointeur passé en paramètre au début de la liste. il s&#39;agit d&#39;une boucle...." alt="" coords="482,230,610,256"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d74/survivant_8c_a80824f4b8d124806bb2064478daa979e_icgraph.png" border="0" usemap="#adc/d74/survivant_8c_a80824f4b8d124806bb2064478daa979e_icgraph" alt=""/></div>
+<map name="adc/d74/survivant_8c_a80824f4b8d124806bb2064478daa979e_icgraph" id="adc/d74/survivant_8c_a80824f4b8d124806bb2064478daa979e_icgraph">
+<area shape="rect" title="fonction qui sert à mettre automatiquement les images des entités à jour ainsi que d&#39;autres champs (p..." alt="" coords="909,31,1061,57"/>
+<area shape="rect" href="../../dc/da0/classique_8h.html#a75a80ef972ade9d22e924f548a0dcdd9" title="cette fonction démarre le mode classique qui est finalement le mode 1 vs 1. C&#39;est la fonction princip..." alt="" coords="711,5,861,32"/>
+<area shape="rect" href="../../d3/da0/survivant_8h.html#a87fb34ff22476ea7da3e5c5d5b9c667e" title="Comme son nom l&#39;indique, cette fonction démarre le mode survivant. C&#39;est la fonction principale du mo..." alt="" coords="711,56,861,83"/>
+<area shape="rect" href="../../db/df7/jeu_8h.html#a97bc51112cd00d6d7f85016ee34aa492" title=" " alt="" coords="552,5,663,32"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#ae24a35a63a74643551f9399edf243a2f" title="fonction servant à afficher les options de jeu et à charger les autres fonctions en conséquence (mode..." alt="" coords="368,31,504,57"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#aebad03055582261944e91731b0570c45" title="fonction servant à afficher le menu principal du jeu avec ses différentes options (jouer,..." alt="" coords="261,31,320,57"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#af9234f89d76a82b5ad782d2af726eab1" title="fonction principale du jeu. Elle est chargée de la Création et du lancement de la fenêtre du jeu,..." alt="" coords="108,31,213,57"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="fonction qui sert à lancer le jeu en faisant appel à la fonction initialise_jeu" alt="" coords="5,31,60,57"/>
+<area shape="rect" href="../../db/df7/jeu_8h.html#a45d38405670e46a8bc63c080dc26957a" title="lance une partie du jeu en mode survivant (gère tout l&#39;affichage, les évènements etc...." alt="" coords="552,56,663,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8c0d8334fd8c193beb8784c7487c95d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c0d8334fd8c193beb8784c7487c95d0">&#9670;&nbsp;</a></span>etat_partie_survivant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int etat_partie_survivant </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/ddc/vague_8h.html#a2ed7796f352eb254198d48197bb9ba9e">t_wave</a> *&#160;</td>
+          <td class="paramname"><em>vague</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/da3/structures_8h.html#ab4669ed75ada4f8b6b91eca908a519ad">joueur</a> *&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>fonction qui sert à vérifier si la partie est finie ou si elle est toujours en cours (et si elle est finie si le joueur a gagné ou perdu) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t_wave</td><td>*vague, joueur *player </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dc/d74/survivant_8c_source.html#l00329">329</a> du fichier <a class="el" href="../../dc/d74/survivant_8c_source.html">survivant.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d74/survivant_8c_a8c0d8334fd8c193beb8784c7487c95d0_icgraph.png" border="0" usemap="#adc/d74/survivant_8c_a8c0d8334fd8c193beb8784c7487c95d0_icgraph" alt=""/></div>
+<map name="adc/d74/survivant_8c_a8c0d8334fd8c193beb8784c7487c95d0_icgraph" id="adc/d74/survivant_8c_a8c0d8334fd8c193beb8784c7487c95d0_icgraph">
+<area shape="rect" title="fonction qui sert à vérifier si la partie est finie ou si elle est toujours en cours (et si elle est ..." alt="" coords="909,5,1071,32"/>
+<area shape="rect" href="../../d3/da0/survivant_8h.html#a87fb34ff22476ea7da3e5c5d5b9c667e" title="Comme son nom l&#39;indique, cette fonction démarre le mode survivant. C&#39;est la fonction principale du mo..." alt="" coords="711,5,861,32"/>
+<area shape="rect" href="../../db/df7/jeu_8h.html#a45d38405670e46a8bc63c080dc26957a" title="lance une partie du jeu en mode survivant (gère tout l&#39;affichage, les évènements etc...." alt="" coords="552,5,663,32"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#ae24a35a63a74643551f9399edf243a2f" title="fonction servant à afficher les options de jeu et à charger les autres fonctions en conséquence (mode..." alt="" coords="368,5,504,32"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#aebad03055582261944e91731b0570c45" title="fonction servant à afficher le menu principal du jeu avec ses différentes options (jouer,..." alt="" coords="261,5,320,32"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#af9234f89d76a82b5ad782d2af726eab1" title="fonction principale du jeu. Elle est chargée de la Création et du lancement de la fenêtre du jeu,..." alt="" coords="108,5,213,32"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="fonction qui sert à lancer le jeu en faisant appel à la fonction initialise_jeu" alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a037fe87d11eeada7f4bc8119a382bf69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a037fe87d11eeada7f4bc8119a382bf69">&#9670;&nbsp;</a></span>fin_partie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int fin_partie </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/ddc/vague_8h.html#a2ed7796f352eb254198d48197bb9ba9e">t_wave</a> *&#160;</td>
+          <td class="paramname"><em>vague</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>fonction qui sert à vider une liste chainée d'entité. c'est-à-dire supprimer toutes les entités qui la compose et ainsi libérer la mémoire. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t_wave</td><td>*vague </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dc/d74/survivant_8c_source.html#l00277">277</a> du fichier <a class="el" href="../../dc/d74/survivant_8c_source.html">survivant.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d74/survivant_8c_a037fe87d11eeada7f4bc8119a382bf69_cgraph.png" border="0" usemap="#adc/d74/survivant_8c_a037fe87d11eeada7f4bc8119a382bf69_cgraph" alt=""/></div>
+<map name="adc/d74/survivant_8c_a037fe87d11eeada7f4bc8119a382bf69_cgraph" id="adc/d74/survivant_8c_a037fe87d11eeada7f4bc8119a382bf69_cgraph">
+<area shape="rect" title="fonction qui sert à vider une liste chainée d&#39;entité. c&#39;est&#45;à&#45;dire supprimer toutes les entités qui l..." alt="" coords="5,31,89,57"/>
+<area shape="rect" href="../../d7/ddc/vague_8h.html#a9775525bc6693b8353c5abf3e04633ec" title="fonction qui sert à vider la liste." alt="" coords="137,31,296,57"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#a96d1ec499b66202486da58203f64cdb0" title="place le pointeur passé en paramètre à la fin de la liste il s&#39;agit d&#39;une boucle. tant qu&#39;on est pas ..." alt="" coords="373,5,516,32"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#a2afb61c975d0a5f375d626efd37c1216" title="supprime l&#39;entité au niveau du pointeur passé en paramètres. retourne un pointeur sur l&#39;élément précé..." alt="" coords="344,56,545,83"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#a98fbbb88ff12ff78a514dde50dc90d80" title="place le pointeur passé en paramètre de la liste sur l&#39;élément suivant" alt="" coords="593,5,776,32"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#ac1266d19a3825169b0aa53490fdd8d1e" title="place le pointeur passé en paramètre au début de la liste. il s&#39;agit d&#39;une boucle...." alt="" coords="621,56,749,83"/>
+<area shape="rect" href="../../d3/d14/vague_8c.html#abef8e9975711078078bf3e7ae2136156" title="place le pointeur passé en paramètre de la liste sur l&#39;élément précédent" alt="" coords="824,56,1024,83"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d74/survivant_8c_a037fe87d11eeada7f4bc8119a382bf69_icgraph.png" border="0" usemap="#adc/d74/survivant_8c_a037fe87d11eeada7f4bc8119a382bf69_icgraph" alt=""/></div>
+<map name="adc/d74/survivant_8c_a037fe87d11eeada7f4bc8119a382bf69_icgraph" id="adc/d74/survivant_8c_a037fe87d11eeada7f4bc8119a382bf69_icgraph">
+<area shape="rect" title="fonction qui sert à vider une liste chainée d&#39;entité. c&#39;est&#45;à&#45;dire supprimer toutes les entités qui l..." alt="" coords="909,31,993,57"/>
+<area shape="rect" href="../../dc/da0/classique_8h.html#a75a80ef972ade9d22e924f548a0dcdd9" title="cette fonction démarre le mode classique qui est finalement le mode 1 vs 1. C&#39;est la fonction princip..." alt="" coords="711,5,861,32"/>
+<area shape="rect" href="../../d3/da0/survivant_8h.html#a87fb34ff22476ea7da3e5c5d5b9c667e" title="Comme son nom l&#39;indique, cette fonction démarre le mode survivant. C&#39;est la fonction principale du mo..." alt="" coords="711,56,861,83"/>
+<area shape="rect" href="../../db/df7/jeu_8h.html#a97bc51112cd00d6d7f85016ee34aa492" title=" " alt="" coords="552,5,663,32"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#ae24a35a63a74643551f9399edf243a2f" title="fonction servant à afficher les options de jeu et à charger les autres fonctions en conséquence (mode..." alt="" coords="368,31,504,57"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#aebad03055582261944e91731b0570c45" title="fonction servant à afficher le menu principal du jeu avec ses différentes options (jouer,..." alt="" coords="261,31,320,57"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#af9234f89d76a82b5ad782d2af726eab1" title="fonction principale du jeu. Elle est chargée de la Création et du lancement de la fenêtre du jeu,..." alt="" coords="108,31,213,57"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="fonction qui sert à lancer le jeu en faisant appel à la fonction initialise_jeu" alt="" coords="5,31,60,57"/>
+<area shape="rect" href="../../db/df7/jeu_8h.html#a45d38405670e46a8bc63c080dc26957a" title="lance une partie du jeu en mode survivant (gère tout l&#39;affichage, les évènements etc...." alt="" coords="552,56,663,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae47a4d482094d91fa851ce1a5f9500a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae47a4d482094d91fa851ce1a5f9500a1">&#9670;&nbsp;</a></span>message_box()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void message_box </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/da3/structures_8h.html#aa9b957c4d53c8d108857fe4cb41236e0">message</a> *&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>nom_fic</em>[100]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>fonction qui sert à créer une variable de msg. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>*msg, char nom_fic[100] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dc/d74/survivant_8c_source.html#l00308">308</a> du fichier <a class="el" href="../../dc/d74/survivant_8c_source.html">survivant.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d74/survivant_8c_ae47a4d482094d91fa851ce1a5f9500a1_icgraph.png" border="0" usemap="#adc/d74/survivant_8c_ae47a4d482094d91fa851ce1a5f9500a1_icgraph" alt=""/></div>
+<map name="adc/d74/survivant_8c_ae47a4d482094d91fa851ce1a5f9500a1_icgraph" id="adc/d74/survivant_8c_ae47a4d482094d91fa851ce1a5f9500a1_icgraph">
+<area shape="rect" title="fonction qui sert à créer une variable de msg." alt="" coords="1076,107,1188,133"/>
+<area shape="rect" href="../../df/df5/ajout__entites_8h.html#a65aac9fc6bb168572a003ef10672d200" title="fonction qui crée une entité bandit et renvoie le pointeur sur celle&#45;ci" alt="" coords="911,31,1027,57"/>
+<area shape="rect" href="../../dc/da0/classique_8h.html#a75a80ef972ade9d22e924f548a0dcdd9" title="cette fonction démarre le mode classique qui est finalement le mode 1 vs 1. C&#39;est la fonction princip..." alt="" coords="711,81,861,108"/>
+<area shape="rect" href="../../d3/da0/survivant_8h.html#a87fb34ff22476ea7da3e5c5d5b9c667e" title="Comme son nom l&#39;indique, cette fonction démarre le mode survivant. C&#39;est la fonction principale du mo..." alt="" coords="711,132,861,159"/>
+<area shape="rect" href="../../df/df5/ajout__entites_8h.html#a37fc57313d4b7cf3a0037043c560ec9f" title="fonction qui crée une entité fighter et renvoie le pointeur sur celle&#45;ci" alt="" coords="909,81,1028,108"/>
+<area shape="rect" href="../../df/df5/ajout__entites_8h.html#ac02b78a6e1b8bf7318fb257ea8ba8c76" title="fonction qui crée une entité voisin et renvoie le pointeur sur celle&#45;ci" alt="" coords="911,132,1026,159"/>
+<area shape="rect" href="../../db/d5c/interactions_8h.html#af9160b9c29b83fbc6456fe6de3e5ab6a" title="Sert à créer une défense en allouant la mémoire nécéssaire et en initialisant ses attributs avec les ..." alt="" coords="911,183,1026,209"/>
+<area shape="rect" href="../../db/df7/jeu_8h.html#a97bc51112cd00d6d7f85016ee34aa492" title=" " alt="" coords="552,81,663,108"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#ae24a35a63a74643551f9399edf243a2f" title="fonction servant à afficher les options de jeu et à charger les autres fonctions en conséquence (mode..." alt="" coords="368,107,504,133"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#aebad03055582261944e91731b0570c45" title="fonction servant à afficher le menu principal du jeu avec ses différentes options (jouer,..." alt="" coords="261,107,320,133"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#af9234f89d76a82b5ad782d2af726eab1" title="fonction principale du jeu. Elle est chargée de la Création et du lancement de la fenêtre du jeu,..." alt="" coords="108,107,213,133"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="fonction qui sert à lancer le jeu en faisant appel à la fonction initialise_jeu" alt="" coords="5,107,60,133"/>
+<area shape="rect" href="../../db/df7/jeu_8h.html#a45d38405670e46a8bc63c080dc26957a" title="lance une partie du jeu en mode survivant (gère tout l&#39;affichage, les évènements etc...." alt="" coords="552,132,663,159"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a82ab3fa1a79f96660b1a24075747402c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82ab3fa1a79f96660b1a24075747402c">&#9670;&nbsp;</a></span>return_message()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int return_message </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>fonction qui sert à afficher un message de prévention lorsque l'utilisateur veut quitter une partie lancée et en fonction du retour de ce dernier (oui, non ou annuler) retourner une valeur entière </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../dc/d74/survivant_8c_source.html#l00354">354</a> du fichier <a class="el" href="../../dc/d74/survivant_8c_source.html">survivant.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d74/survivant_8c_a82ab3fa1a79f96660b1a24075747402c_icgraph.png" border="0" usemap="#adc/d74/survivant_8c_a82ab3fa1a79f96660b1a24075747402c_icgraph" alt=""/></div>
+<map name="adc/d74/survivant_8c_a82ab3fa1a79f96660b1a24075747402c_icgraph" id="adc/d74/survivant_8c_a82ab3fa1a79f96660b1a24075747402c_icgraph">
+<area shape="rect" title="fonction qui sert à afficher un message de prévention lorsque l&#39;utilisateur veut quitter une partie l..." alt="" coords="909,31,1036,57"/>
+<area shape="rect" href="../../dc/da0/classique_8h.html#a75a80ef972ade9d22e924f548a0dcdd9" title="cette fonction démarre le mode classique qui est finalement le mode 1 vs 1. C&#39;est la fonction princip..." alt="" coords="711,5,861,32"/>
+<area shape="rect" href="../../d3/da0/survivant_8h.html#a87fb34ff22476ea7da3e5c5d5b9c667e" title="Comme son nom l&#39;indique, cette fonction démarre le mode survivant. C&#39;est la fonction principale du mo..." alt="" coords="711,56,861,83"/>
+<area shape="rect" href="../../db/df7/jeu_8h.html#a97bc51112cd00d6d7f85016ee34aa492" title=" " alt="" coords="552,5,663,32"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#ae24a35a63a74643551f9399edf243a2f" title="fonction servant à afficher les options de jeu et à charger les autres fonctions en conséquence (mode..." alt="" coords="368,31,504,57"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#aebad03055582261944e91731b0570c45" title="fonction servant à afficher le menu principal du jeu avec ses différentes options (jouer,..." alt="" coords="261,31,320,57"/>
+<area shape="rect" href="../../d4/da9/interface_8h.html#af9234f89d76a82b5ad782d2af726eab1" title="fonction principale du jeu. Elle est chargée de la Création et du lancement de la fenêtre du jeu,..." alt="" coords="108,31,213,57"/>
+<area shape="rect" href="../../d0/d29/main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="fonction qui sert à lancer le jeu en faisant appel à la fonction initialise_jeu" alt="" coords="5,31,60,57"/>
+<area shape="rect" href="../../db/df7/jeu_8h.html#a45d38405670e46a8bc63c080dc26957a" title="lance une partie du jeu en mode survivant (gère tout l&#39;affichage, les évènements etc...." alt="" coords="552,56,663,83"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dc/d74/survivant_8c.html">survivant.c</a></li>
+    <li class="footer">Généré par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

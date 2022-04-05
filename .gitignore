@@ -1,6 +1,6 @@
 # résultat de la compilation
 bin/jeu
-doc/html
+#doc/html
 doc/latex
 obj/
 

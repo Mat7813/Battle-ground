@@ -1,0 +1,25 @@
+var structentity =
+[
+    [ "attaque", "db/dd1/structentity.html#abc0d66ae0d3749bb2c7df3b685dd5453", null ],
+    [ "charger_img", "db/dd1/structentity.html#ae6856dfc1a80de73d323bdc18156ce00", null ],
+    [ "degat", "db/dd1/structentity.html#a88ef1eb9351608b861dbac19e35ecdea", null ],
+    [ "h", "db/dd1/structentity.html#a16611451551e3d15916bae723c3f59f7", null ],
+    [ "h_image", "db/dd1/structentity.html#aac382f02255b3c9ee28e3bb227bdb72a", null ],
+    [ "met_a_jour", "db/dd1/structentity.html#a9cf106151d60db62afc24932a6cadd41", null ],
+    [ "montant", "db/dd1/structentity.html#ab65868b06bb7f1795841488a994c8a6d", null ],
+    [ "nb_pos", "db/dd1/structentity.html#adf7e63886f3fcbdcc606cecaec175c13", null ],
+    [ "nb_pos_attaque", "db/dd1/structentity.html#abd65e8ad546cd8857d66c94d1b78383f", null ],
+    [ "nom_fichier", "db/dd1/structentity.html#a302608f50d98bb0a759560e1e7b7af37", null ],
+    [ "nom_fichier_attaque", "db/dd1/structentity.html#acbb0e8a4b928c5ce9f281c53120deb61", null ],
+    [ "pv", "db/dd1/structentity.html#af1b58e608320ff939118a2a719ba3e6b", null ],
+    [ "temps", "db/dd1/structentity.html#ac85a28512daa89028cd4dd0024a04ab1", null ],
+    [ "type", "db/dd1/structentity.html#ac765329451135abec74c45e1897abf26", null ],
+    [ "w", "db/dd1/structentity.html#aac374e320caaadeca4874add33b62af2", null ],
+    [ "w_image", "db/dd1/structentity.html#a5027a8e6a7bc20c2325794d97ec6c64f", null ],
+    [ "x", "db/dd1/structentity.html#a6150e0515f7202e2fb518f7206ed97dc", null ],
+    [ "x_barre", "db/dd1/structentity.html#aeed68e351353f066f6b31091bae548a8", null ],
+    [ "x_image", "db/dd1/structentity.html#a693911f3eb9a68c2e2105b660cb3147f", null ],
+    [ "y", "db/dd1/structentity.html#a0a2f84ed7838f07779ae24c5a9086d33", null ],
+    [ "y_barre", "db/dd1/structentity.html#add2b32890d9f4e20afc9053ad6e27e29", null ],
+    [ "y_image", "db/dd1/structentity.html#a4777aef571d4fbbbde6383a6d33a3dd5", null ]
+];
